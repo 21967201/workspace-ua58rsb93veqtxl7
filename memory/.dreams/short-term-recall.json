@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-28T02:11:13.701Z",
+  "entries": {
+    "memory:memory/2026-05-25.md:1:27": {
+      "key": "memory:memory/2026-05-25.md:1:27",
+      "path": "memory/2026-05-25.md",
+      "startLine": 1,
+      "endLine": 27,
+      "source": "memory",
+      "snippet": "# 2026-05-25 记忆日志 ## 华为负一屏推送功能配置与修复（10:06-11:29） ### 配置验证（10:06-10:11） - **结论**：authCode `dtG4JOCLM3ev` 已正确配置在 `today-task` skill 中（置信度：高） - **数据支撑**：检查 `config.py` 第 17 行，`HUAWEl_FEIYITIAN_CODE` 值为 `dtG4JOCLM3ev` - **操作**：无需修改，配置已正确 ### today-task skill 安装（10:11-10:23） - **结论**：成功安装 `today-task` skill 到 `D:\\QClawX\\data\\workspace\\skills\\today-task`（置信度：高） - **问题**：PowerShell 语法错误（`.Name` 缺少 `$_` 前缀） - **修复**：修正为 `$_.Name` - **验证**：skill 安装成功，gateway 重启后加载 ### 推送脚本编码错误修复（10:23-10:33） - **结论**：推送脚本 `task_push.py` 存在 GBK 编码错误，已修复（置信度：高） - **错误原因**：PowerShell 默认编码 GBK，Python 脚本输出含中文字符 - **修复方法**： 1. 使用 `chcp 65001` 切换 PowerShell 编码为 UTF-8 2. 使用 `python -X utf8` 强制 Python 使用 UTF-8 编码 - **",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4033298462629318,
+      "maxScore": 0.4033298462629318,
+      "firstRecalledAt": "2026-05-28T02:11:13.701Z",
+      "lastRecalledAt": "2026-05-28T02:11:13.701Z",
+      "queryHashes": [
+        "1e1a904e5619"
+      ],
+      "recallDays": [
+        "2026-05-28"
+      ],
+      "conceptTags": [
+        "gateway",
+        "06-11",
+        "06-10",
+        "today-task",
+        "config.py",
+        "huawel-feiyitian-code",
+        "11-10",
+        "23-10"
+      ]
+    },
+    "memory:memory/2026-05-25.md:122:160": {
+      "key": "memory:memory/2026-05-25.md:122:160",
+      "path": "memory/2026-05-25.md",
+      "startLine": 122,
+      "endLine": 160,
+      "source": "memory",
+      "snippet": "- 使用 PowerShell 脚本 + Git 命令 - Cron 任务每小时自动执行 - 输出推送到华为负一屏 --- ## 待解决问题 1. **SSH 密钥未添加到 GitHub**： - 已生成密钥：`C:\\Users\\Administrator\\.ssh\\id_ed25519` - 需手动操作或 `admin:public_key` 权限 - 当前使用 HTTPS 协议推送（已配置网络参数） 2. **配置警告修复**： - 正在删除 `plugins.entries.mcp-server` 引用 - 需重启 Gateway 验证修复效果 --- *记录时间：2026-05-25 11:35* *记录者：AI工程师* *置信度：高* # 2026-05-25 记忆日志 ## 华为负一屏推送功能配置与修复（10:06-11:29） ### 配置验证（10:06-10:11） - **结论**：authCode `dtG4JOCLM3ev` 已正确配置在 `today-task` skill 中（置信度：高） - **数据支撑**：检查 `config.py` 第 17 行，`HUAWEl_FEIYITIAN_CODE` 值为 `dtG4JOCLM3ev` - **操作**：无需修改，配置已正确 ### today-task skill 安装（10:11-10:23） - **结论**：成功安装 `today-task` skill 到 `D:\\QClawX\\data\\workspace\\skills\\t",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.369796285033226,
+      "maxScore": 0.369796285033226,
+      "firstRecalledAt": "2026-05-28T02:11:13.701Z",
+      "lastRecalledAt": "2026-05-28T02:11:13.701Z",
+      "queryHashes": [
+        "1e1a904e5619"
+      ],
+      "recallDays": [
+        "2026-05-28"
+      ],
+      "conceptTags": [
+        "gateway",
+        "网络",
+        "id-ed25519",
+        "public-key",
+        "plugins.entries.mcp-server",
+        "06-11",
+        "06-10",
+        "today-task"
+      ]
+    },
+    "memory:memory/2026-05-25.md:309:333": {
+      "key": "memory:memory/2026-05-25.md:309:333",
+      "path": "memory/2026-05-25.md",
+      "startLine": 309,
+      "endLine": 333,
+      "source": "memory",
+      "snippet": "### 配置验证（10:06-10:11） - **结论**：authCode `dtG4JOCLM3ev` 已正确配置在 `today-task` skill 中（置信度：高） - **数据支撑**：检查 `config.py` 第 17 行，`HUAWEl_FEIYITIAN_CODE` 值为 `dtG4JOCLM3ev` - **操作**：无需修改，配置已正确 ### today-task skill 安装（10:11-10:23） - **结论**：成功安装 `today-task` skill 到 `D:\\QClawX\\data\\workspace\\skills\\today-task`（置信度：高） - **问题**：PowerShell 语法错误（`.Name` 缺少 `$_` 前缀） - **修复**：修正为 `$_.Name` - **验证**：skill 安装成功，gateway 重启后加载 ### 推送脚本编码错误修复（10:23-10:33） - **结论**：推送脚本 `task_push.py` 存在 GBK 编码错误，已修复（置信度：高） - **错误原因**：PowerShell 默认编码 GBK，Python 脚本输出含中文字符 - **修复方法**： 1. 使用 `chcp 65001` 切换 PowerShell 编码为 UTF-8 2. 使用 `python -X utf8` 强制 Python 使用 UTF-8 编码 - **验证**：脚本可执行，但报 `auth_code未设置` 错误 ### 配置路径错误修复（10:33",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.369512003660202,
+      "maxScore": 0.369512003660202,
+      "firstRecalledAt": "2026-05-28T02:11:13.701Z",
+      "lastRecalledAt": "2026-05-28T02:11:13.701Z",
+      "queryHashes": [
+        "1e1a904e5619"
+      ],
+      "recallDays": [
+        "2026-05-28"
+      ],
+      "conceptTags": [
+        "gateway",
+        "06-10",
+        "today-task",
+        "config.py",
+        "huawel-feiyitian-code",
+        "11-10",
+        "23-10",
+        "task-push.py"
+      ]
+    },
+    "memory:memory/2026-05-25.md:273:314": {
+      "key": "memory:memory/2026-05-25.md:273:314",
+      "path": "memory/2026-05-25.md",
+      "startLine": 273,
+      "endLine": 314,
+      "source": "memory",
+      "snippet": "3. **更新检查策略**： - 无法修复的问题（如 clawhub .ps1 脚本调用）采用禁用方案 - 通过 `update_config.json` 控制，不影响核心功能 4. **GitHub 同步策略**： - 使用 PowerShell 脚本 + Git 命令 - Cron 任务每小时自动执行 - 输出推送到华为负一屏 5. **配置清理策略**： - Stale 配置引用必须清理（plugins.entries, plugins.allow, agents[*].skills） - 清理后必须重启 Gateway 验证 - 使用 `Select-String` 验证无残留引用 --- ## 待解决问题 1. **SSH 密钥未添加到 GitHub**： - 已生成密钥：`C:\\Users\\Administrator\\.ssh\\id_ed25519` - 需手动操作或 `admin:public_key` 权限 - 当前使用 HTTPS 协议推送（已配置网络参数） 2. **系统健康检查**： - 配置清理完成后，需运行 `openclaw doctor --non-interactive` - 验证系统整体健康状态 --- *记录时间：2026-05-25 11:40* *记录者：AI工程师* *置信度：高* # 2026-05-25 记忆日志 ## 华为负一屏推送功能配置与修复（10:06-11:29） ### 配置验证（10:06-10:11） - **结论**：",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.36553836464881895,
+      "maxScore": 0.36553836464881895,
+      "firstRecalledAt": "2026-05-28T02:11:13.701Z",
+      "lastRecalledAt": "2026-05-28T02:11:13.701Z",
+      "queryHashes": [
+        "1e1a904e5619"
+      ],
+      "recallDays": [
+        "2026-05-28"
+      ],
+      "conceptTags": [
+        "gateway",
+        "网络",
+        "update-config.json",
+        "plugins.entries",
+        "plugins.allow",
+        "select-string",
+        "id-ed25519",
+        "public-key"
+      ]
+    }
+  }
+}
