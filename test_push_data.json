@@ -1,0 +1,6 @@
+{
+  "task_name": "每周错误预防检查 - 测试推送",
+  "task_content": "# 每周错误预防检查报告\n\n## 检查结果\n\n- ✅ 合规文件: 5个\n- ❌ 违规文件: 67个\n- 📊 违规率: 93%\n\n## 主要问题\n\n1. .git目录文件被误判（约60项）\n2. 缓存文件类型未排除\n3. 编码问题导致输出乱码\n\n## 改进建议\n\n→ 修改pre_check.py添加.git目录排除规则",
+  "task_result": "completed",
+  "schedule_task_id": "weekly_error_check_20260529"
+}
