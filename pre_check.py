@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 每周错误预防检查脚本
 模拟检查工作区文件的合规性
@@ -6,7 +7,14 @@
 
 import os
 import json
+import sys
+import io
 from datetime import datetime
+
+# 修复 Windows 控制台编码问题
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 def check_workspace_compliance():
     """检查工作区文件的合规性"""
