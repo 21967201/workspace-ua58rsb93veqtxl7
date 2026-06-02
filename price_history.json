@@ -1,0 +1,86 @@
+[
+  {
+    "timestamp": "2026-06-01T10:46:04.809672",
+    "price": 27.7,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "示例供应商"
+  },
+  {
+    "timestamp": "2026-06-01T10:46:17.155207",
+    "price": 27.78,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "示例供应商"
+  },
+  {
+    "timestamp": "2026-06-01T10:46:27.741478",
+    "price": 30.29,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "示例供应商"
+  },
+  {
+    "timestamp": "2026-06-01T10:47:45.955741",
+    "price": 26.71,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "示例供应商"
+  },
+  {
+    "timestamp": "2026-06-01T10:48:20.385300",
+    "price": 28.94,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:49:16.694931",
+    "price": 29.39,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:49:55.877475",
+    "price": 29.76,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:51:31.569744",
+    "price": 27.61,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:52:17.013964",
+    "price": 29.73,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:53:26.581003",
+    "price": 29.51,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:54:27.467801",
+    "price": 28.55,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-01T10:54:56.249697",
+    "price": 28.75,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  }
+]

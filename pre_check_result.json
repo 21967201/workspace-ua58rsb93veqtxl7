@@ -1,0 +1,27 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "violations": 14142,
+  "errors": [
+    "不允许的文件类型: mini.legacy.umd.js",
+    "不允许的文件类型: mini.umd.cjs",
+    "不允许的文件类型: mini.umd.js",
+    "不允许的文件类型: core.mjs",
+    "不允许的文件类型: Exifr.mjs",
+    "不允许的文件类型: options.mjs",
+    "不允许的文件类型: parser.mjs",
+    "不允许的文件类型: plugins.mjs",
+    "不允许的文件类型: reader.mjs",
+    "不允许的文件类型: tags.mjs"
+  ],
+  "warnings": [],
+  "details": [
+    "[OK] AGENTS.md 存在",
+    "[OK] SOUL.md 存在",
+    "[OK] USER.md 存在",
+    "[OK] IDENTITY.md 存在",
+    "[OK] TOOLS.md 存在"
+  ],
+  "timestamp": "2026-06-02 09:53:08",
+  "total": 14142
+}

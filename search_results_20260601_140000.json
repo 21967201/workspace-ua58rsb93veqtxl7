@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-06-01T14:00:00.000Z",
+  "query_time": "2026-06-01 14:00:00",
+  "total_results": 8,
+  "docs": [
+    {
+      "title": "Awesome AI Agents for 2026 - 300+ AI Agents, Frameworks & Tools",
+      "url": "https://github.com/search?q=AI+agent+framework+2026",
+      "snippet": "The most comprehensive list of AI agents, frameworks & tools in 2026. 300+ resources · 20+ categories · Updated monthly. Covers creative, voice, research, enterprise agents.",
+      "source": "GitHub",
+      "confidence": "high"
+    },
+    {
+      "title": "A curated list of AI Agent frameworks, tools, platforms for 2026",
+      "url": "https://github.com/search?q=AI+agent+framework+2026",
+      "snippet": "The year agents went mainstream - comprehensive collection of 300+ AI agents, frameworks, and tools organized across 20+ categories for 2026 projects.",
+      "source": "GitHub",
+      "confidence": "high"
+    },
+    {
+      "title": "Analysis of 44 AI agent frameworks through context engineering lens",
+      "url": "https://github.com/search?q=AI+agent+framework+2026",
+      "snippet": "Feb 2026 analysis of 44 AI agent frameworks. Provides context engineering perspective on framework selection and implementation.",
+      "source": "GitHub",
+      "confidence": "medium",
+      "note": "Requires verification for specific framework recommendations"
+    },
+    {
+      "title": "LLM Knowledge Engineering in 2026 - Complete Guide",
+      "url": "https://github.com/search?q=LLM+skill+2026",
+      "snippet": "The Map Everyone's Missing: LLM Knowledge Engineering in 2026 — First unified guide connecting RAG, Context Engineering, Harness Engineering.",
+      "source": "GitHub",
+      "confidence": "high"
+    },
+    {
+      "title": "AI Agent 速成指南 2026 - 智能体实战教程",
+      "url": "https://github.com/search?q=LLM+skill+2026",
+      "snippet": "2026 最系统的 AI Agent 速成指南｜智能体实战教程 · 完整学习路径 + 实战项目 + 面试题库 · 对标大模型应用开发工程师岗位 · 覆盖LangChain / LangGraph / Coze / Dify / MCP / skills / LLM",
+      "source": "GitHub",
+      "confidence": "high",
+      "language": "Chinese"
+    },
+    {
+      "title": "Compositional Skill Routing for LLM Agents (EMNLP 2026)",
+      "url": "https://github.com/search?q=LLM+skill+2026",
+      "snippet": "Research paper on compositional skill routing for LLM agents, presented at EMNLP 2026.",
+      "source": "GitHub",
+      "confidence": "medium",
+      "note": "Academic paper - may require access to full text"
+    },
+    {
+      "title": "Google's TurboQuant compression algorithm - AI agent skill",
+      "url": "https://github.com/search?q=LLM+skill+2026",
+      "snippet": "AI agent skill implementing Google's TurboQuant compression algorithm (ICLR 2026) — 6x KV cache memory reduction, 8x speedup, zero accuracy loss.",
+      "source": "GitHub",
+      "confidence": "high",
+      "performance": "6x memory reduction, 8x speedup"
+    },
+    {
+      "title": "Recursive Diversification (RD) - Claude Code skill",
+      "url": "https://github.com/search?q=LLM+skill+2026",
+      "snippet": "Claude Code skill implementing Recursive Diversification (RD) from King et al. (2026) Harvard — break LLMs out of modal outputs and access diverse reasoning paths.",
+      "source": "GitHub",
+      "confidence": "medium",
+      "institution": "Harvard"
+    }
+  ]
+}
