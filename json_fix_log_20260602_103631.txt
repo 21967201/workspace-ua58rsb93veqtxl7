@@ -1,0 +1,8 @@
+﻿python : C:\Users\Administrator\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\python.exe: can't open file 
+'D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7\\fix_json_encoding.py': [Errno 2] No such file or directory
+所在位置 行:1 字符: 137
++ ... ace-ua58rsb93veqtxl7"; python fix_json_encoding.py --all 2>&1 | Out-F ...
++                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\Admini...le or directory:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
