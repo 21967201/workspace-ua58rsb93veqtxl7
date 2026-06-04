@@ -1,0 +1,14 @@
+{
+  "id": "rej_ecc_20260603_001",
+  "timestamp": "2026-06-03T14:22:00Z",
+  "skill": "ecc-compressor",
+  "step": 1,
+  "epoch": 1,
+  "rejected_reason": "Compression ratio dropped from 46% to 8% (SmartCrusher test)",
+  "edit_proposal": "ADD parameter: aggressive_mode=True",
+  "target_dimension": "compression_ratio",
+  "failure_pattern": "over-aggressive_compression_caused_loss",
+  "test_case": "smart_crusher_test.json",
+  "expected_ratio": "60-80%",
+  "actual_ratio": "8.28%"
+}

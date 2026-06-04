@@ -1,0 +1,35 @@
+﻿# GBrain鍏ㄦ櫙绠＄悊 - 2026-06-03
+
+## 鉁?Step 1: Auto Import
+- 瀵煎叆瀹屾垚锛? pages imported, 4 pages skipped (unchanged)
+- 鐘舵€侊細鎵€鏈夋枃浠跺凡鏄渶鏂?
+## 鉁?Step 2: Tier1 Enrichment
+- 澶勭悊浜哄憳锛?浜?(john-doe-enriched, john-doe, test-person)
+- 娣诲姞鏃堕棿绾挎潯鐩細3鏉?- 鍒涘缓鍘熷鏁版嵁鏂囦欢锛?涓狫SON鏂囦欢
+
+## 鉁?Step 3: Memory Dreaming Promotion
+- 鎵弿椤甸潰锛?涓?- 璇嗗埆鏅嬪崌鍊欓€夛細4涓〉闈?  - people/john-doe-enriched
+  - people/john-doe
+  - companies/acme-corp
+  - people/test-person
+
+## 鉁?Step 4: Dream Cycle
+### Stage 1: Memory Consolidation
+- 鏁村悎椤甸潰锛?涓?
+### Stage 2: Connection Discovery
+- 鍙戠幇甯?See Also"鐨勯〉闈細4涓?
+### Stage 3: Insight Generation
+- Brain缁熻锛?  - Pages: 7
+  - Chunks: 12
+  - Timeline: 11
+  - By type: person: 3, concept: 3, company: 1
+
+### Stage 4: Cleanup
+- 娓呯悊30澶╁墠鐨勫師濮嬫暟鎹枃浠讹細瀹屾垚
+
+## 鈴笍 Step 5-6: 璺宠繃
+- Tier2 Enrichment锛氫粎鍛ㄤ竴鎵ц锛堜粖澶╂槸鍛ㄤ笁锛?- AI鎶€鏈獊鐮存洿鏂帮細浠呭懆涓€鎵ц锛堜粖澶╂槸鍛ㄤ笁锛?
+## 馃搳 鎬荤粨
+- **鐘舵€?*: 鉁?瀹屾垚
+- **Brain鍋ュ悍搴?*: 鑹ソ (7 pages, 11 timeline entries)
+- **涓嬩竴姝?*: 鍛ㄤ竴鎵цTier2 Enrichment鍜孉I鎶€鏈獊鐮存洿鏂?

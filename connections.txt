@@ -1,0 +1,4 @@
+﻿[people/john-doe-enriched] has See Also section
+[people/john-doe] has See Also section
+[companies/acme-corp] has See Also section
+[people/test-person] has See Also section

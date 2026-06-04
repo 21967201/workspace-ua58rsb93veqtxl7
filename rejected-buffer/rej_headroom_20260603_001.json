@@ -1,0 +1,14 @@
+{
+  "id": "rej_headroom_20260603_001",
+  "timestamp": "2026-06-03T14:22:30Z",
+  "skill": "headroom-integration",
+  "step": 1,
+  "epoch": 1,
+  "rejected_reason": "headroom compatibility test failed - token ratio not improved",
+  "edit_proposal": "INTEGRATE headroom v1.0",
+  "target_dimension": "token_compression",
+  "failure_pattern": "compatibility_not_verified",
+  "test_case": "headroom_test.py",
+  "expected_ratio": "60-95% token reduction",
+  "actual_ratio": "No reduction observed"
+}

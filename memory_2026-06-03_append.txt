@@ -1,0 +1,48 @@
+﻿# 2026-06-03 记忆日志
+
+## AuthCode 配置永久修复（10:26-10:32）
+
+### 问题根因
+`task_push.py` 从 QClaw 全局配置读取 `authCode`，但全局配置中 `skills.entries.today-task` 为空对象，导致读取失败。
+
+### 修复内容
+
+1. **修复全局配置** (`C:\Users\Administrator\.qclaw\qclaw.json`)
+   - 添加 `skills.entries.today-task.config` 节点
+   - 包含正确的 `authCode` 和 `pushServiceUrl`
+
+2. **修复本地 config.json 编码**
+   - 重写为 UTF-8 without BOM
+   - 验证 Python 可正确读取
+
+3. **修改 `task_push.py` 添加多重 Fallback**
+   - Fallback 1: 本地 `config.json` (最可靠)
+   - Fallback 2: 全局 QClaw 配置
+   - Fallback 3: 环境变量 `TODAY_TASK_AUTH_CODE` / `TODAY_TASK_PUSH_URL`
+   - Fallback 4: 硬编码默认值 (最后防线)
+
+4. **修复 `task_push.py` JSON 读取编码**
+   - 使用 `utf-8-sig` 自动处理 BOM
+
+### 测试结果
+
+```
+[INFO] 从本地 config.json 读取配置
+[INFO] 推送 URL     : https://hiboard-claw-drcn.ai.dbankcloud.cn/distribution/message/cloud/claw/msg/upload
+[INFO] HTTP 状态码 : 200
+[INFO] 响应内容     : {"code":"0000000000","desc":"OK"}
+
+[SUCCESS] 推送成功！
+```
+
+### 防止再次犯错的措施
+
+1. **配置自检**: `push()` 函数开头检查 `authCode` 和 `pushServiceUrl` 是否存在
+2. **Fallback 机制**: 4 层 fallback 确保任何情况下都能读到配置
+3. **Artifact 记录**: 所有配置修复必须创建 artifact
+4. **端到端测试**: 修复后必须执行 `--test` 和实际推送测试
+
+---
+*记录时间：2026-06-03 10:32*  
+*记录者：AI工程师*  
+*置信度：高*
