@@ -1,0 +1,91 @@
+# ===== OpenClaw / QClaw 敏感数据 =====
+# Session 文件（可能包含 API Key、Token、对话内容）
+sessions/
+*/sessions/
+**/sessions/*.jsonl
+**/sessions/*.json
+.openclaw/sessions/
+.openclaw/workspace-state.json
+
+# 记忆梦境文件（可能包含敏感上下文）
+memory/.dreams/
+
+# 备份目录
+%BACKUP_DIR%/
+**/%BACKUP_DIR%/
+
+# ===== 密钥 / Token / 凭证 =====
+*.env
+.env*
+.env.*.local
+*.key
+*.pem
+*.p12
+*.pfx
+*.p8
+*.der
+credentials*
+*secret*
+*token*
+api_key*
+*.tfvars
+*.tfstate
+*.tfstate.backup
+
+# ===== 具体文件（已知泄露风险）=====
+# Cloudflare
+cloudflare*key*
+cloudflare*token*
+
+# GitHub
+github*key*
+github*token*
+ghp_*
+github_pat_*
+
+# AWS
+aws*credential*
+*.aws/credentials
+
+# ===== 构建产物 / 依赖 =====
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+venv/
+.venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ===== 日志 / 临时文件 =====
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.iml
+*.sublime-*
+
+# ===== 测试 / 调试 =====
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# ===== 搜索结果（可能含敏感URL）=====
+search_results*.json
+
+# ===== Rejected buffer =====
+rejected-buffer/
