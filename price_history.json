@@ -89,5 +89,19 @@
     "fabric_type": "摇粒绒面料",
     "unit": "元/米",
     "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-04T10:40:19.998922",
+    "price": 27.17,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
+  },
+  {
+    "timestamp": "2026-06-05T11:00:40.733067",
+    "price": 27.71,
+    "fabric_type": "摇粒绒面料",
+    "unit": "元/米",
+    "supplier": "浙江绍兴面料厂"
   }
 ]
