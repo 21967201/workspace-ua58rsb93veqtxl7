@@ -1,0 +1,15 @@
+{
+  "compliance_rate": "94.4444444444444%",
+  "non_compliant_tasks": [
+    {
+      "id": "68e00ba0-004a-4e67-ac68-a2fb257a5f40",
+      "reason": "任务包括周日执行，违反规则",
+      "name": "Memory Dreaming Promotion",
+      "cron_expr": "0 3 * * *"
+    }
+  ],
+  "total_tasks": 18,
+  "compliant_count": 17,
+  "non_compliant_count": 1,
+  "monitor_time": "2026-06-06 16:03:23"
+}

@@ -1,0 +1,41 @@
+{
+  "task_name": "GitHub同步",
+  "date": "2026-06-05",
+  "time": "17:53",
+  "status": "成功",
+  "details": {
+    "repository": "https://github.com/21967201/workspace-ua58rsb93veqtxl7.git",
+    "branch": "master",
+    "commit_hash": "81e3188",
+    "files_synced": 159,
+    "files_added": 159,
+    "insertions": 39215,
+    "deletions": 2,
+    "cleanup_performed": true,
+    "secrets_removed": [
+      "sessions/98c4db32-ac11-4201-b88f-33413d4ca155.jsonl (Cloudflare API Token)",
+      "weekly-error-prevention-artifact_20260604-1755.md (GitHub Personal Access Token)",
+      "%BACKUP_DIR% 相关文件",
+      "session .jsonl 文件"
+    ]
+  },
+  "synced_files_categories": {
+    "task_reports": 50,
+    "python_scripts": 45,
+    "memory_files": 10,
+    "config_files": 5,
+    "other": 49
+  },
+  "push_result": {
+    "success": true,
+    "force_push_used": true,
+    "range": "651199d..81e3188"
+  },
+  "issues_resolved": [
+    "GitHub Push Protection 阻止推送 - 密钥泄露",
+    "使用 git reset --soft 回退到干净提交",
+    "移除所有含密钥的文件",
+    "清理 %BACKUP_DIR% 和 session 文件",
+    "重新提交并强制推送成功"
+  ]
+}

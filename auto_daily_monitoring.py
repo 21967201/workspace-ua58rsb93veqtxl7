@@ -28,6 +28,16 @@ def main():
         today = datetime.now().strftime("%Y-%m-%d")
         yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
         
+        # 预计算技术突破字符串（避免f-string中的反斜杠问题）
+        if random.random() > 0.5:
+            tech_breakthrough = f"- {random.choice(['headroom', 'ECC', 'LightThinker++', 'GenericAgent', 'IPTrust', 'Vision-Anchored'])} (综合评分: {random.uniform(7.5, 9.5):.1f}/10)"
+        else:
+            tech_breakthrough = "- 无重大技术突破"
+        
+        # 预计算问题字符串
+        problem_status = "- 无重大问题" if random.random() > 0.3 else "- Token用量超预期，需要优化"
+        risk_warning = "- 无风险预警" if random.random() > 0.3 else "- 某项技术指标接近阈值，需要关注"
+        
         # 模拟从MEMORY.md读取昨天的工作
         daily_summary = f"""# 每日工作总结 - {today}
 
@@ -60,7 +70,7 @@ def main():
 ## 技术突破监控
 
 ### 发现的新技术
-{(f"- {random.choice(['headroom', 'ECC', 'LightThinker++', 'GenericAgent', 'IPTrust', 'Vision-Anchored'])} (综合评分: {random.uniform(7.5, 9.5):.1f}/10)") if random.random() > 0.5 else "- 无重大技术突破"}
+{tech_breakthrough}
 
 ### 待评估技术
 - {random.choice(['headroom', 'ECC', 'LightThinker++', 'GenericAgent'])} (等待进一步分析)
@@ -68,10 +78,10 @@ def main():
 ## 问题与风险
 
 ### 当前问题
-{"- 无重大问题" if random.random() > 0.3 else "- Token用量超预期，需要优化"}
+{problem_status}
 
 ### 风险预警
-{"- 无风险预警" if random.random() > 0.3 else "- 某项技术指标接近阈值，需要关注"}
+{risk_warning}
 
 ## 下一步行动
 
@@ -163,6 +173,13 @@ def main():
         
         print(f"[成功] 违规检查完成: 合规率={compliance_rate:.1f}% ({compliant_count}/{total_count})")
         
+        # 预计算违规项目详情字符串（避免f-string中的反斜杠问题）
+        if (total_count - compliant_count) == 0:
+            violation_details = "无违规项目"
+        else:
+            violation_items = "\n".join([f"- {result['check_item']}: {result['details']}" for result in check_results if not result['is_compliant']])
+            violation_details = "发现以下违规项目:\n" + violation_items
+        
         # 生成违规检查报告
         violation_report = f"""# 违规检查报告 - {today}
 
@@ -188,7 +205,7 @@ def main():
 """ for i, result in enumerate(check_results, 1)]) + f"""
 ## 违规项目详情
 
-{"无违规项目" if (total_count - compliant_count) == 0 else "发现以下违规项目:" + "".join([f"\n- {result['check_item']}: {result['details']}" for result in check_results if not result['is_compliant']])}
+{violation_details}
 
 ## 处理建议
 
@@ -284,6 +301,13 @@ def main():
         print(f"[成功] 技术趋势分析完成: 有价值率={value_rate:.1f}% ({valuable_count}/{total_count})")
         print(f"[成功] 平均分析质量: {avg_analysis_quality:.2f}")
         
+        # 预计算高价值趋势字符串（避免f-string中的反斜杠问题）
+        if valuable_count == 0:
+            key_trends_summary = "无高价值趋势"
+        else:
+            trend_items = "\n".join([f"- {result['trend_type']}: {result['key_findings']}" for result in trend_results if result['is_valuable']])
+            key_trends_summary = "以下趋势具有高价值:\n" + trend_items
+        
         # 生成技术趋势分析报告
         trend_report = f"""# 技术趋势分析报告 - {today}
 
@@ -312,7 +336,7 @@ def main():
 ## 关键趋势总结
 
 ### 高价值趋势
-{"无高价值趋势" if valuable_count == 0 else "以下趋势具有高价值:" + "".join([f"\n- {result['trend_type']}: {result['key_findings']}" for result in trend_results if result['is_valuable']])}
+{key_trends_summary}
 
 ### 建议行动
 

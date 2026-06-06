@@ -1,0 +1,5 @@
+{
+  "task_name": "GitHub同步",
+  "task_content": "GitHub同步任务执行报告\n执行时间: 2026-06-05 17:53\n状态: 成功\n\n## 同步详情\n- 仓库: https://github.com/21967201/workspace-ua58rsb93veqtxl7.git\n- 分支: master\n- 提交哈希: 81e3188\n- 同步文件数: 159个\n- 代码行变更: +39,215 / -2\n\n## 清理操作\n由于GitHub Push Protection阻止推送（检测到密钥泄露），执行了以下清理：\n1. 移除含Cloudflare API Token的session文件\n2. 移除含GitHub Personal Access Token的markdown文件\n3. 移除所有%BACKUP_DIR%相关文件\n4. 移除session .jsonl文件\n5. 使用git reset --soft回退并重新提交\n\n## 推送结果\n- 成功: true\n- 使用强制推送: true\n- 推送范围: 651199d..81e3188\n\n## 同步的文件类型\n- 任务报告: 50个\n- Python脚本: 45个\n- 记忆文件: 10个\n- 配置文件: 5个\n- 其他: 49个\n\n任务已成功完成，所有文件已安全同步到GitHub。\n",
+  "task_result": "任务已完成"
+}
