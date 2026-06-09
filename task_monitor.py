@@ -12,10 +12,16 @@
 """
 
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime
 from typing import List, Dict, Any
+
+# OpenClaw CLI 路径
+OPENCLAW_CMD = r"D:\QClaw\v0.2.25.551\resources\openclaw\config\bin\openclaw.cmd"
+OPENCLAW_ENV = os.environ.copy()
+OPENCLAW_ENV["PATH"] = r"D:\QClaw\v0.2.25.551\resources\openclaw\config\bin" + os.pathsep + OPENCLAW_ENV.get("PATH", "")
 
 # 预期执行时间（秒）
 EXPECTED_DURATION = {
@@ -42,15 +48,22 @@ def run_cron_list() -> List[Dict[str, Any]]:
     """运行 cron action=list 命令获取所有任务"""
     try:
         result = subprocess.run(
-            ["openclaw", "cron", "list", "--include-disabled", "--json"],
+            [OPENCLAW_CMD, "cron", "list", "--all", "--json"],
             capture_output=True,
-            text=True,
-            check=True
+            check=True,
+            env=OPENCLAW_ENV,
+            shell=True
         )
-        data = json.loads(result.stdout)
+        stdout = result.stdout.decode('utf-8', errors='replace')
+        # 移除 proxy-bootstrap 等非 JSON 前缀行
+        json_start = stdout.find('{')
+        if json_start >= 0:
+            stdout = stdout[json_start:]
+        data = json.loads(stdout)
         return data.get("jobs", [])
     except subprocess.CalledProcessError as e:
-        print(f"❌ 运行 cron list 失败: {e}", file=sys.stderr)
+        stderr = e.stderr.decode('utf-8', errors='replace') if e.stderr else ''
+        print(f"❌ 运行 cron list 失败: {e}\n{stderr}", file=sys.stderr)
         return []
     except json.JSONDecodeError as e:
         print(f"❌ 解析 cron list 输出失败: {e}", file=sys.stderr)

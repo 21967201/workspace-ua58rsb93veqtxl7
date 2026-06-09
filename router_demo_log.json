@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-06-09",
+  "total_queries": 9,
+  "avg_complexity": 0.34,
+  "strategy_distribution": {
+    "direct_answer": 5,
+    "cod_reasoning": 2,
+    "cot_skip": 2
+  },
+  "routes": [
+    {
+      "query": "什么是自适应路由引擎？",
+      "complexity": 0.0,
+      "token_budget": "0",
+      "strategy": "direct_answer",
+      "model_tier": "cheapest",
+      "verification": false
+    },
+    {
+      "query": "帮我生成一段Python代码",
+      "complexity": 0.25,
+      "token_budget": "0",
+      "strategy": "direct_answer",
+      "model_tier": "cheapest",
+      "verification": false
+    },
+    {
+      "query": "分析最近一周的Token消耗趋势",
+      "complexity": 0.4,
+      "token_budget": "7.6% of original",
+      "strategy": "cod_reasoning",
+      "model_tier": "balanced",
+      "verification": true
+    },
+    {
+      "query": "比较Headroom和LCM两种压缩方案的优劣",
+      "complexity": 0.4,
+      "token_budget": "7.6% of original",
+      "strategy": "cod_reasoning",
+      "model_tier": "balanced",
+      "verification": false
+    },
+    {
+      "query": "设计一个分布式Agent编排系统架构",
+      "complexity": 1.0,
+      "token_budget": "15% of original",
+      "strategy": "cot_skip",
+      "model_tier": "most_capable",
+      "verification": false
+    },
+    {
+      "query": "这个投资方案需要预算100万美金给新项目",
+      "complexity": 0.25,
+      "token_budget": "0",
+      "strategy": "direct_answer",
+      "model_tier": "cheapest",
+      "verification": true
+    },
+    {
+      "query": "你好",
+      "complexity": 0.0,
+      "token_budget": "0",
+      "strategy": "direct_answer",
+      "model_tier": "cheapest",
+      "verification": false
+    },
+    {
+      "query": "调试这个RAG系统的内存泄漏问题，并给出优化方案",
+      "complexity": 0.75,
+      "token_budget": "15% of original",
+      "strategy": "cot_skip",
+      "model_tier": "most_capable",
+      "verification": false
+    },
+    {
+      "query": "今天天气怎么样？",
+      "complexity": 0.0,
+      "token_budget": "0",
+      "strategy": "direct_answer",
+      "model_tier": "cheapest",
+      "verification": false
+    }
+  ]
+}

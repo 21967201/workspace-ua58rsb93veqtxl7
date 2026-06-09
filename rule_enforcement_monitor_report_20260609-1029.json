@@ -1,0 +1,21 @@
+{
+  "monitor_time": "2026-06-09 10:29",
+  "total_tasks": 18,
+  "compliant_count": 16,
+  "non_compliant_count": 2,
+  "compliance_rate": "88.9%",
+  "non_compliant_tasks": [
+    {
+      "id": "a2d4abbf-a4fb-4ecc-a7a6-4f04c48446b3",
+      "name": "任务监控（每日20:00）",
+      "cron_expr": "cron 10 18 * * 1,2,3,4,5,6 @ Asia/Shanghai",
+      "reason": "执行时间18:10不在10:30-18:10范围内（18:10不是18:10之前）"
+    },
+    {
+      "id": "68e00ba0-004a-4e67-ac68-a2fb257a5f40",
+      "name": "Memory Dreaming Promotion",
+      "cron_expr": "cron 0 3 * * * (exact)",
+      "reason": "每天03:00执行（含周日），且早于10:30"
+    }
+  ]
+}
