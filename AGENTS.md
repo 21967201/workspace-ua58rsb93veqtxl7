@@ -134,6 +134,58 @@ This folder is home. Treat it that way.
 
 ---
 
+### 💾 规则6: 数据存储位置强制规则（2026-06-16 新增）
+
+**MANDATORY: 所有自动任务和日常问答产生的数据必须优先保存到 D:\QClawX。**
+
+#### 6.1 自动任务数据
+
+- ✅ **任务输出**: 所有Cron任务生成的报告、分析结果、推送内容 → `D:\QClawX\data\`
+- ✅ **任务日志**: 所有任务执行日志、错误日志 → `D:\QClawX\data\logs\`
+- ✅ **任务缓存**: 所有临时文件、中间结果 → `D:\QClawX\cache-backup-*`
+- ❌ **禁止**: 禁止保存到C盘（除非用户明确许可）
+- ❌ **禁止**: 禁止保存到系统临时目录（如 `%TEMP%`, `%TMP%`）
+
+#### 6.2 日常问答数据
+
+- ✅ **对话记录**: 重要对话、决策记录 → `D:\QClawX\data\workspace-*/memory/`
+- ✅ **生成的文件**: 用户请求创建的文件、报告、分析 → `D:\QClawX\data\workspace-*/`
+- ✅ **临时工件**: 任务执行过程中的临时文件 → `D:\QClawX\scripts\` 或 `D:\QClawX\data\`
+- ❌ **禁止**: 禁止保存到桌面、下载文件夹等用户目录
+
+#### 6.3 目录结构规范
+
+```
+D:\QClawX\
+├── data\                    # 主数据目录
+│   ├── workspace-*/          # 工作区数据
+│   │   ├── memory/           # 记忆文件
+│   │   └── ...
+│   └── logs/                 # 任务日志
+├── scripts\                  # 脚本和工具
+├── cache-backup-*            # 缓存备份
+└── models\                   # 模型文件
+```
+
+#### 6.4 执行标准
+
+1. **路径硬编码**: 在脚本、任务配置中，数据保存路径必须明确指定为 `D:\QClawX\...`
+2. **路径检查**: 每次写入文件前，检查路径是否在 `D:\QClawX` 下
+3. **违规报警**: 如果发现数据保存到C盘或其他位置，立即记录到 `memory/failures/`
+4. **用户覆盖**: 仅当用户**明确指定**其他路径时，才可保存到非 `D:\QClawX` 位置
+
+#### 6.5 验证方法
+
+每次任务执行后，自动检查：
+```powershell
+# 检查最近1小时修改的文件（排除D:\QClawX）
+Get-ChildItem C:\ -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-1) } | Select-Object FullName, LastWriteTime
+```
+
+**违反规则6 = 严重失职。**
+
+---
+
 ### ⏰ 规则4: 自动任务时间限制（2026-06-05 新增）
 
 **MANDATORY: 所有自动任务时间必须在周一至周六,10:30-18:10之前。**

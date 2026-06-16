@@ -1,0 +1,17 @@
+{
+  "name": "每日监控任务（含数据位置检查）",
+  "description": "每日监控+自动验证数据位置合规性",
+  "schedule": {
+    "kind": "cron",
+    "expr": "30 10 * * *",
+    "tz": "Asia/Shanghai"
+  },
+  "delivery": {
+    "mode": "announce",
+    "channel": "wechat-access",
+    "to": "last"
+  },
+  "task": "powershell -Command \"& { `n# 0. 先检查数据位置合规性`n$checkResult = & D:\\QClawX\\scripts\\check-data-location.ps1 -HoursAgo 1`n`n# 1. 原监控任务逻辑`n# ... (保留原有监控逻辑)`n`n# 2. 如果检测到违规，在推送内容中注明`nif ($checkResult.SuspectFiles) {`n    Write-Host 'WARNING: Data location violation detected!' -ForegroundColor Red`n    $violationMsg = '⚠️ 数据位置违规检测：'`n    $checkResult.SuspectFiles | ForEach-Object { $violationMsg += \"  - $($_.FullName)`n\" }`n    # 将违规信息添加到推送内容`n    $pushContent += $violationMsg`n}`n`n# 3. 推送监控结果`n# ... (原有推送逻辑)`n}\"",
+  "enabled": true,
+  "last_updated": "2026-06-16T16:05:00+08:00"
+}
