@@ -19,9 +19,9 @@ from datetime import datetime
 from typing import List, Dict, Any
 
 # OpenClaw CLI 路径
-OPENCLAW_CMD = r"D:\QClaw\v0.2.25.551\resources\openclaw\config\bin\openclaw.cmd"
+OPENCLAW_CMD = r"D:\QClaw\v0.2.26.557\resources\openclaw\config\bin\openclaw.cmd"
 OPENCLAW_ENV = os.environ.copy()
-OPENCLAW_ENV["PATH"] = r"D:\QClaw\v0.2.25.551\resources\openclaw\config\bin" + os.pathsep + OPENCLAW_ENV.get("PATH", "")
+OPENCLAW_ENV["PATH"] = r"D:\QClaw\v0.2.26.557\resources\openclaw\config\bin" + os.pathsep + OPENCLAW_ENV.get("PATH", "")
 
 # 预期执行时间（秒）
 EXPECTED_DURATION = {
