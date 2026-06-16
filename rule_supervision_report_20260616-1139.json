@@ -1,0 +1,49 @@
+{
+  "monitor_time": "2026-06-16 11:39:00",
+  "total_tasks": 15,
+  "compliant_count": 14,
+  "non_compliant_count": 1,
+  "compliance_rate": "93.3%",
+  "violations": [
+    {
+      "task_id": "0ac8b273-465b-41d2-b3db-1588ae5d4c0e",
+      "name": "Memory Dreaming Promotion",
+      "cron_expr": "39 3 * * *",
+      "reason": "Runs every day (including Sunday) and at 3:39 AM (outside 10:30-18:10 range)",
+      "details": {
+        "day_of_week": "* (every day)",
+        "hour": "3 (3 AM)",
+        "rule_violations": [
+          "Violates Monday-Saturday rule (runs on Sunday)",
+          "Violates 10:30-18:10 time rule (runs at 3:39 AM)"
+        ]
+      }
+    }
+  ],
+  "compliant_tasks": [
+    {"name": "tech-breakthrough-monitor", "expr": "30 13 * * 1-6", "time": "Monday-Saturday 13:30"},
+    {"name": "实时监控任务", "expr": "0 14 * * 1-6", "time": "Monday-Saturday 14:00"},
+    {"name": "每日任务监督", "expr": "30 15 * * 1-6", "time": "Monday-Saturday 15:30"},
+    {"name": "自动同步任务文件到GitHub", "expr": "30 16 * * 1-6", "time": "Monday-Saturday 16:30"},
+    {"name": "每日监控任务", "expr": "30 10 * * 1-6", "time": "Monday-Saturday 10:30"},
+    {"name": "季度评审任务", "expr": "35 10 * * 1-6", "time": "Monday-Saturday 10:35"},
+    {"name": "月度报告任务", "expr": "45 10 * * 1-6", "time": "Monday-Saturday 10:45"},
+    {"name": "1688全面分析（全景+竞品）", "expr": "0 11 * * 1-6", "time": "Monday-Saturday 11:00"},
+    {"name": "商业智能周报", "expr": "0 15 * * 5", "time": "Friday 15:00"},
+    {"name": "学术论文与知识库周度同步", "expr": "10 11 * * 1", "time": "Monday 11:10"},
+    {"name": "QClaw智能清理（周度+月度合并）", "expr": "40 11 * * 1", "time": "Monday 11:40"},
+    {"name": "智能全景管理（含GBrain + 记忆管理）", "expr": "10 12 * * 1", "time": "Monday 12:10"},
+    {"name": "OpenClaw违规检查（7天一次）", "expr": "30 14 * * 1", "time": "Monday 14:30"},
+    {"name": "每周任务执行分析与错误预防检查", "expr": "0 15 * * 1", "time": "Monday 15:00"}
+  ],
+  "recommendations": [
+    {
+      "action": "FIX",
+      "task_id": "0ac8b273-465b-41d2-b3db-1588ae5d4c0e",
+      "task_name": "Memory Dreaming Promotion",
+      "current_expr": "39 3 * * *",
+      "recommended_expr": "39 10 * * 1-6",
+      "reason": "Change to Monday-Saturday 10:39 AM to comply with rules"
+    }
+  ]
+}

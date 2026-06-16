@@ -1,0 +1,627 @@
+[proxy-bootstrap] no proxy env detected, globalAgent unchanged
+[proxy-bootstrap] undici global dispatcher set to EnvHttpProxyAgent
+{
+  "jobs": [
+    {
+      "id": "0f792ebe-4699-4e8d-bdec-e9c9a83abda4",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780392221703-u0r3d0",
+      "name": "tech-breakthrough-monitor",
+      "enabled": true,
+      "createdAtMs": 1780394921023,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 13 * * 1-6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "# 技术突破监控任务（自动执行）\n\n## 任务目标\n每日06:00监控2026年前沿技术突破，仅当有新技术突破时推送通知。\n\n## 执行流程\n\n### 第一阶段：技术突破监控（自动，06:00-06:30）\n\n1. **arXiv论文监控**\n   - 搜索关键词：Self-Evolving Agents, Multi-Agent Orchestration, GRPO, RAG, Agent Memory Systems\n   - 时间范围：过去24小时新发表论文\n   - 重点关注：arXiv:2508.07407的引用论文\n\n2. **GitHub项目监控**\n   - 监控项目：OpenClaw, Hermes Agent, SkillOpt, AutoGen, MetaGPT\n   - 检查维度：Stars增长、最近提交、Issue讨论、新Release\n\n3. **技术博客与论坛监控**\n   - 来源：Hacker News, Reddit r/MachineLearning, arXiv Sanity, Papers with Code\n   - 提取：技术趋势、性能基准、新架构模式\n\n### 第二阶段：技术评估与筛选（自动，06:30-07:00）\n\n使用51指标评估体系评估所有技术突破：\n- 结构完整性（0-10分）\n- 可用性（0-10分）\n- 示例质量（0-10分）\n- 创新性（0-10分）\n- 兼容性（0-10分）\n\n优先级排序：\n- P0：高兼容性+高收益+低成本\n- P1：高兼容性+高收益+中成本\n- P2：中兼容性+中收益+低成本\n\n### 第三阶段：条件推送（自动，07:00-07:30）\n\n**仅当满足以下条件时推送通知**：\n- 条件1：发现P0级技术突破（高兼容性+高收益+低成本）\n- 条件2：发现有重大影响的P1级技术突破（影响评分>8.5/10）\n- 条件3：用户主动查询（通过命令或关键词）\n\n**推送内容**：\n- 技术名称、来源、发布时间、核心创新\n- 51指标评估分数、兼容性分析、优先级排序\n- 集成建议、预期收益、风险评估\n\n## 三大标准模块（必须执行）\n\n### 模块1：网络数据对比\n- 使用WebSearch/WebFetch获取网络最新数据\n- 与本地数据对比（MEMORY.md、今日记忆文件）\n- 生成差异报告、趋势分析、更新建议\n\n### 模块2：技术突破搜索\n- 使用WebSearch/WebFetch搜索最新突破\n- 使用51指标评估体系评估\n- 生成技术突破列表、评估报告、集成建议\n\n### 模块3：自动进化同步\n- 更新记忆系统（MEMORY.md、今日记忆文件）\n- 更新技能系统（experience-tracker、token-tracker）\n- 更新任务系统（自动化任务配置）\n\n## 输出格式\n\n### 有技术突破时：\n```\n# 技术突破监控报告（YYYY-MM-DD）\n\n## 1. 技术突破列表\n| # | 技术名称 | 来源 | 发布时间 | 核心创新 | 优先级 |\n|---|---------|------|---------|---------|--------|\n| 1 | <技术1> | <来源> | <时间> | <创新点> | P0/P1/P2 |\n\n## 2. 51指标评估\n| 技术名称 | 结构完整性 | 可用性 | 创新性 | 兼容性 | 综合评分 | 优先级 |\n|---------|------------|--------|--------|----------|------------|----------|\n| <技术1> | <评分> | <评分> | <评分> | <评分> | <评分> | P0/P1/P2 |\n\n## 3. 集成建议\n### P0级技术1：<技术名称>\n- **集成方案**：<方案描述>\n- **预期收益**：<收益描述>\n- **集成成本**：低/中/高\n- **风险评估**：<风险评估>\n```\n\n### 无技术突破时：\n- 不推送通知\n- 静默更新记忆系统\n- 记录到今日记忆文件\n\n## 错误处理\n\n### 1. 网络故障\n- 重试策略：重试3次，间隔5分钟\n- 降级方案：使用缓存数据，标注\"数据可能过期\"\n\n### 2. 评估失败\n- 错误日志：记录到D:/QClawX/data/workspace-ua58rsb93veqtxl7/logs/tech-breakthrough-error.log\n- 跳过策略：跳过该技术，继续处理下一个\n\n### 3. 推送失败\n- 自动重试：推送失败后重试3次\n- 降级方案：保存到本地文件，等待下次推送\n\n## 置信度要求\n\n### 1. 技术突破验证\n- 多源验证：所有技术突破必须有至少2个独立来源验证\n- 权威性检查：优先选择arXiv、顶会论文、知名博客\n- 时效性检查：技术突破必须在过去24小时内发表\n\n### 2. 评估结果可重现性\n- 评估标准：所有评估结果必须可重现\n- 评估记录：保存评估过程中的所有中间结果\n- 评估审核：定期审核评估结果的一致性\n\n---\n\n**任务创建者**：QClaw（韧性进化体优化器v1.0）\n**置信度**：95%（基于实际文件内容 + 网络搜索验证）\n**下一步**：立即执行首次技术突破监控要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "thinking": "off",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781587800000,
+        "lastRunAtMs": 1780637400043,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 24367,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true,
+        "runningAtMs": 1781580911792
+      },
+      "updatedAtMs": 1781580595287
+    },
+    {
+      "id": "05a2be02-e755-4443-9c9c-ab9aa813c8a7",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780637007175-wkp3l5",
+      "name": "实时监控任务",
+      "enabled": true,
+      "createdAtMs": 1780641135430,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * 1-6",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行实时监控任务: cd D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 && python auto_realtime_monitoring.py要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781589746507,
+        "lastRunAtMs": 1780642046522,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 29153,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1781580911792
+      },
+      "updatedAtMs": 1781580595266
+    },
+    {
+      "id": "69ae173f-c0d7-4ba4-969c-dc6513e2b93a",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780637007175-wkp3l5",
+      "name": "每日任务监督",
+      "enabled": true,
+      "createdAtMs": 1780645534597,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 15 * * 1-6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行规则执行监督（自动任务时间限制规则）：\n\n## 步骤1：获取所有任务\n```powershell\n$allTasksJson = (cron list includeDisabled=true 2>&1)\n$allTasks = $allTasksJson | ConvertFrom-Json\n```\n\n## 步骤2：检查每个任务的时间是否符合规则\n```powershell\n$compliantCount = 0\n$nonCompliantCount = 0\n$nonCompliantTasks = @()\n\nforeach ($task in $allTasks.jobs) {\n  $taskId = $task.id\n  $taskName = $task.name\n  $cronExpr = $task.schedule.expr\n  \n  # 检查1：必须在周一至周六执行（day_of_week包含1-6）\n  $dayOfWeek = $cronExpr.Split(\" \")[4]\n  \n  if ($dayOfWeek -eq \"*\") {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务包括周日执行，违反规则\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务包括周日执行\"\n    continue\n  }\n  \n  if ($dayOfWeek -match \"0\" -and $dayOfWeek -match \",\") {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务包括周日执行，违反规则\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务包括周日执行\"\n    continue\n  }\n  \n  if ($dayOfWeek -eq \"0\") {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务在周日执行，违反规则\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务在周日执行\"\n    continue\n  }\n  \n  # 检查2：执行时间必须在10:30-18:10之前\n  $hour = $cronExpr.Split(\" \")[1]\n  $minute = $cronExpr.Split(\" \")[0]\n  \n  try {\n    $hourInt = [int]$hour\n    $minuteInt = [int]$minute\n  } catch {\n    # 处理逗号分隔的多个值\n    if ($hour -match \",\") {\n      $hours = $hour.Split(\",\")\n      $allHoursCompliant = $true\n      foreach ($h in $hours) {\n        try {\n          $hInt = [int]$h\n          if ($hInt -lt 10 -or $hInt -gt 18) {\n            $allHoursCompliant = $false\n            break\n          }\n        } catch {\n          $allHoursCompliant = $false\n          break\n        }\n      }\n      if (-not $allHoursCompliant) {\n        $nonCompliantCount++\n        $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务执行时间不在10:30-18:10范围内\"}\n        Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务执行时间不在范围内\"\n        continue\n      }\n    } else {\n      $nonCompliantCount++\n      $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"无法解析小时字段\"}\n      Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 无法解析小时字段\"\n      continue\n    }\n  }\n  \n  # 检查时间范围\n  if ($hourInt -lt 10 -or $hourInt -gt 18) {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务执行时间不在10:30-18:10范围内\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务执行时间不在范围内\"\n    continue\n  }\n  \n  if ($hourInt -eq 10 -and $minuteInt -lt 30) {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务执行时间早于10:30\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务执行时间早于10:30\"\n    continue\n  }\n  \n  if ($hourInt -eq 18 -and $minuteInt -gt 10) {\n    $nonCompliantCount++\n    $nonCompliantTasks += @{\"id\" = $taskId; \"name\" = $taskName; \"cron_expr\" = $cronExpr; \"reason\" = \"任务执行时间晚于18:10\"}\n    Write-Host \"❌ 任务不符合规则：$taskName ($cronExpr) - 任务执行时间晚于18:10\"\n    continue\n  }\n  \n  # 所有检查通过\n  $compliantCount++\n  Write-Host \"✅ 任务符合规则：$taskName ($cronExpr)\"\n}\n```\n\n## 步骤3：生成监督报告\n```powershell\n$report = @{\n  \"monitor_time\" = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'\n  \"total_tasks\" = $allTasks.jobs.Count\n  \"compliant_count\" = $compliantCount\n  \"non_compliant_count\" = $nonCompliantCount\n  \"compliance_rate\" = \"$($compliantCount / $allTasks.jobs.Count * 100 -f '0.0')%\"\n  \"non_compliant_tasks\" = $nonCompliantTasks\n}\n\n$reportFile = \"rule_enforcement_monitor_report_$(Get-Date -Format 'yyyyMMdd-HHmm').json\"\n$report | ConvertTo-Json -Depth 10 | Out-File -FilePath $reportFile -Encoding UTF8\n\nWrite-Host \"`n监督完成！报告已保存到：$reportFile\"\nWrite-Host \"总任务数：$($allTasks.jobs.Count)\"\nWrite-Host \"符合规则：$compliantCount ($($compliantCount / $allTasks.jobs.Count * 100 -f '0.0')%)\"\nWrite-Host \"不符合规则：$nonCompliantCount ($($nonCompliantCount / $allTasks.jobs.Count * 100 -f '0.0')%)\"\n```\n\n## 步骤4：推送监督结果\n```powershell\nif ($nonCompliantCount -gt 0) {\n  # 发现不符合规则的任务，推送告警\n  $alertContent = \"发现 $nonCompliantCount 个任务不符合自动任务时间限制规则！`n\"\n  foreach ($task in $nonCompliantTasks) {\n    $alertContent += \"- $($task.name): $($task.reason)`n\"\n  }\n  \n  # 创建告警JSON文件\n  python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"规则执行监督告警\" $alertContent\n  \n  # 推送到负一屏\n  python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data 规则执行监督告警_$(Get-Date -Format 'yyyy-MM-dd').json\n} else {\n  # 所有任务都符合规则，静默完成\n  Write-Host \"所有任务都符合自动任务时间限制规则。\"\n}\n```\n\n**预计执行时间**: ~60秒\n**要求**：(1)要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781595000000,
+        "lastRunAtMs": 1780646549183,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 52230,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1781580911792
+      },
+      "updatedAtMs": 1781580595035
+    },
+    {
+      "id": "97bfb647-a8f1-4456-ae56-feb2dc291414",
+      "name": "自动同步任务文件到GitHub",
+      "enabled": true,
+      "createdAtMs": 1779679621013,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 16 * * 1-6",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行自动同步任务文件到GitHub，同步今日任务文件，生成同步报告。\n\n任务完成后，必须执行以下推送操作：\n1. 创建任务JSON文件：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"GitHub同步\" <报告内容>\n2. 推送到负一屏：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data GitHub同步_<今日日期>.json\n3. 确认推送成功：检查返回结果中的 \"success\": true",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "agentId": "ua58rsb93veqtxl7",
+      "failureAlert": {
+        "after": 3,
+        "channel": "wechat-access",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1781598817881,
+        "lastRunAtMs": 1780568905540,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 215407,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true,
+        "runningAtMs": 1781580911792
+      },
+      "updatedAtMs": 1781580595248
+    },
+    {
+      "id": "0ac8b273-465b-41d2-b3db-1588ae5d4c0e",
+      "name": "Memory Dreaming Promotion",
+      "description": "[managed-by=memory-core.short-term-promotion] Promote weighted short-term recalls into MEMORY.md (limit=10, minScore=0.800, minRecallCount=3, minUniqueQueries=3, recencyHalfLifeDays=14, maxAgeDays=30).",
+      "enabled": true,
+      "createdAtMs": 1781580913182,
+      "schedule": {
+        "kind": "cron",
+        "expr": "39 3 * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "__openclaw_memory_core_short_term_promotion_dream__"
+      },
+      "state": {
+        "nextRunAtMs": 1781638740000
+      },
+      "updatedAtMs": 1781580913182
+    },
+    {
+      "id": "ce6cd458-1878-4a63-ab04-bd8998aef9cb",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780637007175-wkp3l5",
+      "name": "每日监控任务",
+      "enabled": true,
+      "createdAtMs": 1780641078574,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 10 * * 1-6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日监控任务: cd D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 && python auto_daily_monitoring.py要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781663400000
+      },
+      "updatedAtMs": 1781580592178
+    },
+    {
+      "id": "8965080e-2ef1-4546-85b9-f118d6dd7e4b",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780637007175-wkp3l5",
+      "name": "季度评审任务",
+      "enabled": true,
+      "createdAtMs": 1780641119947,
+      "schedule": {
+        "expr": "35 10 * * 1-6",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行季度评审任务: cd D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 && python auto_quarterly_review.py要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781663700000
+      },
+      "updatedAtMs": 1780645340662
+    },
+    {
+      "id": "a9855347-4840-46a5-b684-4d92002da076",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780637007175-wkp3l5",
+      "name": "月度报告任务",
+      "enabled": true,
+      "createdAtMs": 1780641105926,
+      "schedule": {
+        "expr": "45 10 * * 1-6",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行月度报告任务: cd D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 && python auto_monthly_report.py要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781664300000
+      },
+      "updatedAtMs": 1780645358595
+    },
+    {
+      "id": "ed84761c-63a6-4a58-8949-c1321afc6545",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780020979225-kqibku",
+      "name": "1688全面分析（全景+竞品）",
+      "enabled": true,
+      "createdAtMs": 1780027014220,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 * * 1-6",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行1688全面分析（全景+竞品 - 合并任务）：\n\n## 步骤1：价格全景监控（每日执行）\n执行价格全景监控（使用修复后的脚本）：\n```powershell\n$env:PYTHONIOENCODING=\"utf-8\"; python \"D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7\\price_monitor_final.py\"\n```\n- 验证推送结果（检查脚本输出中的[SUCCESS]推送成功消息）\n\n## 步骤2：1688店铺监控与数据对比（每日执行）\n执行1688店铺监控与数据对比分析（AK容错版）：\n- 检测AK配置状态\n- 根据AK状态执行完整或有限报告流程\n- 生成对比报告：目标店铺 vs 类目前五\n- 保存报告到：`1688店铺监控报告_<今日日期>.md`\n\n## 步骤3：店铺全景诊断（每日执行）\n执行店铺全景诊断：\n- 店铺健康每日诊断\n- 店铺数据一键收集（全能版）\n- 生成店铺全景诊断报告：`店铺全景诊断报告_<今日日期>.md`\n\n## 步骤4：1688竞品全景分析（每日执行）\n执行1688竞品全景分析：\n- 1688摇粒绒每日采集+分析\n- 石狮市云创胜川纺织有限公司专项监控\n- 竞品数据每日追踪\n- 生成竞品全景分析报告并保存\n\n## 步骤5：竞品深度分析（仅周一执行）\n```powershell\n$dayOfWeek = (Get-Date).DayOfWeek\nif ($dayOfWeek -eq 'Monday') {\n  Write-Host \"周一：执行竞品深度分析...\"\n  # 执行竞品深度分析（从原\"竞品深度分析周报\"任务合并）\n  # 1. 深度分析竞品技术特点、市场策略、用户反馈\n  # 2. 生成竞品深度分析报告：`竞品深度分析报告_<今日日期>.md`\n  # 3. 推送到负一屏\n}\n```\n\n## 步骤6：数据整合与AI分析（每日执行）\n- 整合店铺监控、店铺诊断、竞品分析、价格数据\n- AI生成优化建议和机会点识别\n- 生成1688全景分析报告：`1688全景分析报告_<今日日期>.md`\n\n## 推送结果\n任务完成后，必须执行以下推送操作：\n1. 创建任务JSON文件：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"1688全面分析（全景+竞品）\" <合并的报告内容>\n2. 推送到负一屏：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data 1688全面分析（全景+竞品）_<今日日期>.json\n3. 确认推送成功：检查返回结果中的 \"success\": true\n\n**预计执行时间**: ~90秒",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "failureAlert": {
+        "after": 3,
+        "mode": "announce",
+        "channel": "wechat-access"
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1781665200000,
+        "lastRunAtMs": 1780628400031,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 288924,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1781580911792
+      },
+      "updatedAtMs": 1781580594544
+    },
+    {
+      "id": "ea7d82a8-a5bc-40de-b329-6ef7f6c85881",
+      "agentId": "agent-8fbdd7ac",
+      "sessionKey": "agent:agent-8fbdd7ac:session-1779521927245-099ins",
+      "name": "商业智能周报",
+      "enabled": true,
+      "createdAtMs": 1779524329630,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 15 * * 5",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行商业智能周报，生成周度商业智能报告。\n\n任务完成后，必须执行以下推送操作：\n1. 创建任务JSON文件：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"商业智能周报\" <报告内容>\n2. 推送到负一屏：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data 商业智能周报_<今日日期>.json\n3. 确认推送成功：检查返回结果中的 \"success\": true",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "failureAlert": {
+        "after": 3,
+        "channel": "wechat-access",
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1781852400000,
+        "lastRunAtMs": 1780646400017,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 149166,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      },
+      "updatedAtMs": 1781580637893
+    },
+    {
+      "id": "c6fd60b1-2e25-4717-a075-9f4287166332",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1781580480461-g0t2au",
+      "name": "学术论文与知识库周度同步",
+      "enabled": true,
+      "createdAtMs": 1781580636489,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 11 * * 1",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行学术论文与知识库周度同步（合并任务）：\n\n## 模块1：学术论文追踪\n1. 使用web_search工具搜索最近一周的AI/AGI相关论文\n2. 搜索关键词：Self-Evolving Agents, Multi-Agent, GRPO, RAG, Agent Memory\n3. 提取论文标题、作者、摘要、关键创新点\n4. 生成学术论文周度报告：`学术论文周度报告_YYYY-MM-DD.md`\n\n## 模块2：IMA知识库同步\n1. 读取IMA知识库内容（使用qclaw_read_ima_content工具）\n2. 与本地MEMORY.md和memory/目录对比\n3. 更新过时的知识点\n4. 新增重要知识到MEMORY.md\n5. 生成知识库同步报告：`知识库同步报告_YYYY-MM-DD.md`\n\n## 模块3：知识整合与推送\n1. 合并两个报告\n2. 创建任务JSON文件：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"学术论文与知识库周度同步\" <合并内容>\n3. 推送到负一屏：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data 学术论文与知识库周度同步_<今日日期>.json\n4. 确认推送成功\n\n**预计执行时间**: ~120秒",
+        "model": "qclaw/pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "failureAlert": {
+        "after": 3,
+        "mode": "announce",
+        "channel": "wechat-access"
+      },
+      "state": {
+        "nextRunAtMs": 1782097800000
+      },
+      "updatedAtMs": 1781580636489
+    },
+    {
+      "id": "1c6e5f5e-d4b8-4123-befd-6fb1b3269e59",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780539179617-c9hfnl",
+      "name": "QClaw智能清理（周度+月度合并）",
+      "enabled": true,
+      "createdAtMs": 1780553874823,
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 11 * * 1",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行QClaw智能清理任务（全自动 - 周度+月度合并）：\n\n## 周度清理（轻量）\n1. 清理临时文件：\n   - 清理workspace中的临时文件(*.tmp, *.temp, ~*)\n   - 清理系统临时目录中的QClaw缓存\n\n2. 清理日志文件：\n   - 清理超过7天的日志文件\n   - 压缩超过3天的日志文件\n\n3. 清理缓存文件：\n   - 清理浏览器缓存(如有)\n   - 清理node_modules中的缓存文件\n\n## 月度清理（深度 - 每月第一个周一执行）\n$day = (Get-Date).Day\nif ($day -le 7) {\n  Write-Host \"月度清理：深度分析...\"\n  1. 分析当前Skills使用情况：\n     - 检查每个skill的sessions目录（最近30天有使用）\n     - 检查最近修改时间\n     - 自动生成清理/保留清单并执行清理\n\n  2. 分析当前Agents使用情况：\n     - 检查sessions数量\n     - 检查最近活跃度\n     - 自动生成清理/保留清单并执行清理\n\n  3. 分析Workspace大小：\n     - 检查文件数量和总大小\n     - 识别临时文件和日志\n     - 自动执行深度清理\n}\n\n## 检查与报告\n4. 检查Skills数量：\n   - 如果Skills数量>30个，自动清理不常用Skills\n   - 生成 Skills 清理记录\n\n5. 检查内存使用：\n   - 检查当前内存使用情况\n   - 如果可用内存<4GB，自动清理内存缓存\n\n6. 生成清理报告：\n   - 自动发送到wechat-access\n   - 包含清理的文件列表\n   - 包含Skills清理记录(如执行了月度清理)\n   - 包含内存清理记录(如执行了内存清理)\n\n注意：本任务已配置为全自动执行，无需用户确认。要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1782099778404
+      },
+      "updatedAtMs": 1781580636025
+    },
+    {
+      "id": "4dec89ef-7924-430f-8f24-2def8211a331",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1780020979225-kqibku",
+      "name": "智能全景管理（含GBrain + 记忆管理）",
+      "enabled": true,
+      "createdAtMs": 1780026999304,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 12 * * 1",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行智能全景管理（含GBrain + 记忆管理 - 合并任务）：\n\n## 步骤1：GBrain Auto Import\n```powershell\ncd \"C:\\Users\\Administrator\\gbrain\"\nbun run src/cli.ts import \"C:\\Users\\Administrator\\gbrain\\knowledge\" --no-embed\n```\n\n## 步骤2：Tier1 Enrichment\n```powershell\n$persons = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts list --type person --limit 20 2>&1)\nforeach ($person in $persons) {\n  $slug = \"people/\" + $person.Split()[0]\n  $searchResult = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts search $person 2>&1)\n  (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts timeline-add $slug (Get-Date -Format 'yyyy-MM-dd') \"Enriched via Tier1 protocol (automated)\" 2>&1)\n  $rawData = @{ person = $person; enriched_at = Get-Date -Format 'yyyy-MM-ddTHH:mm:ssZ' } | ConvertTo-Json\n  $rawData | Out-File -FilePath \"C:\\Users\\Administrator\\gbrain\\knowledge\\raw_data\\$person.json\" -Encoding UTF8\n}\n```\n\n## 步骤3：Memory Dreaming Promotion\n```powershell\n$stats = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts stats 2>&1)\n$pages = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts pages --limit 50 2>&1)\n$promotionCandidates = @()\nforeach ($page in $pages) {\n  $content = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts get $page 2>&1)\n  if ($content -match '### \\d{4}-\\d{2}-\\d{2}') {\n    $promotionCandidates += $page\n  }\n}\n$promotionCandidates | Out-File -FilePath \"D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7\\promotion_candidates.txt\" -Encoding UTF8\n```\n\n## 步骤4：Dream Cycle\n```powershell\nWrite-Host \"[Stage 1] Memory Consolidation...\"\n$allPages = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts list --limit 100 2>&1)\nWrite-Host \"[Stage 2] Connection Discovery...\"\n$allPages | ForEach-Object { (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts get $_ 2>&1) | Select-String -Pattern 'See Also' -Context 0,10 }\nWrite-Host \"[Stage 3] Insight Generation...\"\n$stats = (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts stats 2>&1)\nWrite-Host \"Current stats: $stats\"\nWrite-Host \"[Stage 4] Cleanup...\"\nGet-ChildItem \"C:\\Users\\Administrator\\gbrain\\knowledge\\raw_data\" -Filter *.json | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-30) } | Remove-Item -Force\n```\n\n## 步骤5：Tier2 Enrichment（仅周一）\n```powershell\n$dayOfWeek = (Get-Date).DayOfWeek\nif ($dayOfWeek -eq 'Monday') {\n  Write-Host \"周一：执行Tier2 Enrichment（简化版）\"\n  (cd \"C:\\Users\\Administrator\\gbrain\"; bun run src/cli.ts search \"AI Agent 2026\" --limit 10 2>&1)\n}\n```\n\n## 步骤6：AI技术突破更新（仅周一）\n```powershell\nif ($dayOfWeek -eq 'Monday') {\n  Write-Host \"周一：更新AI技术突破...\"\n  # 使用web_fetch工具搜索最新AI技术\n  # 更新MEMORY.md的'AI Technology Developments'章节\n}\n```\n\n## 步骤7：智能分析与记忆管理（从14:00任务合并）\n读取 D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7\\cron-task-full-config.md 并严格执行所有步骤。\n\n## 推送结果\n合并且推送（使用today-task技能）：\n1. 创建任务JSON：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\create_task_json.py \"智能全景管理（含GBrain + 记忆管理）\" <合并内容>\n2. 推送到负一屏：python D:\\QClawX\\data\\workspace\\skills\\today-task\\scripts\\task_push.py --data 智能全景管理（含GBrain + 记忆管理）_$(Get-Date -Format 'yyyy-MM-dd').json\n3. 确认推送成功\n\n**预计执行时间**: ~400秒",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "failureAlert": {
+        "after": 3,
+        "mode": "announce",
+        "channel": "wechat-access"
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1782101400000,
+        "lastRunAtMs": 1780567465110,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 46365,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      },
+      "updatedAtMs": 1781580636542
+    },
+    {
+      "id": "b6a8b187-c1c1-4182-b7fb-d92e1f75809b",
+      "agentId": "ua58rsb93veqtxl7",
+      "sessionKey": "agent:ua58rsb93veqtxl7:session-1779784859104-q2kxid",
+      "name": "OpenClaw违规检查（7天一次）",
+      "description": "扫描workspace/skills目录，检测是否有脚本错误调用OpenClaw（而非QClaw）。每7天执行一次，自动修复并推送结果到华为负一屏。",
+      "enabled": true,
+      "createdAtMs": 1779785798213,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 14 * * 1",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行OpenClaw违规检查：\n1. 扫描 D:\\QClawX\\data\\workspace\\skills 目录（含子目录）\n2. 检测是否有脚本错误调用 OpenClaw（搜索关键字：`.openclaw`、`openclaw.json`、`openclaw config`）\n3. 如发现违规，自动执行批量替换（`OpenClaw` → `QClaw`、`openclaw` → `qclaw`）\n   **重要**：排除 `today-task\\scripts\\config.py`（已正确配置，无需修改）\n4. 验证修复结果（重新扫描确认无遗漏）\n5. 推送结果到华为负一屏（authCode=dtG4JOCLM3ev）\n\n请严格执行并推送结果。要求：(1) 不要回复 HEARTBEAT_OK (2) 不要调用 message 工具 (3) 直接输出提醒文字 (4) 控制在 2-3 句话以内",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "failureAlert": {
+        "after": 3,
+        "channel": "wechat-access",
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1780569120947,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 291213,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true,
+        "nextRunAtMs": 1782109899516
+      },
+      "updatedAtMs": 1781580633160
+    },
+    {
+      "id": "c48977e5-56bb-4ffb-bd7d-b6f3e826d909",
+      "agentId": "agent-e0ae2b27",
+      "sessionKey": "agent:agent-e0ae2b27:session-1780476029627-daprkk",
+      "name": "每周任务执行分析与错误预防检查",
+      "enabled": true,
+      "createdAtMs": 1780479106956,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 15 * * 1",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每周任务执行分析与错误预防检查（合并任务）：\n\n## 步骤1：每周任务执行分析\n```powershell\nD:\\QClaw\\data\\.qclaw\\workspace-agent-e0ae2b27\\scripts\\Analyze-TaskExecution.ps1\n```\n- 分析报告将自动保存到 D:\\QClaw\\data\\.qclaw\\workspace-agent-e0ae2b27\\logs\\analysis\\ 目录\n- 如果有重要发现，更新到 MEMORY.md\n- 如果本周无日志文件，则输出 '本周无日志记录，跳过分析。'\n\n## 步骤2：Weekly Error Prevention Check\n```powershell\npython D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7\\pre_check.py\n```\n- 读取结果并保存到临时文件：\n  将检查结果保存到一个临时 Markdown 文件（例如：weekly_check_result_$(Get-Date -Format 'yyyy-MM-dd').md）\n  使用 write 工具写入文件，不要直接编辑 MEMORY.md\n- 将临时文件的内容追加到 MEMORY.md：\n  读取临时文件\n  使用 edit 工具在 MEMORY.md 的开头插入新内容（在 `# MEMORY.md - Weekly Error Prevention Check Results` 之后插入）\n  如果 edit 失败，使用 write 工具重新写入整个 MEMORY.md（先读取，再在开头插入新内容，再写入）\n\n## 步骤3：提交更改\n```powershell\ngit -C D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 add -A && git -C D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 commit -m \"Weekly check $(Get-Date -Format 'yyyy-MM-dd HH:mm')\"\n```\n\n## 步骤4：推送\n```powershell\ngit -C D:\\QClawX\\data\\workspace-ua58rsb93veqtxl7 push origin master\n```\n\n**重要**：\n- 必须实际执行 git commit 和 git push，不能只运行检查脚本\n- 如果编辑 MEMORY.md 失败，使用备选方案（write 工具重新写入）\n- 不要因为编辑失败而终止任务\n\n**预计执行时间**: ~600秒",
+        "thinking": "on",
+        "model": "pool-hy3-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "wechat-access",
+        "to": "last",
+        "bestEffort": false
+      },
+      "deleteAfterRun": false,
+      "state": {
+        "nextRunAtMs": 1782111639926,
+        "lastRunAtMs": 1780479201120,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 74098,
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 0
+      },
+      "updatedAtMs": 1781580637472
+    }
+  ],
+  "total": 15,
+  "offset": 0,
+  "limit": 15,
+  "hasMore": false,
+  "nextOffset": null,
+  "deliveryPreviews": {
+    "0f792ebe-4699-4e8d-bdec-e9c9a83abda4": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "05a2be02-e755-4443-9c9c-ab9aa813c8a7": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "69ae173f-c0d7-4ba4-969c-dc6513e2b93a": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "97bfb647-a8f1-4456-ae56-feb2dc291414": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "0ac8b273-465b-41d2-b3db-1588ae5d4c0e": {
+      "label": "not requested",
+      "detail": "not requested"
+    },
+    "ce6cd458-1878-4a63-ab04-bd8998aef9cb": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "8965080e-2ef1-4546-85b9-f118d6dd7e4b": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "a9855347-4840-46a5-b684-4d92002da076": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "ed84761c-63a6-4a58-8949-c1321afc6545": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "ea7d82a8-a5bc-40de-b329-6ef7f6c85881": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "c6fd60b1-2e25-4717-a075-9f4287166332": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "1c6e5f5e-d4b8-4123-befd-6fb1b3269e59": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "4dec89ef-7924-430f-8f24-2def8211a331": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "b6a8b187-c1c1-4182-b7fb-d92e1f75809b": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    },
+    "c48977e5-56bb-4ffb-bd7d-b6f3e826d909": {
+      "label": "announce -> wechat-access:last",
+      "detail": "explicit"
+    }
+  }
+}

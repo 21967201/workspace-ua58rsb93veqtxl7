@@ -1,0 +1,38 @@
+{
+  "monitor_time": "2026-06-16 11:42:00",
+  "total_tasks": 15,
+  "compliant_count": 15,
+  "non_compliant_count": 0,
+  "compliance_rate": "100.0%",
+  "violations_found": 1,
+  "violations_fixed": 1,
+  "details": {
+    "violation_found": {
+      "task_id": "0ac8b273-465b-41d2-b3db-1588ae5d4c0e",
+      "task_name": "Memory Dreaming Promotion",
+      "original_expr": "39 3 * * *",
+      "violation_reason": "Ran every day (including Sunday) at 3:39 AM, outside 10:30-18:10 range",
+      "action_taken": "FIXED",
+      "new_expr": "39 10 * * 1-6",
+      "fix_time": "2026-06-16 11:41:00"
+    }
+  },
+  "all_tasks_now_compliant": true,
+  "tasks": [
+    {"name": "tech-breakthrough-monitor", "expr": "30 13 * * 1-6", "compliant": true},
+    {"name": "实时监控任务", "expr": "0 14 * * 1-6", "compliant": true},
+    {"name": "每日任务监督", "expr": "30 15 * * 1-6", "compliant": true},
+    {"name": "自动同步任务文件到GitHub", "expr": "30 16 * * 1-6", "compliant": true},
+    {"name": "Memory Dreaming Promotion", "expr": "39 10 * * 1-6", "compliant": true, "note": "FIXED - was 39 3 * * *"},
+    {"name": "每日监控任务", "expr": "30 10 * * 1-6", "compliant": true},
+    {"name": "季度评审任务", "expr": "35 10 * * 1-6", "compliant": true},
+    {"name": "月度报告任务", "expr": "45 10 * * 1-6", "compliant": true},
+    {"name": "1688全面分析（全景+竞品）", "expr": "0 11 * * 1-6", "compliant": true},
+    {"name": "商业智能周报", "expr": "0 15 * * 5", "compliant": true},
+    {"name": "学术论文与知识库周度同步", "expr": "10 11 * * 1", "compliant": true},
+    {"name": "QClaw智能清理（周度+月度合并）", "expr": "40 11 * * 1", "compliant": true},
+    {"name": "智能全景管理（含GBrain + 记忆管理）", "expr": "10 12 * * 1", "compliant": true},
+    {"name": "OpenClaw违规检查（7天一次）", "expr": "30 14 * * 1", "compliant": true},
+    {"name": "每周任务执行分析与错误预防检查", "expr": "0 15 * * 1", "compliant": true}
+  ]
+}
