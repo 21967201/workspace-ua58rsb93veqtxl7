@@ -1,4 +1,4 @@
-﻿people/john-doe-enriched
+people/john-doe-enriched
 people/john-doe
-companies/acme-corp
 people/test-person
+companies/acme-corp
