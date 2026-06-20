@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-06-18T11:32:11.362132",
+  "query": "读取PDF并提取文本",
+  "total_candidates": 3,
+  "selected_count": 0,
+  "entropy_threshold": 0.5,
+  "uncertainty_aware": true,
+  "top_skills": []
+}

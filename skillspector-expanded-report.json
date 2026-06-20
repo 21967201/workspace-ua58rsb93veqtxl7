@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-06-18T11:29:27.048718",
+  "summary": {
+    "total_files": 1,
+    "total_vulnerabilities": 7,
+    "avg_risk_score": 10.0,
+    "severity_distribution": {
+      "CRITICAL": 5,
+      "HIGH": 2,
+      "MEDIUM": 0,
+      "LOW": 0
+    },
+    "patterns_checked": 64,
+    "categories_checked": 16
+  },
+  "scan_results": [
+    {
+      "file": "test-skill-for-skillspector.md",
+      "vulnerabilities": [
+        {
+          "pattern_id": "PI-001",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "HIGH",
+          "pattern": "ignore.*previous.*instructions?",
+          "matches": [
+            "Ignore all previous instructions"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "CT-001",
+          "category": "Credential Theft",
+          "category_id": 2,
+          "severity": "CRITICAL",
+          "pattern": "api[_-]?key\\s*[:=]\\s*[\\\"']?\\w+",
+          "matches": [
+            "api_key = \"sk"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "CT-002",
+          "category": "Credential Theft",
+          "category_id": 2,
+          "severity": "CRITICAL",
+          "pattern": "password\\s*[:=]\\s*[\\\"']?\\w+",
+          "matches": [
+            "password = \"admin123"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-001",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "HIGH",
+          "pattern": "send.*to.*(http|https|ftp)",
+          "matches": [
+            "http"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-002",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "CRITICAL",
+          "pattern": "exfiltrat",
+          "matches": [
+            "Exfiltrat"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "CI-001",
+          "category": "Code Injection",
+          "category_id": 4,
+          "severity": "CRITICAL",
+          "pattern": "eval\\s*\\(",
+          "matches": [
+            "eval("
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "CMD-001",
+          "category": "Command Injection",
+          "category_id": 5,
+          "severity": "CRITICAL",
+          "pattern": "os\\.system\\s*\\(",
+          "matches": [
+            "os.system("
+          ],
+          "match_count": 1
+        }
+      ],
+      "risk_score": 10,
+      "patterns_checked": 64,
+      "categories_affected": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}

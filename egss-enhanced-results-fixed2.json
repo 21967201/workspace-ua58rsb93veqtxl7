@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-06-18T11:33:43.844280",
+  "query": "读取PDF并提取文本",
+  "total_candidates": 3,
+  "selected_count": 3,
+  "entropy_threshold": 1.0,
+  "uncertainty_aware": true,
+  "top_skills": [
+    {
+      "name": "PDF-Reader-OCR",
+      "entropy": 0.6283898247235197,
+      "uncertainty_aware_score": 0.48223708257461495,
+      "logprobs": [
+        0.7,
+        0.2,
+        0.05,
+        0.05
+      ]
+    },
+    {
+      "name": "PDF-Reader-Advanced",
+      "entropy": 0.6283898247235197,
+      "uncertainty_aware_score": 0.4448959733334705,
+      "logprobs": [
+        0.7,
+        0.2,
+        0.05,
+        0.05
+      ]
+    },
+    {
+      "name": "PDF-Reader-Batch",
+      "entropy": 0.9232196723355078,
+      "uncertainty_aware_score": 0.34697209218478675,
+      "logprobs": [
+        0.4,
+        0.3,
+        0.2,
+        0.1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "model": "qclaw/pool-hy3-preview",
+    "skill": {
+      "name": "Skill_qclaw_pool-hy3-preview_0",
+      "description": "Candidate skill for task: 读取PDF文件并提取文本...",
+      "steps": [
+        "Step 1: Analyze task: 读取PDF文件并提取文本",
+        "Step 2: Execute action using qclaw/pool-hy3-preview",
+        "Step 3: Verify result"
+      ],
+      "prompt_template": "You are a helpful assistant. Task: 读取PDF文件并提取文本\nUse the following steps:\n{steps}"
+    },
+    "temperature": 0.7
+  }
+]

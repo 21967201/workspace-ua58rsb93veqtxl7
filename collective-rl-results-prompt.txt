@@ -1,0 +1,38 @@
+Task: 读取PDF并提取文本内容
+
+## Available Skills
+You have access to the following collective skills that can be combined to solve this task:
+
+
+## PDF-Reader-OCR
+Description: PDF text extraction with OCR for scanned documents
+Steps:
+  1. Check if scanned
+  2. Run OCR
+  3. Extract text
+  4. Post-process
+=
+## PDF-Reader-Advanced
+Description: Advanced PDF parsing with layout detection
+Steps:
+  1. Detect layout
+  2. Extract text by region
+  3. Handle tables
+  4. Output structured data
+=
+## PDF-Reader-Batch
+Description: Batch process multiple PDF files
+Steps:
+  1. List PDF files
+  2. Process each file
+  3. Merge results
+  4. Generate summary
+
+
+## Strategy
+1. Analyze the task and identify which skills are most relevant
+2. Combine the selected skills to create an optimal solution
+3. Execute the combined skills in the correct order
+4. Adapt and refine as needed based on results
+
+Generate a solution using the available skills.

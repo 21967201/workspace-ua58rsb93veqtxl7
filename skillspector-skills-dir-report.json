@@ -1,0 +1,562 @@
+{
+  "timestamp": "2026-06-18T11:30:42.961515",
+  "summary": {
+    "total_files": 16,
+    "total_vulnerabilities": 37,
+    "avg_risk_score": 2.8,
+    "severity_distribution": {
+      "CRITICAL": 12,
+      "HIGH": 13,
+      "MEDIUM": 11,
+      "LOW": 1
+    },
+    "patterns_checked": 64,
+    "categories_checked": 16
+  },
+  "scan_results": [
+    {
+      "file": "skills\\csts-skill-generator\\SKILL.md",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\collective_rl.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\collective_rl_enhanced.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\csn_assess.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\csn_assess_enhanced.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\csn_gen.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\csn_gen_enhanced.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\csn_gen_fixed.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\egss_simplified.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\skillspector_expanded.py",
+      "vulnerabilities": [
+        {
+          "pattern_id": "PI-001",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "HIGH",
+          "pattern": "ignore.*previous.*instructions?",
+          "matches": [
+            "ignore.*previous.*instructions"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-002",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "HIGH",
+          "pattern": "you.*now.*a.*different.*role",
+          "matches": [
+            "you.*now.*a.*different.*role"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-003",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "MEDIUM",
+          "pattern": "forget.*all.*previous",
+          "matches": [
+            "forget.*all.*previous"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-004",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "CRITICAL",
+          "pattern": "system.*prompt.*override",
+          "matches": [
+            "system.*prompt.*override"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-001",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "HIGH",
+          "pattern": "send.*to.*(http|https|ftp)",
+          "matches": [
+            "ftp"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-002",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "CRITICAL",
+          "pattern": "exfiltrat",
+          "matches": [
+            "Exfiltrat",
+            "Exfiltrat",
+            "exfiltrat"
+          ],
+          "match_count": 3
+        },
+        {
+          "pattern_id": "DE-003",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "HIGH",
+          "pattern": "leak.*data",
+          "matches": [
+            "leak.*data"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-004",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "MEDIUM",
+          "pattern": "upload.*to.*external",
+          "matches": [
+            "upload.*to.*external"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "CMD-002",
+          "category": "Command Injection",
+          "category_id": 5,
+          "severity": "HIGH",
+          "pattern": "shell\\s*=\\s*True",
+          "matches": [
+            "shell=True"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PT-002",
+          "category": "Path Traversal",
+          "category_id": 6,
+          "severity": "MEDIUM",
+          "pattern": "/etc/passwd",
+          "matches": [
+            "/etc/passwd"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "XSS-001",
+          "category": "XSS",
+          "category_id": 8,
+          "severity": "CRITICAL",
+          "pattern": "<script.*>",
+          "matches": [
+            "<script.*>"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "XSS-003",
+          "category": "XSS",
+          "category_id": 8,
+          "severity": "HIGH",
+          "pattern": "javascript:",
+          "matches": [
+            "javascript:"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SQL-001",
+          "category": "SQL Injection",
+          "category_id": 9,
+          "severity": "CRITICAL",
+          "pattern": "SELECT.*FROM.*WHERE.*\\+",
+          "matches": [
+            "SELECT.*FROM.*WHERE.*\\+"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SQL-002",
+          "category": "SQL Injection",
+          "category_id": 9,
+          "severity": "HIGH",
+          "pattern": "INSERT.*INTO.*\\+",
+          "matches": [
+            "INSERT.*INTO.*\\+"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SQL-003",
+          "category": "SQL Injection",
+          "category_id": 9,
+          "severity": "CRITICAL",
+          "pattern": "DROP.*TABLE",
+          "matches": [
+            "DROP.*TABLE"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DC-003",
+          "category": "Dependency Confusion",
+          "category_id": 12,
+          "severity": "MEDIUM",
+          "pattern": "requirements.*\\.txt.*internal",
+          "matches": [
+            "requirements.*\\.txt.*internal"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DC-004",
+          "category": "Dependency Confusion",
+          "category_id": 12,
+          "severity": "MEDIUM",
+          "pattern": "private.*pypi",
+          "matches": [
+            "private.*pypi"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "MD-001",
+          "category": "Malicious Dependencies",
+          "category_id": 13,
+          "severity": "CRITICAL",
+          "pattern": "import.*os.*system",
+          "matches": [
+            "import.*os.*system"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "MD-002",
+          "category": "Malicious Dependencies",
+          "category_id": 13,
+          "severity": "CRITICAL",
+          "pattern": "import.*subprocess.*shell=True",
+          "matches": [
+            "import.*subprocess.*shell=True"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "MD-003",
+          "category": "Malicious Dependencies",
+          "category_id": 13,
+          "severity": "HIGH",
+          "pattern": "import.*requests.*verify=False",
+          "matches": [
+            "import.*requests.*verify=False"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "MD-004",
+          "category": "Malicious Dependencies",
+          "category_id": 13,
+          "severity": "MEDIUM",
+          "pattern": "import.*crypto.*weak",
+          "matches": [
+            "import.*crypto.*weak"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "ID-004",
+          "category": "Information Disclosure",
+          "category_id": 14,
+          "severity": "LOW",
+          "pattern": "stack.*trace",
+          "matches": [
+            "stack.*trace"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DoS-003",
+          "category": "Denial of Service",
+          "category_id": 15,
+          "severity": "MEDIUM",
+          "pattern": "recursion.*depth",
+          "matches": [
+            "recursion.*depth"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SC-001",
+          "category": "Scope Creep",
+          "category_id": 16,
+          "severity": "HIGH",
+          "pattern": "access.*all.*files",
+          "matches": [
+            "access.*all.*files"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SC-002",
+          "category": "Scope Creep",
+          "category_id": 16,
+          "severity": "CRITICAL",
+          "pattern": "read.*entire.*database",
+          "matches": [
+            "read.*entire.*database"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SC-003",
+          "category": "Scope Creep",
+          "category_id": 16,
+          "severity": "CRITICAL",
+          "pattern": "execute.*arbitrary.*code",
+          "matches": [
+            "execute.*arbitrary.*code"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "SC-004",
+          "category": "Scope Creep",
+          "category_id": 16,
+          "severity": "CRITICAL",
+          "pattern": "full.*system.*access",
+          "matches": [
+            "full.*system.*access"
+          ],
+          "match_count": 1
+        }
+      ],
+      "risk_score": 33,
+      "patterns_checked": 64,
+      "categories_affected": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        9,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\skillspector_simplified.py",
+      "vulnerabilities": [
+        {
+          "pattern_id": "PI-001",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "HIGH",
+          "pattern": "ignore.*previous.*instructions?",
+          "matches": [
+            "ignore .* previous .* instructions"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-002",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "HIGH",
+          "pattern": "you.*now.*a.*different.*role",
+          "matches": [
+            "you .* now .* a .* different .* role"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-003",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "MEDIUM",
+          "pattern": "forget.*all.*previous",
+          "matches": [
+            "forget .* all .* previous"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "PI-004",
+          "category": "Prompt Injection",
+          "category_id": 1,
+          "severity": "CRITICAL",
+          "pattern": "system.*prompt.*override",
+          "matches": [
+            "system .* prompt .* override"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-001",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "HIGH",
+          "pattern": "send.*to.*(http|https|ftp)",
+          "matches": [
+            "ftp"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-002",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "CRITICAL",
+          "pattern": "exfiltrat",
+          "matches": [
+            "Exfiltrat",
+            "Exfiltrat",
+            "exfiltrat"
+          ],
+          "match_count": 3
+        },
+        {
+          "pattern_id": "DE-003",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "HIGH",
+          "pattern": "leak.*data",
+          "matches": [
+            "leak .* data"
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DE-004",
+          "category": "Data Exfiltration",
+          "category_id": 3,
+          "severity": "MEDIUM",
+          "pattern": "upload.*to.*external",
+          "matches": [
+            "upload .* to .* external"
+          ],
+          "match_count": 1
+        }
+      ],
+      "risk_score": 11,
+      "patterns_checked": 64,
+      "categories_affected": [
+        1,
+        3
+      ]
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\skill_tree.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\csts-skill-generator\\scripts\\skill_tree_enhanced.py",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\experience-tracker\\SKILL.md",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    },
+    {
+      "file": "skills\\token-tracker\\ecc_compress.py",
+      "vulnerabilities": [
+        {
+          "pattern_id": "PT-004",
+          "category": "Path Traversal",
+          "category_id": 6,
+          "severity": "MEDIUM",
+          "pattern": "path\\.join.*\\.\\.",
+          "matches": [
+            "path.join(os.path.dirname(__file__), '..', '.."
+          ],
+          "match_count": 1
+        },
+        {
+          "pattern_id": "DA-003",
+          "category": "Deserialization Attack",
+          "category_id": 10,
+          "severity": "MEDIUM",
+          "pattern": "json\\.loads\\s*\\(",
+          "matches": [
+            "json.loads("
+          ],
+          "match_count": 1
+        }
+      ],
+      "risk_score": 1,
+      "patterns_checked": 64,
+      "categories_affected": [
+        10,
+        6
+      ]
+    },
+    {
+      "file": "skills\\token-tracker\\SKILL.md",
+      "vulnerabilities": [],
+      "risk_score": 0,
+      "patterns_checked": 64,
+      "categories_affected": []
+    }
+  ]
+}

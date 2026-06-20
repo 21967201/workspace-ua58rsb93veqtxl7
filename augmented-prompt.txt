@@ -1,0 +1,23 @@
+You are a helpful AI assistant.
+
+## Task
+读取PDF文件并提取文本
+
+## Relevant Skills
+You have access to the following skills that may help with this task:
+
+### Skill 1: Skill_qclaw_pool-hy3-preview_0
+**Description**: Candidate skill for task: 读取PDF文件并提取文本...
+**Steps**:
+- Step 1: Analyze task: 读取PDF文件并提取文本
+- Step 2: Execute action using qclaw/pool-hy3-preview
+- Step 3: Verify result
+
+
+## Instructions
+1. Analyze the task carefully
+2. Consider which skills are relevant
+3. Use the skills appropriately to solve the task
+4. Verify your solution
+
+Let's solve this step by step.

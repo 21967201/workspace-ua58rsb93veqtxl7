@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-06-18T11:15:00.546808",
+  "task": "",
+  "models": [
+    "qclaw/pool-hy3-preview"
+  ],
+  "num_candidates": 5,
+  "candidates": [
+    {
+      "skill": {
+        "name": "PDF-Reader-Basic",
+        "description": "Basic PDF text extraction using read tool",
+        "steps": [
+          "Read PDF file",
+          "Extract text",
+          "Save to file"
+        ],
+        "tools": [
+          "read",
+          "write"
+        ],
+        "examples": [
+          "Extract text from document.pdf"
+        ]
+      },
+      "metadata": {
+        "model": "qclaw/pool-hy3-preview",
+        "task": "读取PDF文件并提取文本内容",
+        "generation_time": "2026-06-18T11:15:00.546808",
+        "candidate_index": 0,
+        "variant": 0
+      }
+    },
+    {
+      "skill": {
+        "name": "PDF-Reader-Advanced",
+        "description": "Advanced PDF parsing with layout detection",
+        "steps": [
+          "Detect layout",
+          "Extract text by region",
+          "Handle tables",
+          "Output structured data"
+        ],
+        "tools": [
+          "read",
+          "write",
+          "exec"
+        ],
+        "examples": [
+          "Parse academic paper with figures"
+        ]
+      },
+      "metadata": {
+        "model": "qclaw/pool-hy3-preview",
+        "task": "读取PDF文件并提取文本内容",
+        "generation_time": "2026-06-18T11:15:00.546808",
+        "candidate_index": 1,
+        "variant": 1
+      }
+    },
+    {
+      "skill": {
+        "name": "PDF-Reader-OCR",
+        "description": "PDF text extraction with OCR for scanned documents",
+        "steps": [
+          "Check if scanned",
+          "Run OCR",
+          "Extract text",
+          "Post-process"
+        ],
+        "tools": [
+          "read",
+          "write",
+          "exec",
+          "web_search"
+        ],
+        "examples": [
+          "Extract text from scanned document"
+        ]
+      },
+      "metadata": {
+        "model": "qclaw/pool-hy3-preview",
+        "task": "读取PDF文件并提取文本内容",
+        "generation_time": "2026-06-18T11:15:00.546808",
+        "candidate_index": 2,
+        "variant": 2
+      }
+    },
+    {
+      "skill": {
+        "name": "PDF-Reader-Batch",
+        "description": "Batch process multiple PDF files",
+        "steps": [
+          "List PDF files",
+          "Process each file",
+          "Merge results",
+          "Generate summary"
+        ],
+        "tools": [
+          "read",
+          "write",
+          "exec"
+        ],
+        "examples": [
+          "Process all PDFs in folder"
+        ]
+      },
+      "metadata": {
+        "model": "qclaw/pool-hy3-preview",
+        "task": "读取PDF文件并提取文本内容",
+        "generation_time": "2026-06-18T11:15:00.546808",
+        "candidate_index": 3,
+        "variant": 3
+      }
+    },
+    {
+      "skill": {
+        "name": "PDF-Reader-Smart",
+        "description": "Intelligent PDF parsing with auto-format detection",
+        "steps": [
+          "Detect format",
+          "Choose parser",
+          "Extract content",
+          "Validate output"
+        ],
+        "tools": [
+          "read",
+          "write",
+          "web_search"
+        ],
+        "examples": [
+          "Auto-parse unknown PDF format"
+        ]
+      },
+      "metadata": {
+        "model": "qclaw/pool-hy3-preview",
+        "task": "读取PDF文件并提取文本内容",
+        "generation_time": "2026-06-18T11:15:00.546808",
+        "candidate_index": 4,
+        "variant": 4
+      }
+    }
+  ]
+}

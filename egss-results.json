@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-06-18T10:37:50.391215",
+  "entropy_threshold": 1.0,
+  "top_k": 3,
+  "results": [
+    {
+      "skill": {
+        "model": "qclaw/pool-hy3-preview",
+        "skill": {
+          "name": "Skill_qclaw_pool-hy3-preview_0",
+          "description": "Candidate skill for task: 读取PDF文件并提取文本...",
+          "steps": [
+            "Step 1: Analyze task: 读取PDF文件并提取文本",
+            "Step 2: Execute action using qclaw/pool-hy3-preview",
+            "Step 3: Verify result"
+          ],
+          "prompt_template": "You are a helpful assistant. Task: 读取PDF文件并提取文本\nUse the following steps:\n{steps}"
+        },
+        "temperature": 0.7,
+        "assessment": {
+          "quality_score": 0.7057916902584737,
+          "transferability_score": 0.7843069951899057,
+          "final_score": 0.7371978122310465
+        }
+      },
+      "entropy": 0.6799999999999999,
+      "uncertainty_score": 0.4865505560724907
+    }
+  ]
+}

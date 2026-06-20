@@ -1,0 +1,131 @@
+{
+  "generated_at": "2026-06-18T10:57:08.053469",
+  "workspace": ".",
+  "total_tasks": 13,
+  "tasks": [
+    {
+      "name": "CSTS-Enhance-CSN-Gen",
+      "description": "增强CSN-Gen：实际调用LLM API",
+      "priority": "HIGH",
+      "estimated_hours": 4,
+      "dependencies": [],
+      "next_run": "2026-06-19T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/csn_gen_enhanced.py --task 'Read PDF' --models 'qclaw/pool-hy3-preview' --output candidates.json"
+    },
+    {
+      "name": "CSTS-Enhance-CSN-Assess",
+      "description": "增强CSN-Assess：实现LLM-as-a-Judge",
+      "priority": "HIGH",
+      "estimated_hours": 6,
+      "dependencies": [
+        "CSTS-Enhance-CSN-Gen"
+      ],
+      "next_run": "2026-06-20T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/csn_assess_enhanced.py --candidates candidates.json --output assessed.json"
+    },
+    {
+      "name": "CSTS-Benchmark-Eval",
+      "description": "在GAIA/SWE-bench上评估CSTS",
+      "priority": "MEDIUM",
+      "estimated_hours": 8,
+      "dependencies": [
+        "CSTS-Enhance-CSN-Assess"
+      ],
+      "next_run": "2026-06-25T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/benchmark_eval.py --benchmark gaia --output csts-benchmark-results.json"
+    },
+    {
+      "name": "SkillSpector-Expand-Patterns",
+      "description": "扩展漏洞模式到64个（16类风险）",
+      "priority": "HIGH",
+      "estimated_hours": 6,
+      "dependencies": [],
+      "next_run": "2026-06-19T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/skillspector_expand.py --output skillspector-full.json"
+    },
+    {
+      "name": "SkillSpector-LLM-Semantic",
+      "description": "实现LLM语义分析",
+      "priority": "MEDIUM",
+      "estimated_hours": 5,
+      "dependencies": [
+        "SkillSpector-Expand-Patterns"
+      ],
+      "next_run": "2026-06-21T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/skillspector_llm.py --input test-skill.md --output report-llm.json"
+    },
+    {
+      "name": "SkillSpector-CI-CD",
+      "description": "集成到CI/CD流水线",
+      "priority": "LOW",
+      "estimated_hours": 3,
+      "dependencies": [
+        "SkillSpector-LLM-Semantic"
+      ],
+      "next_run": "2026-06-23T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/skillspector_ci.py --config ci-config.json"
+    },
+    {
+      "name": "EGSS-Integrate-Logprobs",
+      "description": "集成真实LLM logprobs计算熵",
+      "priority": "HIGH",
+      "estimated_hours": 5,
+      "dependencies": [],
+      "next_run": "2026-06-20T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/egss_logprobs.py --skills memory/csts-skill-tree.json --output egss-logprobs-results.json"
+    },
+    {
+      "name": "EGSS-Full-Loop",
+      "description": "实现完整的熵引导循环",
+      "priority": "MEDIUM",
+      "estimated_hours": 7,
+      "dependencies": [
+        "EGSS-Integrate-Logprobs"
+      ],
+      "next_run": "2026-06-22T10:57:08.053469",
+      "script": "python skills/csts-skill-generator/scripts/egss_full_loop.py --task 'Complex task' --iterations 5 --output egss-loop-results.json"
+    },
+    {
+      "name": "P1-Evaluate-superpowers",
+      "description": "评估superpowers (8.5/10)",
+      "priority": "MEDIUM",
+      "estimated_hours": 4,
+      "dependencies": [],
+      "next_run": "2026-06-21T10:57:08.053469",
+      "script": "python scripts/evaluate_p1.py --breakthrough superpowers --output p1-superpowers-eval.json"
+    },
+    {
+      "name": "P1-Evaluate-agent-skills",
+      "description": "评估agent-skills (8.3/10)",
+      "priority": "MEDIUM",
+      "estimated_hours": 4,
+      "dependencies": [],
+      "next_run": "2026-06-22T10:57:08.053469",
+      "script": "python scripts/evaluate_p1.py --breakthrough agent-skills --output p1-agent-skills-eval.json"
+    },
+    {
+      "name": "Weekly-Tech-Breakthrough-Monitor",
+      "description": "每周技术突破监控",
+      "priority": "HIGH",
+      "estimated_hours": 2,
+      "schedule": "0 13 * * 3",
+      "script": "python scripts/tech_breakthrough_monitor.py --output weekly-tech-report.json"
+    },
+    {
+      "name": "Weekly-Self-Evolution-Report",
+      "description": "每周自进化报告",
+      "priority": "HIGH",
+      "estimated_hours": 3,
+      "schedule": "0 11 * * 1",
+      "script": "python scripts/self_evolution_report.py --output weekly-evolution-report.json"
+    },
+    {
+      "name": "Weekly-Task-Execution-Analysis",
+      "description": "每周任务执行分析",
+      "priority": "MEDIUM",
+      "estimated_hours": 2,
+      "schedule": "0 15 * * 1",
+      "script": "python scripts/task_execution_analysis.py --output weekly-task-analysis.json"
+    }
+  ]
+}

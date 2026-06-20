@@ -1,0 +1,58 @@
+{
+  "file": "test-skill-for-skillspector.md",
+  "vulnerabilities": [
+    {
+      "pattern_id": "CT-001",
+      "category": 2,
+      "category_name": "Credential Theft",
+      "severity": "CRITICAL",
+      "match": "api_key = \"sk",
+      "position": 339,
+      "analysis_type": "static"
+    },
+    {
+      "pattern_id": "CT-002",
+      "category": 2,
+      "category_name": "Credential Theft",
+      "severity": "CRITICAL",
+      "match": "password = \"admin123",
+      "position": 403,
+      "analysis_type": "static"
+    },
+    {
+      "pattern_id": "DE-002",
+      "category": 3,
+      "category_name": "Data Exfiltration",
+      "severity": "CRITICAL",
+      "match": "Exfiltrat",
+      "position": 240,
+      "analysis_type": "static"
+    },
+    {
+      "pattern_id": "CI-001",
+      "category": 4,
+      "category_name": "Code Injection",
+      "severity": "CRITICAL",
+      "match": "eval(",
+      "position": 137,
+      "analysis_type": "static"
+    },
+    {
+      "pattern_id": "CMD-001",
+      "category": 5,
+      "category_name": "Command Injection",
+      "severity": "CRITICAL",
+      "match": "os.system(",
+      "position": 265,
+      "analysis_type": "static"
+    }
+  ],
+  "risk_score": 100,
+  "categories_found": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "scan_depth": "quick"
+}
