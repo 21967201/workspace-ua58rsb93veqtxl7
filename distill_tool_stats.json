@@ -1,0 +1,58 @@
+[
+  {
+    "tool": "exec",
+    "count": 312
+  },
+  {
+    "tool": "write",
+    "count": 93
+  },
+  {
+    "tool": "read",
+    "count": 66
+  },
+  {
+    "tool": "web_search",
+    "count": 46
+  },
+  {
+    "tool": "edit",
+    "count": 38
+  },
+  {
+    "tool": "cron",
+    "count": 26
+  },
+  {
+    "tool": "process",
+    "count": 20
+  },
+  {
+    "tool": "skillhub_install",
+    "count": 14
+  },
+  {
+    "tool": "web_fetch",
+    "count": 10
+  },
+  {
+    "tool": "lcm_grep",
+    "count": 2
+  },
+  {
+    "tool": "sessions_list",
+    "count": 2
+  },
+  {
+    "tool": "lcm_expand_query",
+    "count": 2
+  },
+  {
+    "tool": "lcm_expand",
+    "count": 1
+  },
+  {
+    "tool": "message",
+    "count": 1
+  }
+]

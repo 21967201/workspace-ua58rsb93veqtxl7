@@ -1,0 +1,371 @@
+{
+  "highValuePatterns": 229,
+  "createdSkills": 72,
+  "taskName": "Distill 工作流发现",
+  "discoveredPatterns": 907,
+  "extractedSequences": 25,
+  "skills": [
+    {
+      "name": "workflow-exec-exec-exec",
+      "pattern": "exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-exec",
+      "pattern": "exec -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-exec-exec",
+      "pattern": "exec -> exec -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-exec",
+      "pattern": "exec -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-exec",
+      "pattern": "write -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-read",
+      "pattern": "exec -> exec -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-cron-cron-cron",
+      "pattern": "cron -> cron -> cron",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-read-exec",
+      "pattern": "exec -> read -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-cron-cron-cron-cron",
+      "pattern": "cron -> cron -> cron -> cron",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-write",
+      "pattern": "exec -> exec -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-exec-exec",
+      "pattern": "read -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-cron-cron-cron-cron-cron",
+      "pattern": "cron -> cron -> cron -> cron -> cron",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-process",
+      "pattern": "exec -> exec -> process",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-edit-exec",
+      "pattern": "exec -> edit -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-process-exec",
+      "pattern": "exec -> process -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-exec-exec",
+      "pattern": "write -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-process-exec-exec",
+      "pattern": "process -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-write",
+      "pattern": "write -> exec -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-read",
+      "pattern": "exec -> exec -> exec -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-read-read",
+      "pattern": "exec -> read -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-exec-exec",
+      "pattern": "exec -> write -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-read-exec-exec",
+      "pattern": "exec -> read -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-process-exec-exec",
+      "pattern": "exec -> process -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-process-exec",
+      "pattern": "exec -> exec -> process -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-process-exec-exec",
+      "pattern": "exec -> exec -> process -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-web_search-web_search-web_search",
+      "pattern": "web_search -> web_search -> web_search",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-exec-exec-exec",
+      "pattern": "write -> exec -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-write",
+      "pattern": "exec -> exec -> exec -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-exec-read",
+      "pattern": "read -> exec -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-process",
+      "pattern": "exec -> exec -> exec -> process",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-write-exec",
+      "pattern": "write -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-write-exec",
+      "pattern": "write -> exec -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-write-exec",
+      "pattern": "read -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-write-exec",
+      "pattern": "exec -> exec -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-read-exec",
+      "pattern": "read -> read -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-read-exec",
+      "pattern": "exec -> exec -> read -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-write-exec-read",
+      "pattern": "write -> exec -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-read-edit",
+      "pattern": "exec -> read -> edit",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-skillhub_install-skillhub_install-skillhu",
+      "pattern": "skillhub_install -> skillhub_install -> skillhub_install",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-edit-exec",
+      "pattern": "read -> edit -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-write",
+      "pattern": "exec -> write -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-exec-write",
+      "pattern": "exec -> write -> exec -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-process-exec-exec-exec",
+      "pattern": "process -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-read-write",
+      "pattern": "exec -> read -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-exec-write",
+      "pattern": "exec -> exec -> exec -> exec -> write",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-exec-read",
+      "pattern": "exec -> exec -> exec -> exec -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-exec-write-exec",
+      "pattern": "exec -> write -> exec -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-exec-exec-process",
+      "pattern": "exec -> exec -> exec -> exec -> process",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-edit-write-exec",
+      "pattern": "edit -> write -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-read-read",
+      "pattern": "read -> read -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-write-exec-exec",
+      "pattern": "exec -> exec -> write -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-edit-exec-exec",
+      "pattern": "edit -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-write-exec-exec-exec",
+      "pattern": "exec -> write -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-process-exec-exec-exec",
+      "pattern": "exec -> process -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-read-exec-exec-exec",
+      "pattern": "read -> exec -> exec -> exec",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-read-read",
+      "pattern": "exec -> exec -> read -> read",
+      "confidence": 1.0
+    },
+    {
+      "name": "workflow-exec-exec-edit",
+      "pattern": "exec -> exec -> edit",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-exec-exec-exec-write-exec",
+      "pattern": "exec -> exec -> exec -> write -> exec",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-exec-edit-exec-edit",
+      "pattern": "exec -> edit -> exec -> edit",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-edit-exec-edit",
+      "pattern": "edit -> exec -> edit",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-exec-write-write-exec",
+      "pattern": "exec -> write -> write -> exec",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-exec-exec-read-exec-exec",
+      "pattern": "exec -> exec -> read -> exec -> exec",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-exec-exec-exec-process-exec",
+      "pattern": "exec -> exec -> exec -> process -> exec",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-read-edit-exec-read",
+      "pattern": "read -> edit -> exec -> read",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-edit-exec-read",
+      "pattern": "edit -> exec -> read",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-read-edit-write",
+      "pattern": "read -> edit -> write",
+      "confidence": 0.9
+    },
+    {
+      "name": "workflow-edit-exec-edit-exec",
+      "pattern": "edit -> exec -> edit -> exec",
+      "confidence": 0.8
+    },
+    {
+      "name": "workflow-web_search-web_search-web_search-web_sear",
+      "pattern": "web_search -> web_search -> web_search -> web_search",
+      "confidence": 0.8
+    },
+    {
+      "name": "workflow-read-exec-exec-exec-exec",
+      "pattern": "read -> exec -> exec -> exec -> exec",
+      "confidence": 0.8
+    },
+    {
+      "name": "workflow-exec-edit-exec-edit-exec",
+      "pattern": "exec -> edit -> exec -> edit -> exec",
+      "confidence": 0.8
+    },
+    {
+      "name": "workflow-exec-read-write-exec",
+      "pattern": "exec -> read -> write -> exec",
+      "confidence": 0.8
+    },
+    {
+      "name": "workflow-read-read-edit",
+      "pattern": "read -> read -> edit",
+      "confidence": 0.8
+    }
+  ],
+  "executionTime": "2026-06-23 10:26:58",
+  "scannedFiles": 30
+}

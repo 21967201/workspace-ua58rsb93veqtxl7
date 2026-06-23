@@ -1,0 +1,55 @@
+{
+  "totalToolCalls": 633.0,
+  "scannedFiles": 20,
+  "topTools": [
+    {
+      "tool": "exec",
+      "count": 312
+    },
+    {
+      "tool": "write",
+      "count": 93
+    },
+    {
+      "tool": "read",
+      "count": 66
+    },
+    {
+      "tool": "web_search",
+      "count": 46
+    },
+    {
+      "tool": "edit",
+      "count": 38
+    },
+    {
+      "tool": "cron",
+      "count": 26
+    },
+    {
+      "tool": "process",
+      "count": 20
+    },
+    {
+      "tool": "skillhub_install",
+      "count": 14
+    },
+    {
+      "tool": "web_fetch",
+      "count": 10
+    },
+    {
+      "tool": "lcm_grep",
+      "count": 2
+    }
+  ],
+  "taskName": "Distill 工作流发现",
+  "totalToolTypes": 14,
+  "recommendations": [
+    "最频繁的工具: exec (312 次调用)",
+    "发现 2 个频繁工作流模式，建议创建为 skill",
+    "  - 模式: exec (2 次)"
+  ],
+  "frequentPatternsCount": 2,
+  "executionTime": "2026-06-23 10:25:32"
+}
