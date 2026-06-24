@@ -1,0 +1,17 @@
+{
+  "name": "workflow-read-read-read",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "read -> read -> read",
+    "occurrences": 10,
+    "tools": [
+      "read",
+      "read",
+      "read"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: read -> read -> read"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "workflow-exec-write-exec-exec",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "exec -> write -> exec -> exec",
+    "occurrences": 17,
+    "tools": [
+      "exec",
+      "write",
+      "exec",
+      "exec"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: exec -> write -> exec -> exec"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "workflow-exec-read-write",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "exec -> read -> write",
+    "occurrences": 11,
+    "tools": [
+      "exec",
+      "read",
+      "write"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: exec -> read -> write"
+}

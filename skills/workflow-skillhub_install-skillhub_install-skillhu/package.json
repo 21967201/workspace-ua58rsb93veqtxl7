@@ -1,0 +1,17 @@
+{
+  "name": "workflow-skillhub_install-skillhub_install-skillhu",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "skillhub_install -> skillhub_install -> skillhub_install",
+    "occurrences": 12,
+    "tools": [
+      "skillhub_install",
+      "skillhub_install",
+      "skillhub_install"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: skillhub_install -> skillhub_install -> skillhub_install"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "workflow-web_search-web_search-web_search",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "web_search -> web_search -> web_search",
+    "occurrences": 15,
+    "tools": [
+      "web_search",
+      "web_search",
+      "web_search"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: web_search -> web_search -> web_search"
+}

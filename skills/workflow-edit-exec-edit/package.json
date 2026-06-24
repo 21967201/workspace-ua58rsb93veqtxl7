@@ -1,0 +1,17 @@
+{
+  "name": "workflow-edit-exec-edit",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "edit -> exec -> edit",
+    "occurrences": 9,
+    "tools": [
+      "edit",
+      "exec",
+      "edit"
+    ],
+    "confidence": 0.9
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: edit -> exec -> edit"
+}

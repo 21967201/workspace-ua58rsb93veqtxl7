@@ -1,0 +1,17 @@
+{
+  "name": "workflow-process-exec-exec",
+  "main": "SKILL.md",
+  "distiller": {
+    "discoveredAt": "2026-06-23T10:26:58Z",
+    "pattern": "process -> exec -> exec",
+    "occurrences": 20,
+    "tools": [
+      "process",
+      "exec",
+      "exec"
+    ],
+    "confidence": 1.0
+  },
+  "version": "1.0.0",
+  "description": "Auto-discovered workflow pattern: process -> exec -> exec"
+}
