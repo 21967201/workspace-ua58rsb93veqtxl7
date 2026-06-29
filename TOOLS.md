@@ -177,3 +177,168 @@ Add whatever helps you do your job. This is your cheat sheet.
 *规则添加时间: 2026-06-09*
 *规则添加原因: 用户要求自动任务必须和网络技术更新突破保持同步*
 
+---
+
+## 📋 sessions_spawn 标准参数模板 (2026-06-29 新增)
+
+**规则内容**: 所有 `sessions_spawn` 调用必须遵循标准参数模板，防止Token预算超时。
+
+### 标准模板
+
+```json
+{
+  "task": "<任务描述>"
+  // 必填: 清晰、具体的任务描述
+  
+  "token_budget": 100000,
+  // 必填: Token预算，默认100000（约10万token）
+  // 简单任务: 50000
+  // 中等任务: 100000
+  // 复杂任务: 200000
+  
+  "runtime": "subagent",
+  // 必填: 必须使用subagent运行时
+  
+  "context": "isolated",
+  // 推荐: 默认isolated（干净环境）
+  // 特殊情况: 需要当前对话上下文时才用"fork"
+  
+  "cleanup": "delete",
+  // 推荐: 任务完成后自动删除会话，节省资源
+  
+  "label": "<task-name>",
+  // 可选: 任务标签，便于后续查询
+  
+  "thinking": null,
+  // 可选: 覆盖默认thinking配置
+  
+  "model": null,
+  // 可选: 覆盖默认model配置
+}
+```
+
+### 参数说明
+
+#### 1. token_budget (必填)
+- **默认值**: 100000
+- **简单任务** (单一操作，如文件读取): 50000
+- **中等任务** (多步骤，如代码生成+测试): 100000
+- **复杂任务** (跨多个系统，如全栈部署): 200000
+- **禁止**: 不设置token_budget参数（会导致默认值可能不足）
+
+#### 2. context (推荐明确设置)
+- **isolated**: 默认推荐，干净环境，无历史包袱
+- **fork**: 仅当子任务**必须**访问当前对话历史时才使用
+- **风险**: fork会继承当前session的所有历史和token消耗
+
+#### 3. cleanup (推荐"delete")
+- **delete**: 任务完成后自动删除会话，节省资源
+- **keep**: 需要调试或查看详细过程时保留
+
+#### 4. 任务拆分原则
+- 如果task描述超过3个步骤 → 拆分为多个sessions_spawn
+- 如果每个步骤都可能超过50000 token → 必须拆分
+- 拆分后，每个子任务应该≤3个明确步骤
+
+### 错误示例与修正
+
+#### ❌ 错误示例1: 缺少token_budget
+```json
+{
+  "task": "分析整个代码库的架构模式",
+  "runtime": "subagent"
+}
+```
+**问题**: 复杂任务可能超过默认token预算
+**修正**: 添加 `"token_budget": 200000`
+
+#### ❌ 错误示例2: context使用fork但无必要
+```json
+{
+  "task": "计算1+1",
+  "context": "fork",
+  "token_budget": 50000
+}
+```
+**问题**: 简单任务不需要继承对话历史，浪费token
+**修正**: 改为 `"context": "isolated"`
+
+#### ❌ 错误示例3: 任务过于复杂未拆分
+```json
+{
+  "task": "1. 分析代码库 2. 生成架构图 3. 写文档 4. 部署到服务器",
+  "token_budget": 100000
+}
+```
+**问题**: 4个步骤可能超过预算，且难以调试
+**修正**: 拆分为4个独立的sessions_spawn调用
+
+### 正确示例
+
+#### ✅ 简单任务
+```json
+{
+  "task": "读取 package.json 并提取所有依赖",
+  "token_budget": 50000,
+  "runtime": "subagent",
+  "context": "isolated",
+  "cleanup": "delete"
+}
+```
+
+#### ✅ 中等任务
+```json
+{
+  "task": "为 openclaw-evolution-researcher 技能生成技术突破监控报告",
+  "token_budget": 100000,
+  "runtime": "subagent",
+  "context": "isolated",
+  "cleanup": "delete",
+  "label": "tech-breakthrough-report"
+}
+```
+
+#### ✅ 复杂任务（拆分为多个）
+```json
+// 任务1: 数据分析
+{
+  "task": "分析 logs/ 目录下所有日志文件，提取错误模式",
+  "token_budget": 100000,
+  "runtime": "subagent",
+  "context": "isolated",
+  "cleanup": "delete",
+  "label": "log-analysis"
+}
+
+// 任务2: 报告生成（等待任务1完成）
+{
+  "task": "基于错误模式分析，生成改进建议报告",
+  "token_budget": 100000,
+  "runtime": "subagent",
+  "context": "isolated",
+  "cleanup": "delete",
+  "label": "improvement-report"
+}
+```
+
+### 实施检查清单
+
+每次调用 `sessions_spawn` 前，检查：
+- [ ] token_budget 参数已设置（推荐100000）
+- [ ] context 明确设置为 "isolated" 或 "fork"（后者仅在必要时）
+- [ ] cleanup 设置为 "delete"（除非需要调试）
+- [ ] 任务描述≤3个步骤（否则拆分）
+- [ ] 如果任务可能超过50000 token，已增加token_budget
+
+### 违规处理
+
+- **轻度违规**: 未设置token_budget但任务成功 → 记录到 `memory/failures/` 作为警告
+- **重度违规**: 未设置token_budget导致任务超时 → 记录到 `self-improving/corrections.md` 并更新 `memory/patterns.md`
+
+**违反此规则 = 严重失职。**
+
+---
+
+*规则添加时间: 2026-06-29*
+*规则添加原因: 防止子任务Token预算超时，提高任务完成率*
+

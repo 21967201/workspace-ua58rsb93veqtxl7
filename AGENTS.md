@@ -18,6 +18,74 @@ This folder is home. Treat it that way.
 
 ---
 
+### 🔍 规则7: 技能加载三步检查法（2026-06-29 新增）
+
+**MANDATORY: 加载任何技能前，必须执行三步检查。**
+
+#### 7.1 三步检查流程
+
+1. **环境检查**  
+   - 执行 `skillhub_install check_env` 检查系统环境
+   - 确认 Python3、curl 等依赖已安装
+   - 如果环境不满足，先修复环境再继续
+
+2. **路径验证**  
+   - 使用 `Test-Path` (PowerShell) 或 `exec` 检查技能文件是否存在
+   - 典型路径：`D:\Users\Administrator\.qclaw\skills\<skill-name>\SKILL.md`
+   - 如果文件不存在，尝试 `skillhub_install install_skill <skill-name>` 安装
+
+3. **错误兜底**  
+   - 如果上述步骤失败，提供候选路径列表
+   - 典型候选路径：  
+     - `D:\Users\Administrator\.qclaw\skills\`  
+     - `~/.qclaw/skillhub-skills/`  
+     - `D:\QClawX\data\workspace-*/skills/`
+   - 如果所有候选路径都失败，明确报错并请求用户确认
+
+#### 7.2 执行标准
+
+- ✅ **必须执行**: 每次使用 `read` 读取技能 SKILL.md 前，必须完成三步检查
+- ✅ **静默执行**: 检查过程不阻塞主任务，后台完成
+- ✅ **错误提示**: 检查失败时，明确提示用户 "技能路径未找到，已尝试以下路径：..."
+- ❌ **禁止**: 未检查就直接 `read` 技能文件
+- ❌ **禁止**: 检查失败后，不提示就放弃加载技能
+
+#### 7.3 代码示例
+
+```powershell
+# 步骤1: 环境检查
+$envCheck = skillhub_install check_env
+if ($envCheck -match "Missing") {
+    Write-Warning "环境不满足，先修复: $envCheck"
+    exit 1
+}
+
+# 步骤2: 路径验证
+$skillPath = "D:\Users\Administrator\.qclaw\skills\$skillName\SKILL.md"
+if (-not (Test-Path $skillPath)) {
+    Write-Warning "技能文件不存在: $skillPath"
+    Write-Host "尝试安装技能: $skillName"
+    skillhub_install install_skill $skillName
+    # 重新检查路径
+    if (-not (Test-Path $skillPath)) {
+        Write-Error "安装后仍然找不到技能文件，候选路径: ..."
+        exit 1
+    }
+}
+
+# 步骤3: 读取技能文件
+$skillContent = Get-Content $skillPath -Raw
+```
+
+#### 7.4 违规处理
+
+- **轻度违规**: 未执行检查但任务最终成功 → 记录到 `memory/failures/` 作为警告
+- **重度违规**: 未执行检查导致任务失败 → 记录到 `self-improving/corrections.md` 并更新 `memory/patterns.md`
+
+**违反规则7 = 严重失职。**
+
+---
+
 ## 🚨 FIRST PRINCIPLE ENFORCEMENT
 
 **If you (the AI) are about to:**

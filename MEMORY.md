@@ -198,3 +198,26 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 *Next Consolidation: 2026-06-30 (7 days)*  
 *Cron Task: dream-memory-consolidation (weekly)*  
 *Note: Merged Distill workflow discovery results (2026-06-23 10:15 session)*
+
+## Promoted From Short-Term Memory (2026-06-29)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:57:58 -->
+- 持续监控列表更新: **P0级持续监控**：headroom、ECC、DECS、AbstractCoT - 无重大更新; **P1级持续监控**：美团觅游Agent社区、Goose Agent、鸿蒙ArkAF - 有新的公开信息 [score=0.870 recalls=0 avg=0.620 source=memory/2026-06-22.md:57-58]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:12:15 -->
+- 发现的技术突破: **美团觅游Agent社区支持OpenClaw**（2026-06-15）; 来源：腾讯网、企鹅号; 核心创新：OpenClaw可作为主流AI智能体接入Agent社区; 51指标评估：结构完整性8/10，可用性9/10，示例质量7/10，创新性8/10，兼容性9/10，综合评分8.2/10 [score=0.857 recalls=0 avg=0.620 source=memory/2026-06-22.md:12-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:25:28 -->
+- 发现的技术突破: **鸿蒙ArkAF端侧智能体框架**（2026-06-17）; 来源：企鹅号、51CTO.COM; 核心创新：端侧智能体与Skill开发框架，支持零摩擦跨设备协作; 51指标评估：综合评分约7.0/10 [score=0.857 recalls=0 avg=0.620 source=memory/2026-06-22.md:25-28]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:6:7 -->
+- 任务执行时间: 实际执行时间：2026-06-22 11:50（周一）; 计划执行时间：每日06:00（实际cron任务设置在11:50） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:6-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:16:17 -->
+- 发现的技术突破: 优先级：P1（高兼容性+高收益+中成本）; 影响评分：7.5/10（低于推送阈值8.5/10） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:16-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:19:22 -->
+- 发现的技术突破: **Goose Agent开源框架**（Block公司，Twitter前CEO Jack Dorsey）; 来源：CSDN博客、GitHub; 核心创新：能独立完成复杂任务的"AI同事"，可扩展AI Agent框架; 评估状态：需要更多数据完成51指标评估 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:19-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:30:30 -->
+- 发现的技术突破: 影响评分：7.0/10（低于推送阈值8.5/10） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:30-30]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:32:35 -->
+- 发现的技术突破: **arXiv论文突破**（过去一周）; EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle; SkillCAT: Contrastive Assessment and Topology-Aware Skill Self-Evolution for LLM Agents; CoEvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:32-35]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:36:37 -->
+- 发现的技术突破: EverOS: Self-evolving memory across Agent and platform; 优先级：P1-P2 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:36-37]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:39:42 -->
+- 发现的技术突破: **Token压缩技术**（headroom相关）; 来源：CSDN博客; 核心创新：降低Token调用成本60%; 评估状态：需要更多技术细节 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:39-42]
