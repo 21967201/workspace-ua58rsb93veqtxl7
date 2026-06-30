@@ -49,18 +49,46 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 4. ⏳ **SkillSpector** (9.0/10) - NVIDIA skill security scanner, 40% simplified done, expand to 64 patterns
 5. ⏳ **EGSS** (8.8/10) - Entropy-guided test-time scaling, 30% simplified done, need real LLM logprobs
 
-### File Paths Verification (2026-06-23)
+### File Paths Verification (2026-06-29)
 - ✅ `skills/csts-skill-generator/scripts/` (14 files exist)
 - ✅ `CSTS-implementation-design.md` (exists)
 - ✅ `CSTS-implementation-completion-20260618.md` (exists)
 - ✅ `QClaw-进化优化蓝图-20260609.md` (exists)
-- ✅ `memory/` directory (17 files)
+- ✅ `memory/` directory (33 files)
 - ✅ `D:\QClawX\data\distill-output\distill-report-2026-06-23.md` (exists)
 - ✅ `dream-memory-consolidation_20260623.md` (exists)
 
 ---
 
-## 📊 Recent Tech Breakthroughs (2026-06-17 to 2026-06-22)
+## 🔧 Improvement Strategies (Stable Facts)
+
+### Implemented (1/3)
+1. ✅ **技能加载三步检查法** (2026-06-29) - Written to AGENTS.md Rule 7
+
+### Pending Implementation (2/3)
+2. ⏳ **sessions_spawn标准参数模板** (2026-06-29) - TOOLS.md (pending confirmation)
+3. ⏳ **API调用重试封装** - Estimated before 2026-07-13
+
+### Tracking Metrics
+- 技能加载失败率: ~40% → target <5%
+- 子任务完成率: ~70% → target >95%
+- 外部API成功率: ~60% → target >90%
+
+---
+
+## 📊 Recent Tech Breakthroughs (2026-06-17 to 2026-06-29)
+
+### 2026-06-27 (Tech Breakthrough Monitor)
+- ✅ Monitoring executed (11:50), found 0 P0/P1 breakthroughs
+- 📊 GitHub: Goose Agent migrated to AAIF (Linux Foundation)
+- 📊 arXiv: 3 papers (Multi-Agent routing, RL without ground-truth, Hallucination)
+- 📝 Decision: No push notification (conditions not met)
+
+### 2026-06-29 (Tech Breakthrough Monitor)
+- ✅ Monitoring executed (11:50), found 0 P0/P1/P2 breakthroughs
+- 📊 Multi-source verification: arXiv/GitHub/tech blogs all negative
+- 📝 Decision: Silent update (no notification needed)
+- 🔄 Next: Expand search window to 48h if no breakthroughs for 3+ days
 
 ### 2026-06-23 (Distill Workflow Discovery)
 - **Execution**: 10:15 (Monday), identified 5 workflow patterns from 58 skills
@@ -131,8 +159,8 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 - **Verified Paths**: 7/7 exist (added distill report + dream consolidation artifact)
 
 ### Next Consolidation
-- **Scheduled**: 2026-06-29 (7 days from 2026-06-22)
-- **Note**: Early merge of 2026-06-22 post-consolidation data
+- **Scheduled**: 2026-07-06 (7 days from 2026-06-29)
+- **Note**: performance-baseline.md established, quantitative data collection started
 
 ---
 
@@ -194,10 +222,10 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 
 ---
 
-*Last Consolidation: 2026-06-23 10:20*  
-*Next Consolidation: 2026-06-30 (7 days)*  
+*Last Consolidation: 2026-06-29 16:07*  
+*Next Consolidation: 2026-07-06 (7 days)*  
 *Cron Task: dream-memory-consolidation (weekly)*  
-*Note: Merged Distill workflow discovery results (2026-06-23 10:15 session)*
+*Note: Integrated 5 files (2026-06-27/29 tech monitoring, performance-baseline, patterns, strategy-changes), 0 duplicates, 7/7 paths verified, all entries ≤5 lines*
 
 ## Promoted From Short-Term Memory (2026-06-29)
 
