@@ -1,0 +1,24 @@
+{
+  "name": "daily-tech-breakthrough-monitor",
+  "main": "SKILL.md",
+  "version": "1.0.0",
+  "description": "Auto-distilled workflow: 每日轻量技术突破监控循环（搜索→评估→静默更新记忆→P0/P1 推送）",
+  "distiller": {
+    "discoveredAt": "2026-07-06T10:31:00Z",
+    "pattern": "三阶段搜索(arXiv/GitHub/社区) -> 51指标评估(P0/P1/P2) -> 静默更新记忆 -> P0/P1推送通知",
+    "occurrences": 5,
+    "taskTitles": [
+      "技术突破监控",
+      "技术监控"
+    ],
+    "confidence": 0.92,
+    "source": "Distill 工作流发现（30天 session 复扫）",
+    "note": "与 openclaw-evolution-researcher 互补：本 skill 为每日轻量雷达，重型研究按需触发"
+  },
+  "tags": [
+    "monitor",
+    "research",
+    "evolution",
+    "cron"
+  ]
+}

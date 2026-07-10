@@ -1,0 +1,248 @@
+{
+  "count": 40,
+  "titles": {
+    "工作流发现": 1,
+    "Distill发现": 2,
+    "技术突破监控": 5,
+    "技术监控": 1,
+    "GitHub同步": 8,
+    "系统进化": 1,
+    "综合周检查": 1,
+    "GBrain管理": 1,
+    "每日技术监控": 1,
+    "记忆整理": 2,
+    "会话摘要": 1,
+    "Skill发现": 1,
+    "每周检查": 1,
+    "Memory升级": 1,
+    "Distill scan": 1,
+    "记忆梦提升": 1,
+    "商业智能周报": 1,
+    "1688全景分析": 1,
+    "Distill扫描": 1,
+    "心跳检查": 1,
+    "1688数据采集": 1,
+    "QClaw数据迁移": 1,
+    "修复监控违规": 1,
+    "P0突破集成": 1,
+    "Skill优化实施": 1,
+    "Cron任务调时": 1,
+    "Cron修复": 1
+  },
+  "candidates": [
+    {
+      "title": "技术突破监控",
+      "count": 5,
+      "project_bound": false,
+      "confidence": 1.0
+    },
+    {
+      "title": "GitHub同步",
+      "count": 8,
+      "project_bound": false,
+      "confidence": 1.0
+    }
+  ],
+  "sessions": [
+    {
+      "dir": "00619347-8eac-45a3-9895-5e4c75fe2a5d",
+      "name": "工作流发现",
+      "msg": 40
+    },
+    {
+      "dir": "0d4fcb38-3739-4449-a3e4-12251a9bbdcd",
+      "name": "Distill发现",
+      "msg": 30
+    },
+    {
+      "dir": "0f792ebe-4699-4e8d-bdec-e9c9a83abda4",
+      "name": "技术突破监控",
+      "msg": 21
+    },
+    {
+      "dir": "1bbd00f5-19d1-43e6-8769-120ece9eddc7",
+      "name": "技术监控",
+      "msg": 32
+    },
+    {
+      "dir": "207b9bdb-a21c-44e7-9348-4ac6091489c8",
+      "name": "GitHub同步",
+      "msg": 50
+    },
+    {
+      "dir": "30e247f8-75a2-4343-820d-ac64be8841e4",
+      "name": "系统进化",
+      "msg": 22
+    },
+    {
+      "dir": "4506485a-742f-449e-bf8b-84c7ce29003d",
+      "name": "综合周检查",
+      "msg": 21
+    },
+    {
+      "dir": "4dec89ef-7924-430f-8f24-2def8211a331",
+      "name": "GBrain管理",
+      "msg": 102
+    },
+    {
+      "dir": "5aac4579-0ac1-4e2f-bdc8-f808af992e64",
+      "name": "GitHub同步",
+      "msg": 45
+    },
+    {
+      "dir": "5fef4c83-b502-4327-87c3-5f742e1bff31",
+      "name": "技术突破监控",
+      "msg": 30
+    },
+    {
+      "dir": "66ed30d2-aa6c-4295-acfb-0ad900b44632",
+      "name": "技术突破监控",
+      "msg": 17
+    },
+    {
+      "dir": "6af4d222-f0ea-4767-abc4-4817d94c4ed1",
+      "name": "GitHub同步",
+      "msg": 56
+    },
+    {
+      "dir": "97bfb647-a8f1-4456-ae56-feb2dc291414",
+      "name": "GitHub同步",
+      "msg": 39
+    },
+    {
+      "dir": "9d96a078-2fc4-4fc2-954b-1620637b3746",
+      "name": "每日技术监控",
+      "msg": 31
+    },
+    {
+      "dir": "a28776e8-126d-4980-a2fe-7874435e7376",
+      "name": "记忆整理",
+      "msg": 42
+    },
+    {
+      "dir": "a94de219-c459-4a21-9a03-c09887eb5593",
+      "name": "Distill发现",
+      "msg": 58
+    },
+    {
+      "dir": "b6a8b187-c1c1-4182-b7fb-d92e1f75809b",
+      "name": "会话摘要",
+      "msg": 18
+    },
+    {
+      "dir": "b8f46a0c-d0c1-48b1-ab1b-0b0c275e6f6d",
+      "name": "GitHub同步",
+      "msg": 62
+    },
+    {
+      "dir": "bb80aeaa-b4ab-4c15-9d83-8923376e5d22",
+      "name": "Skill发现",
+      "msg": 53
+    },
+    {
+      "dir": "bdf766c9-480a-497b-8f26-b6a14efe6d36",
+      "name": "GitHub同步",
+      "msg": 32
+    },
+    {
+      "dir": "c48977e5-56bb-4ffb-bd7d-b6f3e826d909",
+      "name": "每周检查",
+      "msg": 43
+    },
+    {
+      "dir": "d601da6d-8452-4c39-a176-8929922e3b20",
+      "name": "Memory升级",
+      "msg": 24
+    },
+    {
+      "dir": "dc2a276e-1fcf-45fe-a4a1-eadd54ffdc79",
+      "name": "GitHub同步",
+      "msg": 50
+    },
+    {
+      "dir": "distill-workflow-discovery",
+      "name": "Distill scan",
+      "msg": 38
+    },
+    {
+      "dir": "dream-memory-consolidation",
+      "name": "记忆整理",
+      "msg": 30
+    },
+    {
+      "dir": "e2a08238-9f1c-4980-be73-fd81bdd90c48",
+      "name": "GitHub同步",
+      "msg": 24
+    },
+    {
+      "dir": "e73891fd-18d8-4640-a95a-286b94d9a852",
+      "name": "记忆梦提升",
+      "msg": 19
+    },
+    {
+      "dir": "ea7d82a8-a5bc-40de-b329-6ef7f6c85881",
+      "name": "商业智能周报",
+      "msg": 24
+    },
+    {
+      "dir": "ed84761c-63a6-4a58-8949-c1321afc6545",
+      "name": "1688全景分析",
+      "msg": 40
+    },
+    {
+      "dir": "f55f1631-4668-4615-93cc-404016891f1e",
+      "name": "技术突破监控",
+      "msg": 28
+    },
+    {
+      "dir": "fb8c33b1-490c-4d8d-b3d2-a8faf96750c5",
+      "name": "Distill扫描",
+      "msg": 14
+    },
+    {
+      "dir": "heartbeat",
+      "name": "心跳检查",
+      "msg": 16
+    },
+    {
+      "dir": "session-1781580633808-y6xar3",
+      "name": "1688数据采集",
+      "msg": 34
+    },
+    {
+      "dir": "session-1781596142861-yeqrjt",
+      "name": "QClaw数据迁移",
+      "msg": 120
+    },
+    {
+      "dir": "session-1781674191731-jkj9la",
+      "name": "修复监控违规",
+      "msg": 60
+    },
+    {
+      "dir": "session-1781674753349-vwmhw2",
+      "name": "技术突破监控",
+      "msg": 23
+    },
+    {
+      "dir": "session-1781748344767-1c102i",
+      "name": "P0突破集成",
+      "msg": 100
+    },
+    {
+      "dir": "session-1781939764913-vs17ib",
+      "name": "Skill优化实施",
+      "msg": 105
+    },
+    {
+      "dir": "session-1782097955450-v6bqz1",
+      "name": "Cron任务调时",
+      "msg": 22
+    },
+    {
+      "dir": "session-1783068386866-0seyft",
+      "name": "Cron修复",
+      "msg": 29
+    }
+  ]
+}

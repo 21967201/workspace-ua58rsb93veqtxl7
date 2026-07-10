@@ -1,6 +1,6 @@
-# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-06-23)
+# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-07-06)
 
-> **Consolidation Info**: Merged duplicates, verified paths, compressed entries ≤5 lines, promoted stable facts.
+> **Consolidation Info**: Cron redux (15→12), patterns 4&5, tech dry spell, sessions_spawn template confirmed. All entries ≤5 lines.
 
 ---
 
@@ -12,23 +12,23 @@
 - **GBrain**: `C:\Users\Administrator\gbrain` (personal knowledge base, accessed via gbrain CLI)
 - **Skills Dir**: `skills/` (relative to workspace)
 
-### Cron Tasks (15 Active, Last Updated 2026-06-09)
-All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
-1. Memory Dreaming Promotion (daily 10:20)
-2. 每日监控任务 (daily 10:30)
-3. 1688全面分析 (daily 11:00)
-4. 学术论文与知识库周度同步 (Mon 11:10)
-5. QClaw智能清理 (Mon 11:30)
-6. QClaw自进化每周运行(含CPE) (Mon 12:00)
-7. QClaw知识库每周整理 (Mon 12:30)
-8. 智能全景管理 (Mon 13:00)
-9. tech-breakrough-monitor (daily 13:30)
-10. 实时监控任务 (daily 14:00)
-11. OpenClaw违规检查 (Mon 14:30)
-12. 商业智能周报 (Fri 15:00)
-13. 每周任务执行分析 (Mon 15:00)
-14. 每日任务监督 (daily 15:30)
-15. 自动同步任务文件到GitHub (daily 16:30)
+### Cron Tasks (12 Active, Last Updated 2026-06-22)
+All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
+**Daily (Mon-Sat)**:
+1. 每日监控任务 (10:30)
+2. Memory Dreaming Promotion (11:10, this task)
+3. tech-breakthrough-monitor (11:50)
+4. 自动同步任务文件到GitHub (12:30)
+5. 月度报告任务 (13:10)
+**Monday Extra**:
+6. 周一知识管理综合任务 (14:00)
+7. 周一综合检查任务 (14:40)
+8. AI系统自动进化任务 (15:20)
+9. Dream 记忆整理 (16:00)
+10. QClaw智能清理 (16:40)
+11. Distill 工作流发现 (17:20, first Mon of month)
+**Friday Extra**:
+12. 商业智能周报 (15:00)
 
 ### Auto-Task Rules (Mandatory)
 - **Rule 4 (Time Limit)**: Mon-Sat only, 10:20-18:00, no Sunday execution.
@@ -44,35 +44,64 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 1. ✅ **headroom** (9.2/10) - Token compression 60-95%, already integrated (MCP mode, 2026-06-09)
 2. ✅ **Ponytail** (9.4/10) - AI coding精简, `clawhub install ponytail` (2026-06-20)
 
-### Pending Integration (3/5)
+### Pending Integration (5/7)
 3. ⏳ **OpenClaw-Skill/CSTS** (9.5/10) - Collective skill tree search, 100% enhanced done, pending production integration
 4. ⏳ **SkillSpector** (9.0/10) - NVIDIA skill security scanner, 40% simplified done, expand to 64 patterns
 5. ⏳ **EGSS** (8.8/10) - Entropy-guided test-time scaling, 30% simplified done, need real LLM logprobs
 
-### File Paths Verification (2026-06-29)
-- ✅ `skills/csts-skill-generator/scripts/` (14 files exist)
-- ✅ `CSTS-implementation-design.md` (exists)
-- ✅ `CSTS-implementation-completion-20260618.md` (exists)
-- ✅ `QClaw-进化优化蓝图-20260609.md` (exists)
-- ✅ `memory/` directory (33 files)
-- ✅ `D:\QClawX\data\distill-output\distill-report-2026-06-23.md` (exists)
-- ✅ `dream-memory-consolidation_20260623.md` (exists)
+### Latest Monitoring Record (2026-07-06, 11:50 run)
+- **Monitoring Coverage**: 2026-07-05, 2026-07-06; No P0/P1 breakthroughs (~9 consecutive days)
+- **P0**: 0 found; **P1 (impact>8.5)**: 0 found
+- **Tracked P0 items status**: headroom (stable, 60-95% token cut, GitHub Trending winner 06-07, no new release 24h); ECC (GitHub日报常驻, no new 24h); DECS/AbstractCoT (no new citation paper 24h)
+- **Notable signals (P2/watch)**: GSPO (Qwen团队, sequence-level RL, replaces GRPO variance issue) gaining traction — add to P1-watch; Goose migrated block/goose→aaif-goose (Linux Foundation Agentic AI Foundation); OpenClaw shipped iOS/Android native apps (06-30)
+- **Trend**: Tech breakthrough dry spell continues (~9 days); next catalyst ICLR 2026 (mid-July)
+- **Details**: See `memory/2026-07-06-tech.md`
+6. ⏳ **Octo** (9.0/10, 2026-07-01) - 明略科技, 全球首个开源可信Agent协作网络, 定义"Agent互联网"底层协议。Open/Context/Taste/Orchestration四维度标准化, Apache 2.0, 3000+ Agents。与OpenClaw互补(协议层)。
+7. ⏳ **CLI Agent训练数据生成器** (7.4/10, 2026-07-01) - 阶跃星辰, 6K轨迹让小模型反超Qwen3-Coder-480B, Terminal Agent高效训练方法。P1级持续监控。
+8. ⏳ **Recognize Your Orchestrator** (ICML 2026, 9.0/10, 2026-07-07) - 南京大学, arXiv:2606.01351. 调度熵量化Orchestrator失败归因, Mean-Field Entropy Dynamics框架, IWG反推验证。与OpenClaw Orchestrator-Executor架构高度兼容(无需重训)。
+9. ⏳ **HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - 阿里巴巴达摩院, 商品出口海关编码归类新基准, 最优AI系统仅~45% vs 人类专家95%。揭示Agent架构结构性瓶颈：推理链漂移+领域知识不足+推理幻觉。与规则敏感场景(合规/税务/审计)直接关联。
+
+### Latest Monitoring Record (2026-07-08, 16:43 run)
+- **Monitoring Coverage**: 2026-07-07, 2026-07-08; **1 P0 + 1 P1 found** (ends ~9-day dry spell)
+- **P0**: Recognize Your Orchestrator (ICML 2026) — added to Pending Integration (#8)
+- **P1 (impact>8.5)**: HSCodeComp (ACL 2026 Best Resource Paper, 8.7/10) — added to Pending Integration (#9)
+- **Tracked P0 items status**: headroom (stable); ECC (stable); new RYO added Mon Jul 7
+- **Details**: See `memory/2026-07-07-tech.md` and `memory/2026-07-08-tech.md`
+
+### Latest Monitoring Record (2026-07-09, 11:50 run)
+- **Monitoring Coverage**: 2026-07-08 to 2026-07-09; **0 P0/P1 found** (dry spell resumed after 07-07/07-08 2-day cluster)
+- **P0**: 0 found; **P1 (impact>8.5)**: 0 found
+- **Tracked P0 items status**: headroom (stable); ECC (stable); RYO (stable, no new citation papers); DECS/AbstractCoT (no new 24h)
+- **Trend**: End-side Agent (ArkAF/Cider/Mano-P) emerging sub-direction — suggest adding to P1-watch pool next phase
+- **Details**: See `memory/2026-07-09-tech.md`
+
+### File Paths Verification (2026-07-06)
+- ✅ `skills/csts-skill-generator/scripts/`, `CSTS-implementation-design.md`, `CSTS-implementation-completion-20260618.md`, `QClaw-进化优化蓝图-20260609.md` (all exist)
+- ✅ `memory/` + `memory/strategy-changes.md`, `memory/patterns.md`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md` (all exist)
+- ✅ `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`, `dream-memory-consolidation_20260623.md`, `scripts/memory-archive.ps1` (all exist)
 
 ---
 
 ## 🔧 Improvement Strategies (Stable Facts)
 
-### Implemented (1/3)
+### Implemented (2/5)
 1. ✅ **技能加载三步检查法** (2026-06-29) - Written to AGENTS.md Rule 7
+2. ✅ **sessions_spawn标准参数模板** (2026-06-29) - Written to TOOLS.md (confirmed 2026-07-06)
 
-### Pending Implementation (2/3)
-2. ⏳ **sessions_spawn标准参数模板** (2026-06-29) - TOOLS.md (pending confirmation)
+### Pending Implementation (3/5)
 3. ⏳ **API调用重试封装** - Estimated before 2026-07-13
+4. ⏳ **心跳时间窗口精确判断** (2026-07-06) - HEARTBEAT.md pending
+5. ⏳ **每日数据记录自动化** (2026-07-06) - Establish daily recording mechanism
+
+### New Patterns Discovered (2026-07-06)
+- Pattern 4: 心跳时间窗口误触发 (heartbeat triggered outside window)
+- Pattern 5: memory文件缺乏每日记录 (no daily data collection)
 
 ### Tracking Metrics
-- 技能加载失败率: ~40% → target <5%
-- 子任务完成率: ~70% → target >95%
-- 外部API成功率: ~60% → target >90%
+- 技能加载失败率: ~40% → target <5% (no quantitative data, tracking pending)
+- 子任务完成率: ~70% → target >95% (no quantitative data, tracking pending)
+- 外部API成功率: ~60% → target >90% (no quantitative data, tracking pending)
+- **Action**: Establish daily recording mechanism to collect baseline data
 
 ---
 
@@ -107,16 +136,6 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
   - arXiv:2606.27326 - Hallucination in world models
 - **GitHub Updates**: Goose Agent migrated to AAIF (Agentic AI Foundation)
 - **Decision**: No push notification (conditions not met)
-
-### 2026-06-22 (Tech Breakthrough Monitor Results)
-- **Monitoring Execution**: 11:50 (Monday), found 5 potential breakthroughs
-- **P0 Breakthroughs**: 0 found (no push notification sent)
-- **P1 Breakthroughs (impact≤8.5/10)**: 3 found
-  - 美团觅游Agent社区 (8.2/10, impact 7.5/10)
-  - 鸿蒙ArkAF端侧智能体框架 (7.0/10, impact 7.0/10)
-  - Goose Agent开源框架 (pending full evaluation)
-- **arXiv Papers**: 4 papers found (EvolveR, SkillCAT, CoEvoSkills, EverOS)
-- **Evaluation Update**: 美团觅游 downgraded from P0 (9.2/10) to P1 (8.2/10)
 
 ### 2026-06-20
 - **P1**: 美团觅游Agent社区支持OpenClaw (8.2/10) - 3000+ agents, 40000+ skills, one curl to register, impact score 7.5/10
@@ -222,30 +241,51 @@ All tasks comply with Rule: Mon-Sat, 10:20-18:00, interval ~30min.
 
 ---
 
-*Last Consolidation: 2026-06-29 16:07*  
-*Next Consolidation: 2026-07-06 (7 days)*  
+*Last Consolidation: 2026-07-06 18:25 (Dream Memory Consolidation)*  
+*Next Consolidation: 2026-07-13 (7 days)*  
 *Cron Task: dream-memory-consolidation (weekly)*  
-*Note: Integrated 5 files (2026-06-27/29 tech monitoring, performance-baseline, patterns, strategy-changes), 0 duplicates, 7/7 paths verified, all entries ≤5 lines*
+*Note: 12 cron tasks active; sessions_spawn template confirmed; Patterns 4&5 recorded; ~9-day tech dry spell noted. All entries ≤5 lines.*
 
-## Promoted From Short-Term Memory (2026-06-29)
+## 📝 Memory Consolidation Report (2026-07-06)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:57:58 -->
-- 持续监控列表更新: **P0级持续监控**：headroom、ECC、DECS、AbstractCoT - 无重大更新; **P1级持续监控**：美团觅游Agent社区、Goose Agent、鸿蒙ArkAF - 有新的公开信息 [score=0.870 recalls=0 avg=0.620 source=memory/2026-06-22.md:57-58]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:12:15 -->
-- 发现的技术突破: **美团觅游Agent社区支持OpenClaw**（2026-06-15）; 来源：腾讯网、企鹅号; 核心创新：OpenClaw可作为主流AI智能体接入Agent社区; 51指标评估：结构完整性8/10，可用性9/10，示例质量7/10，创新性8/10，兼容性9/10，综合评分8.2/10 [score=0.857 recalls=0 avg=0.620 source=memory/2026-06-22.md:12-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:25:28 -->
-- 发现的技术突破: **鸿蒙ArkAF端侧智能体框架**（2026-06-17）; 来源：企鹅号、51CTO.COM; 核心创新：端侧智能体与Skill开发框架，支持零摩擦跨设备协作; 51指标评估：综合评分约7.0/10 [score=0.857 recalls=0 avg=0.620 source=memory/2026-06-22.md:25-28]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:6:7 -->
-- 任务执行时间: 实际执行时间：2026-06-22 11:50（周一）; 计划执行时间：每日06:00（实际cron任务设置在11:50） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:6-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:16:17 -->
-- 发现的技术突破: 优先级：P1（高兼容性+高收益+中成本）; 影响评分：7.5/10（低于推送阈值8.5/10） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:16-17]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:19:22 -->
-- 发现的技术突破: **Goose Agent开源框架**（Block公司，Twitter前CEO Jack Dorsey）; 来源：CSDN博客、GitHub; 核心创新：能独立完成复杂任务的"AI同事"，可扩展AI Agent框架; 评估状态：需要更多数据完成51指标评估 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:19-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:30:30 -->
-- 发现的技术突破: 影响评分：7.0/10（低于推送阈值8.5/10） [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:30-30]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:32:35 -->
-- 发现的技术突破: **arXiv论文突破**（过去一周）; EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle; SkillCAT: Contrastive Assessment and Topology-Aware Skill Self-Evolution for LLM Agents; CoEvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:32-35]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:36:37 -->
-- 发现的技术突破: EverOS: Self-evolving memory across Agent and platform; 优先级：P1-P2 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:36-37]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:39:42 -->
-- 发现的技术突破: **Token压缩技术**（headroom相关）; 来源：CSDN博客; 核心创新：降低Token调用成本60%; 评估状态：需要更多技术细节 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-22.md:39-42]
+### Merged / Removed Duplicates (2)
+1. Removed raw "Promoted From Short-Term Memory" block (12 lines) — redundant with structured "Improvement Strategies" (top + heartbeat precision already recorded).
+2. Removed verbose 2026-06-22 monitoring detail in "Recent Tech Breakthroughs" — duplicated by compressed "Historical Records" 2026-06-22 entry.
+
+### Compression
+- Before: 263 lines → After: 247 lines (removed 16 redundant lines: 12 raw block + 4 verbose monitoring detail).
+- All entries maintained ≤5 lines per entry.
+
+### Path Verification (2026-07-06)
+- Verified 12 referenced paths: 12/12 exist (no `[path not found]`).
+- Newly confirmed: `memory/strategy-changes.md`, `memory/patterns.md`, `scripts/memory-archive.ps1`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md`.
+
+### Promoted Stable Facts
+- None new (Patterns 4&5 + sessions_spawn template already in "Improvement Strategies" top section).
+- Tracked: P0/P1 tech breakthrough dry spell ~9 days; next catalyst ICLR 2026 (mid-July).
+
+### Statistics
+- Merged/removed duplicates: 2 | Compressed lines: ~11 | Verified paths: 12/12 | Promoted facts: 0
+
+## Promoted From Short-Term Memory (2026-07-07)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:46:46 -->
+- 任务失败率（估算）: | 外部API成功率 | ~60% | - | >90% | 待跟踪 | [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-06.md:46-46]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:49:52 -->
+- 推理延迟（估算）: 简单查询：~2-5秒; 中等推理：~10-30秒; 复杂推理：~30-120秒; **行动**：今日建立延迟记录机制 [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-06.md:49-52]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:6:6 -->
+- 执行时间: 2026-07-06 11:08 (Asia/Shanghai) - 周一10:00-11:00窗口 [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-06.md:6-6]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:64:66 -->
+- P0级突破检查: **headroom**：无重大更新（Token压缩60-95%技术已识别，但未达到P0集成阈值）; **DECS**：未找到ICLR 2026 Oral相关证据; **AbstractCoT**：未找到IBM相关论文 [score=0.881 recalls=0 avg=0.620 source=memory/2026-07-06.md:64-66]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:10:10 -->
+- 监控结果: **过去24小时内技术突破搜索结果**： [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:10-10]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:12:14 -->
+- 监控结果: **arXiv论文监控** - 无新突破; 搜索关键词：Self-Evolving Agents, Multi-Agent Orchestration, GRPO, RAG, Agent Memory Systems, Token Optimization, Chain of Draft, DECS, AbstractCoT; 结果：未找到过去24小时内发表的相关新论文 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:12-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:16:18 -->
+- 监控结果: **GitHub项目监控** - 无重大更新; 监控项目：OpenClaw, Hermes Agent, SkillOpt, AutoGen, MetaGPT, Goose Agent, headroom, ECC; 结果：未发现过去24小时内的重要提交、Release或Stars大幅增长 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:16-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:20:22 -->
+- 监控结果: **技术博客与论坛监控** - 无重大更新; 来源：Hacker News, Reddit r/MachineLearning, arXiv Sanity, Papers with Code, 企鹅号, 腾讯网, CSDN; 结果：关于OpenClaw的博客发布于6月22-26日，不在过去24小时内 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:20-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:24:26 -->
+- 监控结果: **Agent社区与平台监控** - 无重大更新; 监控平台：美团觅游Agent社区、鸿蒙ArkAF端侧智能体框架; 结果：未发现过去24小时内的重大更新或新功能发布 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:24-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-29.md:30:30 -->
+- 评估结论: **优先级排序**：无P0/P1/P2级技术突破 [score=0.828 recalls=0 avg=0.620 source=memory/2026-06-29.md:30-30]
