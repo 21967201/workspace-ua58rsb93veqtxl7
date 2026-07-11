@@ -60,6 +60,8 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 7. ⏳ **CLI Agent训练数据生成器** (7.4/10, 2026-07-01) - 阶跃星辰, 6K轨迹让小模型反超Qwen3-Coder-480B, Terminal Agent高效训练方法。P1级持续监控。
 8. ⏳ **Recognize Your Orchestrator** (ICML 2026, 9.0/10, 2026-07-07) - 南京大学, arXiv:2606.01351. 调度熵量化Orchestrator失败归因, Mean-Field Entropy Dynamics框架, IWG反推验证。与OpenClaw Orchestrator-Executor架构高度兼容(无需重训)。
 9. ⏳ **HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - 阿里巴巴达摩院, 商品出口海关编码归类新基准, 最优AI系统仅~45% vs 人类专家95%。揭示Agent架构结构性瓶颈：推理链漂移+领域知识不足+推理幻觉。与规则敏感场景(合规/税务/审计)直接关联。
+10. ⏳ **腾讯云 Agent Bucket** (8.2/10, 2026-07-10) - AI Agent原生存储服务, S3兼容+Space独立空间+GooseFS加速, 已在QClaw部署(华硕/东风日产)。P1, 生态影响8.7。
+11. ⏳ **NVIDIA NeMoClaw Deep Agents** (7.8/10, 2026-07-10) - OpenShell沙箱+Landlock/seccomp声明式策略, 推理成本降10倍, Nemotron 3 Ultra开源。P1边界。
 
 ### Latest Monitoring Record (2026-07-08, 16:43 run)
 - **Monitoring Coverage**: 2026-07-07, 2026-07-08; **1 P0 + 1 P1 found** (ends ~9-day dry spell)
@@ -68,12 +70,14 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 - **Tracked P0 items status**: headroom (stable); ECC (stable); new RYO added Mon Jul 7
 - **Details**: See `memory/2026-07-07-tech.md` and `memory/2026-07-08-tech.md`
 
-### Latest Monitoring Record (2026-07-09, 11:50 run)
-- **Monitoring Coverage**: 2026-07-08 to 2026-07-09; **0 P0/P1 found** (dry spell resumed after 07-07/07-08 2-day cluster)
-- **P0**: 0 found; **P1 (impact>8.5)**: 0 found
-- **Tracked P0 items status**: headroom (stable); ECC (stable); RYO (stable, no new citation papers); DECS/AbstractCoT (no new 24h)
-- **Trend**: End-side Agent (ArkAF/Cider/Mano-P) emerging sub-direction — suggest adding to P1-watch pool next phase
-- **Details**: See `memory/2026-07-09-tech.md`
+### Latest Monitoring Record (2026-07-10, 11:50 run)
+- **Monitoring Coverage**: 2026-07-09 to 2026-07-10; **0 P0, 2 P1 found**
+- **P0**: 0 found; **P1 (impact>8.5)**: 腾讯云 Agent Bucket (8.2/10, 生态影响8.7, 已在QClaw部署)
+- **P1 (boundary)**: NVIDIA NeMoClaw Deep Agents (7.8/10, OpenShell沙箱+安全运行时参考栈)
+- **Tracked P0 items status**: headroom (stable); ECC (stable); RYO (stable); DECS/AbstractCoT (no new 24h)
+- **Trend**: End-side Agent sub-direction + Agent-native storage (Agent Bucket)
+- **Details**: See `memory/2026-07-10.md`
+- **Evaluation**: P0 hit on 07-07(RYO, ends 9-day spell), 07-09 dry again, 07-10 has 2 P1s (no P0)
 
 ### File Paths Verification (2026-07-06)
 - ✅ `skills/csts-skill-generator/scripts/`, `CSTS-implementation-design.md`, `CSTS-implementation-completion-20260618.md`, `QClaw-进化优化蓝图-20260609.md` (all exist)
@@ -241,10 +245,10 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 
 ---
 
-*Last Consolidation: 2026-07-06 18:25 (Dream Memory Consolidation)*  
-*Next Consolidation: 2026-07-13 (7 days)*  
-*Cron Task: dream-memory-consolidation (weekly)*  
-*Note: 12 cron tasks active; sessions_spawn template confirmed; Patterns 4&5 recorded; ~9-day tech dry spell noted. All entries ≤5 lines.*
+*Last Consolidation: 2026-07-11 11:10 (Memory Dreaming Promotion)*  
+*Next Consolidation: 2026-07-13 (weekly Dream Memory Consolidation)*  
+*Cron Task: dream-memory-promotion (daily 11:10)*  
+*Note: 12 cron tasks active; Added 2 new P1 items (Agent Bucket, NeMoClaw); dry spell pattern on 07-09 after 07-07 cluster. All entries ≤5 lines.*
 
 ## 📝 Memory Consolidation Report (2026-07-06)
 
