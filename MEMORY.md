@@ -62,6 +62,7 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 9. ⏳ **HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - 阿里巴巴达摩院, 商品出口海关编码归类新基准, 最优AI系统仅~45% vs 人类专家95%。揭示Agent架构结构性瓶颈：推理链漂移+领域知识不足+推理幻觉。与规则敏感场景(合规/税务/审计)直接关联。
 10. ⏳ **腾讯云 Agent Bucket** (8.2/10, 2026-07-10) - AI Agent原生存储服务, S3兼容+Space独立空间+GooseFS加速, 已在QClaw部署(华硕/东风日产)。P1, 生态影响8.7。
 11. ⏳ **NVIDIA NeMoClaw Deep Agents** (7.8/10, 2026-07-10) - OpenShell沙箱+Landlock/seccomp声明式策略, 推理成本降10倍, Nemotron 3 Ultra开源。P1边界。
+12. ⏳ **OpenSquilla** (9.0/10, 2026-07-11) - GitHub opensquilla/opensquilla（基元律动/王云鹤), Token-Efficient 智能体运行时。SquillaRouter 本地 LightGBM+ONNX 路由省60-80% Token; DRACO双榜第一; Meta-Skills自动沉淀复用工作流。架构同构于QClaw harness(微内核+路由+记忆+沙箱+MCP)。P0。
 
 ### Latest Monitoring Record (2026-07-08, 16:43 run)
 - **Monitoring Coverage**: 2026-07-07, 2026-07-08; **1 P0 + 1 P1 found** (ends ~9-day dry spell)
@@ -69,6 +70,21 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 - **P1 (impact>8.5)**: HSCodeComp (ACL 2026 Best Resource Paper, 8.7/10) — added to Pending Integration (#9)
 - **Tracked P0 items status**: headroom (stable); ECC (stable); new RYO added Mon Jul 7
 - **Details**: See `memory/2026-07-07-tech.md` and `memory/2026-07-08-tech.md`
+
+### Latest Monitoring Record (2026-07-11, 11:50 run)
+- **Monitoring Coverage**: 2026-07-10→11; **1 P0 found** (break 1-day micro dry spell)
+- **P0**: OpenSquilla (9.0/10, token-efficient agent runtime, 基元律动/王云鹤) — added to Pending Integration #12
+- **P1 (impact>8.5)**: 0
+- **Tracked P0**: headroom(稳定), ECC(稳定), RYO(稳定)
+- **Trend**: Harness Engineering 成2026主导范式; OpenSquilla 架构同构QClaw harness
+- **Details**: See `memory/2026-07-11.md`
+
+### Latest Monitoring Record (2026-07-13, 14:00 run)
+- **Coverage**: 2026-07-12→13; **0 P0, 0 P1** (dry spell 2 days from 07-11)
+- **Paper Trends (1-week)**: Agent Memory + 自进化 + 成本感知 (SSPM 2607.09493, Agora 2607.09600, SAGEAgent 2607.09521, Agentic Memory 2601.01885, MemOS, AntiSD/GRPO)
+- **P1-watch**: Agora (Agentic memory orchestration) + GSPO (sequence-level RL, replaces GRPO variance) — elevated from P2
+- **GBrain Status**: symlink still broken; real copies confirmed at `D:\QClawX\docs\gbrain` and `D:\QClawX\backups\gbrain`
+- **Details**: See `memory/2026-07-13.md`
 
 ### Latest Monitoring Record (2026-07-15, 09:46 run)
 - **Monitoring Coverage**: 2026-07-14→15 strict 24h; **0 P0, 0 P1 found** (dry spell 连续5日)
@@ -253,10 +269,10 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 
 ---
 
-*Last Consolidation: 2026-07-11 11:10 (Memory Dreaming Promotion)*  
-*Next Consolidation: 2026-07-13 (weekly Dream Memory Consolidation)*  
+*Last Consolidation: 2026-07-15 11:10 (Memory Dreaming Promotion)*  
+*Next Consolidation: 2026-07-20 (weekly Dream Memory Consolidation)*  
 *Cron Task: dream-memory-promotion (daily 11:10)*  
-*Note: 12 cron tasks active; Added 2 new P1 items (Agent Bucket, NeMoClaw); dry spell pattern on 07-09 after 07-07 cluster. All entries ≤5 lines.*
+*Note: 12 cron tasks active; Added OpenSquilla(P0 #12) + paper trend(SSPM/Agora/SAGEAgent) + harness0(P2 watch). All entries ≤5 lines.*
 
 ## 📝 Memory Consolidation Report (2026-07-06)
 
