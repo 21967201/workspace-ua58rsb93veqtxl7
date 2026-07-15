@@ -9,7 +9,7 @@
 ### Workspace & Paths
 - **Workspace**: `D:\QClawX\data\workspace-ua58rsb93veqtxl7` (migrated from C: to D: 2026-06-16)
 - **Data Root**: `D:\QClawX\` (all auto-task data must save here per AGENTS.md Rule 6)
-- **GBrain**: `C:\Users\Administrator\gbrain` (personal knowledge base, accessed via gbrain CLI)
+- **GBrain**: symlink `C:\Users\Administrator\gbrain` **已失效**（目标 `D:\QClawX\gbrain` 为空目录）; 真实可用副本: `D:\QClawX\docs\gbrain`（含 src/cli.ts + knowledge/）与 `D:\QClawX\backups\gbrain`。⚠️ pglite wasm 在 bun/Windows 崩溃(0xC0000409)，import 不可用，需管理员重建 symlink + 排查 wasm 兼容
 - **Skills Dir**: `skills/` (relative to workspace)
 
 ### Cron Tasks (12 Active, Last Updated 2026-06-22)

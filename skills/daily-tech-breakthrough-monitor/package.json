@@ -6,7 +6,7 @@
   "distiller": {
     "discoveredAt": "2026-07-06T10:31:00Z",
     "pattern": "三阶段搜索(arXiv/GitHub/社区) -> 51指标评估(P0/P1/P2) -> 静默更新记忆 -> P0/P1推送通知",
-    "occurrences": 5,
+    "occurrences": 8,
     "taskTitles": [
       "技术突破监控",
       "技术监控"

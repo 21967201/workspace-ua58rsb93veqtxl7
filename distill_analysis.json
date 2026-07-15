@@ -1,21 +1,28 @@
 {
-  "scan_time": "2026-07-06T18:33:27",
-  "scanned": 37,
+  "scan_time": "2026-07-13T17:20:56",
+  "scanned": 58,
   "recurring_titles": {
-    "技术突破监控": 5,
-    "GitHub同步": 7
+    "技术突破监控": 8,
+    "GitHub同步": 13
   },
   "title_counter": {
     "工作流发现": 1,
-    "Distill发现": 1,
-    "技术突破监控": 5,
-    "技术监控": 1,
-    "GitHub同步": 7,
+    "技术突破监控": 8,
+    "Distill发现": 2,
+    "技术监控": 2,
+    "记忆提升": 2,
+    "GitHub同步": 13,
     "系统进化": 1,
+    "综合检查": 1,
     "综合周检查": 1,
     "GBrain管理": 1,
+    "Memory 提升": 1,
+    "周一知识管理": 1,
+    "会话摘要": 2,
+    "每日技术监控": 1,
+    "记忆提升报告": 1,
     "记忆整理": 2,
-    "会话摘要": 1,
+    "BI周报2026": 1,
     "Skill发现": 1,
     "每周检查": 1,
     "Memory升级": 1,
@@ -23,6 +30,7 @@
     "记忆梦提升": 1,
     "商业智能周报": 1,
     "1688全景分析": 1,
+    "Distill工作流发现": 1,
     "Distill扫描": 1,
     "心跳检查": 1,
     "1688数据采集": 1,
@@ -34,24 +42,24 @@
     "Cron修复": 1
   },
   "verb_counter": {
-    "扫描": 9,
-    "识别": 4,
-    "评估": 4,
-    "创建": 12,
-    "生成": 9,
+    "扫描": 16,
+    "识别": 6,
+    "评估": 6,
+    "创建": 14,
+    "生成": 15,
     "搜索": 4,
-    "检查": 11,
-    "读取": 5,
+    "检查": 15,
+    "提取": 5,
+    "合并": 3,
+    "验证": 5,
+    "调用": 7,
+    "推送": 6,
+    "读取": 6,
     "更新": 6,
-    "合并": 2,
-    "推送": 4,
-    "验证": 4,
+    "写入": 3,
     "压缩": 1,
     "分析": 1,
     "保存": 1,
-    "提取": 1,
-    "调用": 2,
-    "写入": 1,
     "报告": 1,
     "修复": 2
   },
@@ -60,6 +68,11 @@
       "dir": "00619347-8eac-45a3-9895-5e4c75fe2a5d",
       "name": "工作流发现",
       "msg_count": 40
+    },
+    {
+      "dir": "061a1e65-3054-404b-8056-ddea57fc020e",
+      "name": "技术突破监控",
+      "msg_count": 16
     },
     {
       "dir": "0d4fcb38-3739-4449-a3e4-12251a9bbdcd",
@@ -77,14 +90,34 @@
       "msg_count": 32
     },
     {
+      "dir": "1c4d1e6d-7e6b-4643-8822-ced883ff84b7",
+      "name": "记忆提升",
+      "msg_count": 24
+    },
+    {
       "dir": "207b9bdb-a21c-44e7-9348-4ac6091489c8",
       "name": "GitHub同步",
       "msg_count": 50
     },
     {
+      "dir": "2acd1c54-275f-4ed1-9a79-05c8d9a2c45d",
+      "name": "GitHub同步",
+      "msg_count": 41
+    },
+    {
+      "dir": "2b7ff835-10e4-4e26-9b7d-03a14ea1744a",
+      "name": "GitHub同步",
+      "msg_count": 32
+    },
+    {
       "dir": "30e247f8-75a2-4343-820d-ac64be8841e4",
       "name": "系统进化",
       "msg_count": 22
+    },
+    {
+      "dir": "4487db4a-9fb9-4b1d-a8dc-71f9d94fe8d6",
+      "name": "综合检查",
+      "msg_count": 17
     },
     {
       "dir": "4506485a-742f-449e-bf8b-84c7ce29003d",
@@ -107,6 +140,16 @@
       "msg_count": 30
     },
     {
+      "dir": "60209a33-f4a1-450c-bf0f-71ce0e7087d8",
+      "name": "Memory 提升",
+      "msg_count": 21
+    },
+    {
+      "dir": "60c95b20-9d53-4dbe-ac44-0bec7b016df6",
+      "name": "周一知识管理",
+      "msg_count": 68
+    },
+    {
       "dir": "66ed30d2-aa6c-4295-acfb-0ad900b44632",
       "name": "技术突破监控",
       "msg_count": 17
@@ -117,9 +160,39 @@
       "msg_count": 56
     },
     {
+      "dir": "81609a5e-5dfc-4add-925e-e7766206c01c",
+      "name": "GitHub同步",
+      "msg_count": 30
+    },
+    {
+      "dir": "8d833aab-227a-4c25-9a0c-11777d0242e7",
+      "name": "技术突破监控",
+      "msg_count": 19
+    },
+    {
+      "dir": "9050d477-0ebe-4643-8936-0a77ebac0f98",
+      "name": "记忆提升",
+      "msg_count": 18
+    },
+    {
+      "dir": "97164c49-ad5b-4531-b2d6-aaa97fc0e9cc",
+      "name": "会话摘要",
+      "msg_count": 20
+    },
+    {
       "dir": "97bfb647-a8f1-4456-ae56-feb2dc291414",
       "name": "GitHub同步",
       "msg_count": 39
+    },
+    {
+      "dir": "9d96a078-2fc4-4fc2-954b-1620637b3746",
+      "name": "每日技术监控",
+      "msg_count": 31
+    },
+    {
+      "dir": "a24e044e-ba17-412a-a2d5-1c1adc3f5705",
+      "name": "记忆提升报告",
+      "msg_count": 22
     },
     {
       "dir": "a28776e8-126d-4980-a2fe-7874435e7376",
@@ -127,9 +200,24 @@
       "msg_count": 42
     },
     {
+      "dir": "a94de219-c459-4a21-9a03-c09887eb5593",
+      "name": "Distill发现",
+      "msg_count": 58
+    },
+    {
       "dir": "b6a8b187-c1c1-4182-b7fb-d92e1f75809b",
       "name": "会话摘要",
       "msg_count": 18
+    },
+    {
+      "dir": "b8f46a0c-d0c1-48b1-ab1b-0b0c275e6f6d",
+      "name": "GitHub同步",
+      "msg_count": 62
+    },
+    {
+      "dir": "b9ae4315-93c3-4bf5-a20a-caba9c0b0d1f",
+      "name": "BI周报2026",
+      "msg_count": 21
     },
     {
       "dir": "bb80aeaa-b4ab-4c15-9d83-8923376e5d22",
@@ -147,6 +235,11 @@
       "msg_count": 43
     },
     {
+      "dir": "cb3e70be-2788-4f3e-8549-9e3b3a2346d2",
+      "name": "GitHub同步",
+      "msg_count": 34
+    },
+    {
       "dir": "d601da6d-8452-4c39-a176-8929922e3b20",
       "name": "Memory升级",
       "msg_count": 24
@@ -155,6 +248,11 @@
       "dir": "dc2a276e-1fcf-45fe-a4a1-eadd54ffdc79",
       "name": "GitHub同步",
       "msg_count": 50
+    },
+    {
+      "dir": "df005d2a-e9f7-4ebe-afb0-128e4320c403",
+      "name": "技术监控",
+      "msg_count": 22
     },
     {
       "dir": "distill-workflow-discovery",
@@ -177,6 +275,11 @@
       "msg_count": 19
     },
     {
+      "dir": "e88451a1-50d5-4419-8889-a496d9486d10",
+      "name": "技术突破监控",
+      "msg_count": 19
+    },
+    {
       "dir": "ea7d82a8-a5bc-40de-b329-6ef7f6c85881",
       "name": "商业智能周报",
       "msg_count": 24
@@ -190,6 +293,16 @@
       "dir": "f55f1631-4668-4615-93cc-404016891f1e",
       "name": "技术突破监控",
       "msg_count": 28
+    },
+    {
+      "dir": "f6027df0-e475-4bd0-ae68-89ebb253335c",
+      "name": "GitHub同步",
+      "msg_count": 30
+    },
+    {
+      "dir": "f60bd21e-4145-40b0-8f7d-eb994b1ca38a",
+      "name": "Distill工作流发现",
+      "msg_count": 55
     },
     {
       "dir": "fb8c33b1-490c-4d8d-b3d2-a8faf96750c5",
