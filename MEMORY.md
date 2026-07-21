@@ -1,181 +1,147 @@
-ï»¿# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-07-06)
+# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-07-20)
 
-> **Consolidation Info**: 2026-07-20 - tech dry spell >16d, WAIC 2026 theme logged, no new stable facts. All entries <= 6 lines.
+> **Consolidation Info**: 2026-07-20 ¡ª ÖØ½¨×Ô¸É¾» git »ùÏß(db904a1a, 07-15) + ÖØĞÂÕûºÏ 07-16/07-20 ¼à¿Ø¼ÇÂ¼¡£ĞŞ¸´Ç°´ÎĞ´Èëµ¼ÖÂµÄ UTF-8 Ë«ÖØ±àÂëÂÒÂë(ÖĞÎÄÈ«²¿Ëğ»µ)¡£dry spell >16ÈÕ, WAIC 2026 Ö÷ÌâÒÑ¼ÇÂ¼, ÎŞĞÂÔöÎÈ¶¨ÊÂÊµ¡£ËùÓĞÌõÄ¿ ¡Ü5 ĞĞ¡£
 
 ---
 
-## æ££å†©æš‹ Core Configuration (Stable Facts)
+## ?? Core Configuration (Stable Facts)
 
 ### Workspace & Paths
 - **Workspace**: `D:\QClawX\data\workspace-ua58rsb93veqtxl7` (migrated from C: to D: 2026-06-16)
 - **Data Root**: `D:\QClawX\` (all auto-task data must save here per AGENTS.md Rule 6)
-- **GBrain**: symlink `C:\Users\Administrator\gbrain` **ç€¹å‘Šå½ƒéŠ‡æˆ¦å¼«?*é–¿æ¶˜ç‰å¨²ä¼´å¼½?`D:\QClawX\gbrain` å¨‘æ’¹æ«£éˆ¹æ ­æƒ„é¡”è‚©ç§¿é–¿? é–»î†å–é¤å‹¯å´£é¡–æ»„æšé–¸æ“ƒå±å©€? `D:\QClawX\docs\gbrain`é–¿æ¶˜ç‰†é¯?src/cli.ts + knowledge/é–¿æ¶˜î˜®ç»—?`D:\QClawX\backups\gbrain`é–µå——å€µå¨ˆææ•‚?pglite wasm é–¸?bun/Windows ç€¹æ›—æ™œç»¨?0xC0000409)é–¿æ¶˜î…¿mport å¨‘æ’³ç§´è¤°æŸ¥æ‚½é¡­æ”ç¤‰é—‚å›£å“ç¼ç‹…ç´•é®å©‡å´¨å§—â‚¬é£ç¨¿î‡™?symlink + é–¹çƒ˜å¸—é“?wasm é–¸å¿•å§é¡”?
+- **GBrain**: symlink `C:\Users\Administrator\gbrain` **ÒÑÊ§Ğ§**£¨Ä¿±ê `D:\QClawX\gbrain` Îª¿ÕÄ¿Â¼£©; ÕæÊµ¿ÉÓÃ¸±±¾: `D:\QClawX\docs\gbrain`£¨º¬ src/cli.ts + knowledge/£©Óë `D:\QClawX\backups\gbrain`¡£?? pglite wasm ÔÚ bun/Windows ±ÀÀ£(0xC0000409)£¬import ²»¿ÉÓÃ£¬Ğè¹ÜÀíÔ±ÖØ½¨ symlink + ÅÅ²é wasm ¼æÈİ
 - **Skills Dir**: `skills/` (relative to workspace)
 
 ### Cron Tasks (12 Active, Last Updated 2026-06-22)
-All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval é–³?0min.
+All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ¡İ40min.
 **Daily (Mon-Sat)**:
-1. æ¿®ï½…ç¹‘å¦«â•…æƒ„é´ç‚²ä»˜å¨´çŠºî‡§æ¿®?(10:30)
+1. Ã¿ÈÕ¼à¿ØÈÎÎñ (10:30)
 2. Memory Dreaming Promotion (11:10, this task)
 3. tech-breakthrough-monitor (11:50)
-4. é–¼å¥‰äºœæ¿®â•…å´¥çç»¢åŠ„å¨´çŠºî‡§æ¿®ç†¼å¼¬é¥ï¸½î‚½é–¸æ”æª¸itHub (12:30)
-5. é–ºå ç‰†ç€¹æŠ½å¹éŠ‰ãƒ¦å•å¨´çŠºî‡§æ¿®?(13:10)
+4. ×Ô¶¯Í¬²½ÈÎÎñÎÄ¼şµ½GitHub (12:30)
+5. ÔÂ¶È±¨¸æÈÎÎñ (13:10)
 **Monday Extra**:
-6. é–¸æ¶–åŠ‹ç»”æ’®æƒŒéŠ‰ã„§æ§•ç¼ç‹…ç´•é®å©„ç´’é“åº¢å€¤å¨´çŠºî‡§æ¿®?(14:00)
-7. é–¸æ¶–åŠ‹ç»”å¯¸ç´’é“åº¢å€¤æ¿¡î‚Ÿå“é–ºå±»å„°é¹ãˆ¤å´?(14:40)
-8. AIç¼îˆå´µç»®æ´ªæ‡›é¡å‹«Ğ—é‰â•‚ç¨‘ç€µå‰ç¦’ç’‡æ’î¤ (15:20)
-9. Dream é ä½¹æ¾˜ç»»å‚å¼«ç€µå‘Šå€ (16:00)
-10. QClawé–ºå‘´ç¼šéæ¨ºã€’é›îˆ›å€ (16:40)
-11. Distill ç€¹æå„°ç¼æ–¿Ã¹æµ£ç¨¿çµºé–»?(17:20, first Mon of month)
+6. ÖÜÒ»ÖªÊ¶¹ÜÀí×ÛºÏÈÎÎñ (14:00)
+7. ÖÜÒ»×ÛºÏ¼ì²éÈÎÎñ (14:40)
+8. AIÏµÍ³×Ô¶¯½ø»¯ÈÎÎñ (15:20)
+9. Dream ¼ÇÒäÕûÀí (16:00)
+10. QClawÖÇÄÜÇåÀí (16:40)
+11. Distill ¹¤×÷Á÷·¢ÏÖ (17:20, first Mon of month)
 **Friday Extra**:
-12. é–¸ç†·æ£”ç»—ç†¼å¼²æ¥¦å®å´é–¸æ¶–åŠæ¿®?(15:00)
+12. ÉÌÒµÖÇÄÜÖÜ±¨ (15:00)
 
 ### Auto-Task Rules (Mandatory)
 - **Rule 4 (Time Limit)**: Mon-Sat only, 10:20-18:00, no Sunday execution.
-- **Rule 5 (Token Budget)**: Simple=0 token, Mediumé–³?.6% CoT, Complexé–³?5% CoT.
+- **Rule 5 (Token Budget)**: Simple=0 token, Medium¡Ü7.6% CoT, Complex¡Ü15% CoT.
 - **Rule 6 (Data Storage)**: All data must save to `D:\QClawX\` (no C: drive).
 - **Rule 2 (Uncertainty)**: Must web-search before answering uncertain questions.
 
 ---
 
-## æ££å†©ç•¬ P0 Tech Breakthroughs (Integration Priority)
+## ?? P0 Tech Breakthroughs (Integration Priority)
 
-### Integrated (2/5)
-1. é–´?**headroom** (9.2/10) - Token compression 60-95%, already integrated (MCP mode, 2026-06-09)
-2. é–´?**Ponytail** (9.4/10) - AI codingç¼î†¼å¢½é£? `clawhub install ponytail` (2026-06-20)
+### Integrated (2/12)
+1. ? **headroom** (9.2/10) - Token compression 60-95%, already integrated (MCP mode, 2026-06-09)
+2. ? **Ponytail** (9.4/10) - AI coding¾«¼ò, `clawhub install ponytail` (2026-06-20)
 
-### Pending Integration (5/7)
-3. é–³?**OpenClaw-Skill/CSTS** (9.5/10) - Collective skill tree search, 100% enhanced done, pending production integration
-4. é–³?**SkillSpector** (9.0/10) - NVIDIA skill security scanner, 40% simplified done, expand to 64 patterns
-5. é–³?**EGSS** (8.8/10) - Entropy-guided test-time scaling, 30% simplified done, need real LLM logprobs
+### Pending Integration (10/12)
+3. ? **OpenClaw-Skill/CSTS** (9.5/10) - Collective skill tree search, 100% enhanced done, pending production integration
+4. ? **SkillSpector** (9.0/10) - NVIDIA skill security scanner, 40% simplified done, expand to 64 patterns
+5. ? **EGSS** (8.8/10) - Entropy-guided test-time scaling, 30% simplified done, need real LLM logprobs
+6. ? **Octo** (9.0/10, 2026-07-01) - Ã÷ÂÔ¿Æ¼¼, È«ÇòÊ×¸ö¿ªÔ´¿ÉĞÅAgentĞ­×÷ÍøÂç, ¶¨Òå"Agent»¥ÁªÍø"µ×²ãĞ­Òé¡£Open/Context/Taste/OrchestrationËÄÎ¬¶È±ê×¼»¯, Apache 2.0, 3000+ Agents¡£ÓëOpenClaw»¥²¹(Ğ­Òé²ã)¡£
+7. ? **CLI AgentÑµÁ·Êı¾İÉú³ÉÆ÷** (7.4/10, 2026-07-01) - ½×Ô¾ĞÇ³½, 6K¹ì¼£ÈÃĞ¡Ä£ĞÍ·´³¬Qwen3-Coder-480B, Terminal Agent¸ßĞ§ÑµÁ··½·¨¡£P1¼¶³ÖĞø¼à¿Ø¡£
+8. ? **Recognize Your Orchestrator** (ICML 2026, 9.0/10, 2026-07-07) - ÄÏ¾©´óÑ§, arXiv:2606.01351. µ÷¶ÈìØÁ¿»¯OrchestratorÊ§°Ü¹éÒò, Mean-Field Entropy Dynamics¿ò¼Ü, IWG·´ÍÆÑéÖ¤¡£ÓëOpenClaw Orchestrator-Executor¼Ü¹¹¸ß¶È¼æÈİ(ÎŞĞèÖØÑµ)¡£
+9. ? **HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - °¢Àï°Í°Í´ïÄ¦Ôº, ÉÌÆ·³ö¿Úº£¹Ø±àÂë¹éÀàĞÂ»ù×¼, ×îÓÅAIÏµÍ³½ö~45% vs ÈËÀà×¨¼Ò95%¡£½ÒÊ¾Agent¼Ü¹¹½á¹¹ĞÔÆ¿¾±£ºÍÆÀíÁ´Æ¯ÒÆ+ÁìÓòÖªÊ¶²»×ã+ÍÆÀí»Ã¾õ¡£Óë¹æÔòÃô¸Ğ³¡¾°(ºÏ¹æ/Ë°Îñ/Éó¼Æ)Ö±½Ó¹ØÁª¡£
+10. ? **ÌÚÑ¶ÔÆ Agent Bucket** (8.2/10, 2026-07-10) - AI AgentÔ­Éú´æ´¢·şÎñ, S3¼æÈİ+Space¶ÀÁ¢¿Õ¼ä+GooseFS¼ÓËÙ, ÒÑÔÚQClaw²¿Êğ(»ªË¶/¶«·çÈÕ²ú)¡£P1, ÉúÌ¬Ó°Ïì8.7¡£
+11. ? **NVIDIA NeMoClaw Deep Agents** (7.8/10, 2026-07-10) - OpenShellÉ³Ïä+Landlock/seccompÉùÃ÷Ê½²ßÂÔ, ÍÆÀí³É±¾½µ10±¶, Nemotron 3 Ultra¿ªÔ´¡£P1±ß½ç¡£
+12. ? **OpenSquilla** (9.0/10, 2026-07-11) - GitHub opensquilla/opensquilla£¨»ùÔªÂÉ¶¯/ÍõÔÆº×), Token-Efficient ÖÇÄÜÌåÔËĞĞÊ±¡£SquillaRouter ±¾µØ LightGBM+ONNX Â·ÓÉÊ¡60-80% Token; DRACOË«°ñµÚÒ»; Meta-Skills×Ô¶¯³Áµí¸´ÓÃ¹¤×÷Á÷¡£¼Ü¹¹Í¬¹¹ÓÚQClaw harness(Î¢ÄÚºË+Â·ÓÉ+¼ÇÒä+É³Ïä+MCP)¡£P0¡£
 
-### Latest Monitoring Record (2026-07-06, 11:50 run)
-- **Monitoring Coverage**: 2026-07-05, 2026-07-06; No P0/P1 breakthroughs (~9 consecutive days)
-- **P0**: 0 found; **P1 (impact>8.5)**: 0 found
-- **Tracked P0 items status**: headroom (stable, 60-95% token cut, GitHub Trending winner 06-07, no new release 24h); ECC (GitHubé–ºå†¦å„²æ¿®ã‚‡æ•®é¼ä½²æ•†, no new 24h); DECS/AbstractCoT (no new citation paper 24h)
-- **Notable signals (P2/watch)**: GSPO (Qwené–¸ãƒ£å½å¦²? sequence-level RL, replaces GRPO variance issue) gaining traction é–³?add to P1-watch; Goose migrated block/gooseé–³î‚£å¦ºaif-goose (Linux Foundation Agentic AI Foundation); OpenClaw shipped iOS/Android native apps (06-30)
-- **Trend**: Tech breakthrough dry spell continues (~9 days); next catalyst ICLR 2026 (mid-July)
-- **Details**: See `memory/2026-07-06-tech.md`
-6. é–³?**Octo** (9.0/10, 2026-07-01) - é–ºå‹«æµ·é†æ„®ç²”é´ç‚²Î—, é–¸å¿‹åŠé®å—˜ï¼ƒéï¹‚åš‹ç€µî†¹å“æ¿ Ñ„åŠ•è¤°å‰ç©±é¡¡å™‚enté–¸æ¥€ç¹‹ç¼æ—‚ç´”é´çŠµæ•, éè§„çŸ®ç» ?Agentå¨´æ»„å¸Ÿæµ å ¢ç´”?é¼å­˜æ´–éªä¼´å´¡è¹‡æ°¼å”´é–µå—•çª˜pen/Context/Taste/Orchestrationé–¸ãƒ¦ç¨“å¨£î†½æƒ”é””ç•Œå¼é–¸æˆæ£—ç€µ? Apache 2.0, 3000+ Agentsé–µå——å€·ç»—å­«penClawå¨´æ»„å¸Ÿè—Ÿ(é–¸æ¥€ç¹—é¡”å‘¯ä»¦?é–µ?7. é–³?**CLI Agenté ä¾‡å¾ç»®å²„å¼«é—å ç¥¦é–»ãˆ¢å–é¨æ°¶å´³?* (7.4/10, 2026-07-01) - é—‚å†©å„¼ç»Œî„„å¼°é”ç»˜æ«™, 6Ké‰ç‚ªåŠé¶æ¥ƒæ‹‹éˆºä½ºæ¯ˆæ¿¡îˆ—â‚¬å´‡â‚¬çƒ½å´£å®¥å ¢Ğ¢Qwen3-Coder-480B, Terminal Agentå¦¤å‚›É‘é…ãƒ§æ‹‹é¡“çŠµçŸŠé–ºå‚î‰çº­å •å¦´æ¸š?ç¼ç‹™å‹«ç˜®ç¼‚ä¾‡å¾å¨²å†®å¹’è¤‹éˆ§?8. é–³?**Recognize Your Orchestrator** (ICML 2026, 9.0/10, 2026-07-07) - é–¸æ¥ãéšî‚£å¾„è¤é¡’? arXiv:2606.01351. é å¬ªå•«ç€¹æŠ½æ‚¢é¢ç¨¿æ«¤é–¸æ ¨æ¹ rchestratorå©¢æƒ°ç²¾ç‘™ï¹ãéºæˆç¤ˆ, Mean-Field Entropy Dynamicsæ¿¡æ¥€æ£™é? IWGé–¸æ¬ç§µç”¯è§„îš¥å®€å†ªæ§ˆé–µå——å€·ç»—å­«penClaw Orchestrator-Executoré–ºå¬­åŸ–éîˆ›îš‡å¦¯å“„î†Šé–¸å¿•å§é¡”?é–ºå†ªå¨€å¨“å •æŸŒå®¥å «å”²)é–µ?9. é–³?**HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - é—‚å†¨æ½¡é£å³°î†é‰æˆå¼½é‰å ¢å“é³å›¬æ¢½? é–¸ç†·æ£—é¼Ñ‡å´™éå‹«ç¶“æ¿æ‘å˜²é™Ñ…ç´“éî‚¤å³ç‘œç‰ˆå¸çšî‚¦å¼¬é‰è·¨å”¨é–¸? é–ºå šå“å¨´å…¼ã‚¢Iç¼îˆå´µç»®çƒ˜ç¦’é˜?5% vs å¨´æ»†æ«£çšî‚£ç¨‰é¾æ„å•€95%é–µå——å€¹è¤°î†¾ç²ˆç»¡å“enté–ºå¬­åŸ–éîˆœç´’é¾å¯¸â‚¬îˆå¹€è¤é½è¾¨ï¼é«î„‚çª—é–¹æ’åŠé®å©‡æŸ§éî„‚ç£½ç¼?å¦«æ¿æ£—é“æ¬“æƒŒéŠ‰ã„§æ§•å¨‘æ’³ç§·é?é–¹æ’åŠé®å©‡ç®é„å¿£æ½•é–µå——å€·ç»—å²€æ†´é•î‚¢çŸé–ºä½¸ç¹‘é”å‘´å´·é‘æ¨»ç¯(é–¸æ°¬ç‰é¡«?ç¼å¬ªéª¸æ¿®?éå­¤ã‚å€)é–»â•ç“¨ç”¯æ’®å´—ç€¹çŠ±ç²“é–µ?10. é–³?**é–¼å«å´˜é¡”å—˜ç¦?Agent Bucket** (8.2/10, 2026-07-10) - AI Agenté–¸æ¨¼å–“éæ’¶â‚¬æ¶™Ãªé‹å¶‰å¼µå®¥å‘­î¤, S3é–¸å¿•å§é¡”?Spaceé–»æ¬˜å‰›éæ¶šç²šå¨²î…ï¼Ÿ+GooseFSé–¸æ—‚å¨€éˆ§? ç€¹å‘Šå½ƒå©€çŒ€Clawé—î†ºåŠç’?é–¸æ¥€æµ·é¡¢?å¨‘æ’´ç²“é¡¥æ’»å¼®éŠ‰ã‚‰ç“)é–µå—•æª1, é–»ãˆ¢å–éˆ§îƒ¿ç¤æ¿‚æ ­å´«?.7é–µ?11. é–³?**NVIDIA NeMoClaw Deep Agents** (7.8/10, 2026-07-10) - OpenShellæ¿å±¾ç‘§é¡”?Landlock/seccompå©¢åœ­å¢—å¦²æˆî‡£è¹‡æ› æ‘œé–»? é–¹æ’åŠé®å©‡å¹‹é°î…Ÿæ‹±é—‚?0é–¸? Nemotron 3 Ultraç€µî†¹å“æ¿ Ñ„åŠ‘éˆ§îƒ¿æª1é‰å æ¹±é…î‚¦å¦´?12. é–³?**OpenSquilla** (9.0/10, 2026-07-11) - GitHub opensquilla/opensquillaé–¿æ¶˜ç‰†é”â‚¬é–¸å¿“å•«ç»¶ãƒ©å´?é–»æ»ƒîƒ„ç»¨îˆ›ã‚£?, Token-Efficient é–ºå‘´ç¼šéæ¨»æ‹…é¾åœ­ç®¥éæ¶˜æœ¬å¦å‚å¦´æ·‡ä¿¼uillaRouter é–ºå «å‰™å©€?LightGBM+ONNX é ä¾¯å³ééæƒ‡?0-80% Token; DRACOé–¸æ¬æœ¬é¡ªä½ºç²­é¡‘è·¨î±; Meta-Skillsé–¼å¥‰äºœæ¿®â•â–½æ¾¶å¬¬â”…å©¢è·ºç§¶éã‚…î†éŠ‰ã‚‡ç¨Šæ¿ç¿ é™éˆ§î„€å€¹éï¹‚å¼¸é•î‚£å€±é–ºå¬ªå«ªç»¨çClaw harness(ç€µé‚¦å––éæ’®å¼½?é ä¾¯å³é?é ä½¹æ¾˜ç»»?æ¿å±¾ç‘§é¡”?MCP)é–µå—•æª0é–µ?
-### Latest Monitoring Record (2026-07-08, 16:43 run)
-- **Monitoring Coverage**: 2026-07-07, 2026-07-08; **1 P0 + 1 P1 found** (ends ~9-day dry spell)
-- **P0**: Recognize Your Orchestrator (ICML 2026) é–³?added to Pending Integration (#8)
-- **P1 (impact>8.5)**: HSCodeComp (ACL 2026 Best Resource Paper, 8.7/10) é–³?added to Pending Integration (#9)
-- **Tracked P0 items status**: headroom (stable); ECC (stable); new RYO added Mon Jul 7
-- **Details**: See `memory/2026-07-07-tech.md` and `memory/2026-07-08-tech.md`
+### Watchlist (P1-candidate / P2)
+- ?? **TencentDB Agent Memory** (P1ºòÑ¡, ´ıÑé) - ÌÚÑ¶ÔÆÏòÁ¿¿âËÄ²ã¼ÇÒä¼Ü¹¹(9k¡ï), Óë±¾µØMarkdown¼ÇÒä»¥²¹¡£À´Ô´µ¥Ò», ´ıµÚ¶şÀ´Ô´+¿ªÔ´artifactÈ·ÈÏ¡£
+- ?? **G-Memory** (P2) - GitHub bingreeky/GMemory, ²ã´Î»¯¶àÖÇÄÜÌå¼ÇÒä, ×éÖ¯¼ÇÒäÀíÂÛÆô·¢, Î´´ï¸ßÓ°ÏìãĞÖµ¡£
+- ?? **Lilian Weng harness ×Ô½ø»¯³¤ÎÄ** (P2) - 2026-07-15 ÆÀÂÛ/¹ÛµãÎÄ, ·ÇĞÂÂÛÎÄ/·Ç¿ªÔ´, Ç¿»¯ ECC(Agent Harness) ·½Ïò¡£´ıµÚ¶şÀ´Ô´¡£
+- ?? **SAGE** (GRPO ×Ô½ø»¯, watch) + **harness0 (seekcontext)** (P2) - 07-13 ·¢²¼, ÈÔÔçÆÚ, ÎŞĞÂ commit¡£
 
-### Latest Monitoring Record (2026-07-11, 11:50 run)
-- **Monitoring Coverage**: 2026-07-10é–³?1; **1 P0 found** (break 1-day micro dry spell)
-- **P0**: OpenSquilla (9.0/10, token-efficient agent runtime, é–¸â•æ«é˜æ’³î‡¥ç€£î„Ğ—/é–»æ»ƒîƒ„ç»¨îˆ›ã‚£? é–³?added to Pending Integration #12
-- **P1 (impact>8.5)**: 0
-- **Tracked P0**: headroom(ç¼å¬ªå•¿é£?, ECC(ç¼å¬ªå•¿é£?, RYO(ç¼å¬ªå•¿é£?
-- **Trend**: Harness Engineering é–¹?026å¨‘æ’¹î‡§é¡•éæ‡ éã„§ç¡€; OpenSquilla é–ºå¬­åŸ–éîˆå´¥çå‰§â‚¬ç–©Claw harness
-- **Details**: See `memory/2026-07-11.md`
+### Latest Monitoring Records (newest first)
+- **2026-07-21 (11:50)**: Coverage 07-20->21; **0 P0, 0 P1** (dry spell Á¬Ğø>17ÈÕ). ÎŞ24hÄÚP0/P1Í»ÆÆ. Self-Evolving Agents×ÛÊöÈÈ(7/4-7/9, ·ÇĞÂÍ»ÆÆ). P0 trackedÎÈ¶¨(headroom/ECC/DECS/AbstractCoTÎŞĞÂrelease). P1 tracked: ÃÀÍÅÃÙÓÎÉçÇø(6/15¹«²â,ÎÈ¶¨), Goose(ÎŞĞÂ¶¯Ì¬), ºèÃÉArkAF(ÎŞ7ÔÂĞÂ½øÕ¹). ĞĞÒµ: WAIC°¢ÀïAgent Native Cloud(7/18), Î¢ÈíAgent Framework 1.0 GA(7/17). ÖÃĞÅ¶È~90%¡£
+- **2026-07-20 (09:44 + 11:50 ¸´ÅÜ)**: Coverage 07-19¡ú20; **0 P0, 0 P1** (dry spell >16ÈÕ)¡£WAIC 2026(7/17-20)¾Û½¹"Token ËãÕËÊ±´ú"(²úÒµÇ÷ÊÆ·ÇP0)¡£P1ºòÑ¡ TencentDB Agent Memory; P2 G-Memory¡£Tracked P0: headroom(ÎÈ¶¨), DECS/AbstractCoT(ÎŞĞÂÒıÓÃ)¡£ÖÃĞÅ¶È~90%¡£
+- **2026-07-16 (11:50)**: Coverage 07-15¡ú16; **0 P0, 0 P1** (dry spell Á¬Ğø7ÈÕ)¡£ÈõĞÅºÅC(Lilian Weng harness ×Ô½ø»¯ÆÀÂÛÎÄ, P2/watch, ×ÛºÏÆÀ·Ö4.4)¡£Tracked: headroom/ECC/DECS/AbstractCoT ¾ùÎŞĞÂrelease/ÒıÓÃ¡£
+- **2026-07-15 (09:46)**: Coverage 07-14¡ú15; **0 P0, 0 P1** (dry spell Á¬Ğø5ÈÕ)¡£Near-windowÈõĞÅºÅ: ACL2026 SAC Highlight(µ¥Ô´,watch); harness0(P2)¡£
+- **2026-07-13 (14:00)**: Coverage 07-12¡ú13; **0 P0, 0 P1** (dry spell 2ÈÕ)¡£Paper trends: Agent Memory + ×Ô½ø»¯ + ³É±¾¸ĞÖª(SSPM/Agora/SAGEAgent/Agentic Memory/MemOS)¡£P1-watch: Agora + GSPO¡£
+- **2026-07-11 (11:50)**: Coverage 07-10¡ú11; **1 P0** (OpenSquilla #12)¡£P1(>8.5): 0¡£
+- **2026-07-10 (11:50)**: Coverage 07-09¡ú10; **0 P0, 2 P1** (Agent Bucket #10, NeMoClaw #11)¡£
+- **2026-07-08 (16:43)**: Coverage 07-07¡ú08; **1 P0 + 1 P1** (RYO #8, HSCodeComp #9, ½áÊø~9ÈÕdry spell)¡£
+- **2026-07-06 (11:50)**: Coverage 07-05¡ú06; **0 P0, 0 P1** (~9ÈÕÎŞÍ»ÆÆ)¡£Next catalyst: ICLR 2026 (mid-July)¡£
+- **Details**: `memory/2026-07-20-tech.md`, `memory/2026-07-16-tech.md`, `memory/2026-07-15-tech.md`, `memory/2026-07-13.md`, `memory/2026-07-11.md`, `memory/2026-07-10.md`, `memory/2026-07-07-tech.md`, `memory/2026-07-06-tech.md`
 
-### Latest Monitoring Record (2026-07-13, 14:00 run)
-- **Coverage**: 2026-07-12é–³?3; **0 P0, 0 P1** (dry spell 2 days from 07-11)
-- **Paper Trends (1-week)**: Agent Memory + é–¼å¥‰äº£ç»»æ©€å´ ?+ é–¹å­˜åŠ–å©€ä¼´å¹‡é”è™¹å€ (SSPM 2607.09493, Agora 2607.09600, SAGEAgent 2607.09521, Agentic Memory 2601.01885, MemOS, AntiSD/GRPO)
-- **P1-watch**: Agora (Agentic memory orchestration) + GSPO (sequence-level RL, replaces GRPO variance) é–³?elevated from P2
-- **GBrain Status**: symlink still broken; real copies confirmed at `D:\QClawX\docs\gbrain` and `D:\QClawX\backups\gbrain`
-- **Details**: See `memory/2026-07-13.md`
-
-### Latest Monitoring Record (2026-07-15, 09:46 run)
-- **Monitoring Coverage**: 2026-07-14é–³?5 strict 24h; **0 P0, 0 P1 found** (dry spell é‰â•ƒåŸé¢?é–º?
-- **P0**: 0; **P1(impact>8.5)**: 0
-- **Tracked P0**: headroom(ç¼å¬ªå•¿é£?; ECC(é–»ç‚²æ£—æ´çƒ½æ‹ƒé’˜å¤‹å‹¾éŸ?harness0, P2); DECS/AbstractCoT(é–ºå†ªå§µéŒå©‚î‡£é‡çŠ³æš)
-- **Near-windowç€µî†¼å½‰æ·‡å©‡å´£?*: ACL2026 SAC Highlight(æ¿å­˜ç‘¥éŠ‡?é–¾æ’³å€½å¨ˆ?é–¸æ¥æ´˜ç»¨?watch); harness0(seekcontext, 07-13, P2)
-- **ç€µæ¿æ‡“è—Ÿ**: ç¼‚å›§éª¸å¨²ç†ºæ†´é›î†¾åŸ—/å¦¤ï¹å„»é¸å©£rkAF é–ºå «å‰šå¦«â•…æŸ†å¦¤ä½ºç¡€; ICLR 2026 é ä½ºå„¤é‹å†®å´šå¦¤å‹©â‚¬å†®æŸŒå®¥å›§ä»¯é–»â•‚å¶ç”¯?
-- **Details**: See `memory/2026-07-15-tech.md`
-
-
-### Latest Monitoring Record (2026-07-20, 09:46 run)
-- **Monitoring Coverage**: 2026-07-19->20; **0 P0, 0 P1** found (dry spell >16 days)
-- **P0**: 0; **P1(impact>8.5)**: 0
-- **WAIC 2026** (7/17-20) ongoing, theme Token Cost-Efficiency Era (industry trend)
-- **P1-candidate(to verify)**: TencentDB Agent Memory (9k stars, vector DB 4-layer memory arch, complements local Markdown)
-- **P2**: G-Memory (GitHub bingreeky/GMemory, hierarchical multi-agent memory)
-- **Tracked P0**: headroom(stable), DECS/AbstractCoT(no new refs)
-- **Details**: See memory/2026-07-20-tech.md
-
-### Latest Monitoring Record (2026-07-10, 11:50 run)
-- **Monitoring Coverage**: 2026-07-09 to 2026-07-10; **0 P0, 2 P1 found**
-- **P0**: 0 found; **P1 (impact>8.5)**: é–¼å«å´˜é¡”å—˜ç¦?Agent Bucket (8.2/10, é–»ãˆ¢å–éˆ§îƒ¿ç¤æ¿‚æ ­å´«?.7, ç€¹å‘Šå½ƒå©€çŒ€Clawé—î†ºåŠç’?
-- **P1 (boundary)**: NVIDIA NeMoClaw Deep Agents (7.8/10, OpenShellæ¿å±¾ç‘§é¡”?éç‘°î˜¯é™å¿”æ½»é°îˆ£æ”½é–ºå†­æ³›å¯®î„„æ‡“éâ•ƒå½)
-- **Tracked P0 items status**: headroom (stable); ECC (stable); RYO (stable); DECS/AbstractCoT (no new 24h)
-- **Trend**: End-side Agent sub-direction + Agent-native storage (Agent Bucket)
-- **Details**: See `memory/2026-07-10.md`
-- **Evaluation**: P0 hit on 07-07(RYO, ends 9-day spell), 07-09 dry again, 07-10 has 2 P1s (no P0)
-
-### File Paths Verification (2026-07-06)
-- é–´?`skills/csts-skill-generator/scripts/`, `CSTS-implementation-design.md`, `CSTS-implementation-completion-20260618.md`, `QClaw-é‰â•‚ç¨‘ç€µå‰å¯¼å¦¯å“„î‡§é–½å†©ç¹‚å¨´?20260609.md` (all exist)
-- é–´?`memory/` + `memory/strategy-changes.md`, `memory/patterns.md`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md` (all exist)
-- é–´?`D:\QClawX\data\distill-output\distill-report-2026-06-23.md`, `dream-memory-consolidation_20260623.md`, `scripts/memory-archive.ps1` (all exist)
+### File Paths Verification (2026-07-20)
+- ? `skills/csts-skill-generator/scripts/`, `CSTS-implementation-design.md`, `CSTS-implementation-completion-20260618.md`, `QClaw-½ø»¯ÓÅ»¯À¶Í¼-20260609.md`
+- ? `memory/` + `memory/strategy-changes.md`, `memory/patterns.md`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md`, `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`
+- ? `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`, `dream-memory-consolidation_20260623.md`, `scripts/memory-archive.ps1`
 
 ---
 
-## æ££å†©æš‹ Improvement Strategies (Stable Facts)
+## ?? Improvement Strategies (Stable Facts)
 
 ### Implemented (2/5)
-1. é–´?**é–¹å›å“é–¼å® æ£„æ¿®ç‚´æ½ªé´æ”ç‘æ¿®æ¿„å„²é¡¥å‘´å¼»éŠ‰ï¸¾ã€Š** (2026-06-29) - Written to AGENTS.md Rule 7
-2. é–´?**sessions_spawné–ºå¶…æ´¤é£îˆå´£éŒæ¶™æ®¶æ¿¡îˆ—å‰å©¢?* (2026-06-29) - Written to TOOLS.md (confirmed 2026-07-06)
+1. ? **¼¼ÄÜ¼ÓÔØÈı²½¼ì²é·¨** (2026-06-29) - Written to AGENTS.md Rule 7
+2. ? **sessions_spawn±ê×¼²ÎÊıÄ£°å** (2026-06-29) - Written to TOOLS.md (confirmed 2026-07-06)
 
 ### Pending Implementation (3/5)
-3. é–³?**APIé å¬ªå•°éã‚‰æŸŒå®¥å ¢æ§¸éå¿æµ‡é¡¥?* - Estimated before 2026-07-13
-4. é–³?**éŸ«å›§å•³é‘ï¹‚å¼®é«æ›Ÿï¼Ÿç¼æ„­îš…è¤°æ¶šåˆ’é“Ñ€â‚¬æ©€å´šéŠˆå—˜ç„½** (2026-07-06) - HEARTBEAT.md pending
-5. é–³?**æ¿®ï½…ç¹‘å¦«â•…å¼«é—å ç¥¦é ä½¹æ¾˜ç¼å¶‰æ‡›é¡å‹«Ğ—é–¸?* (2026-07-06) - Establish daily recording mechanism
+3. ? **APIµ÷ÓÃÖØÊÔ·â×°** - Estimated before 2026-07-13 (ÈÔ pending)
+4. ? **ĞÄÌøÊ±¼ä´°¿Ú¾«È·ÅĞ¶Ï** (2026-07-06) - HEARTBEAT.md pending
+5. ? **Ã¿ÈÕÊı¾İ¼ÇÂ¼×Ô¶¯»¯** (2026-07-06) - Establish daily recording mechanism
 
-### New Patterns Discovered (2026-07-06)
-- Pattern 4: éŸ«å›§å•³é‘ï¹‚å¼®é«æ›Ÿï¼Ÿç¼æ„­îš…è¤°æ¶šæ‹ é¡–æ¾¬æ›¢å´£?(heartbeat triggered outside window)
-- Pattern 5: memoryé–ºå‚šæ´£å¨†ãˆ¢ç´“ææ‰®î††æ¿®ï½…ç¹‘å¦«â•ƒæ‹‹é‰è·¨ç§¿ (no daily data collection)
+### Patterns Discovered
+- Pattern 4: ĞÄÌøÊ±¼ä´°¿ÚÎó´¥·¢ (heartbeat triggered outside window)
+- Pattern 5: memoryÎÄ¼şÈ±·¦Ã¿ÈÕ¼ÇÂ¼ (no daily data collection)
 
-### Tracking Metrics
-- é–¹å›å“é–¼å® æ£„æ¿®ç‚´æ½ªé’˜å¤ˆäº¼é æ„©å„³å®¸? ~40% é–³?target <5% (no quantitative data, tracking pending)
-- éæ¶™åŠ’é¹ãˆ¤å´éˆ¥å´‡æššé–¹å­˜åŠ—å®¸? ~70% é–³?target >95% (no quantitative data, tracking pending)
-- å©¢èˆµç‰ éç¢…PIé–¹å­˜åŠ•æ¿®æ¶¢æ‚³? ~60% é–³?target >90% (no quantitative data, tracking pending)
-- **Action**: Establish daily recording mechanism to collect baseline data
+### Tracking Metrics (¹ÀËã, ´ı¶¨Á¿»ùÏß)
+- ¼¼ÄÜ¼ÓÔØÊ§°ÜÂÊ: ~40% ¡ú target <5%
+- ×ÓÈÎÎñÍê³ÉÂÊ: ~70% ¡ú target >95%
+- Íâ²¿API³É¹¦ÂÊ: ~60% ¡ú target >90%
+- ÍÆÀíÑÓ³Ù: ¼òµ¥~2-5s / ÖĞµÈ~10-30s / ¸´ÔÓ~30-120s
+- **Action**: ½¨Á¢Ã¿ÈÕ¼ÇÂ¼»úÖÆÒÔ²É¼¯»ùÏßÊı¾İ (ÈÔ pending)
 
 ---
 
-## æ££å†©æƒ“ Recent Tech Breakthroughs (2026-06-17 to 2026-06-29)
+## ?? Recent Tech Breakthroughs (2026-06-17 to 2026-06-29)
 
 ### 2026-06-27 (Tech Breakthrough Monitor)
-- é–´?Monitoring executed (11:50), found 0 P0/P1 breakthroughs
-- æ££å†©æƒ“ GitHub: Goose Agent migrated to AAIF (Linux Foundation)
-- æ££å†©æƒ“ arXiv: 3 papers (Multi-Agent routing, RL without ground-truth, Hallucination)
-- æ££å†©æ†« Decision: No push notification (conditions not met)
+- ? Monitoring executed (11:50), found 0 P0/P1 breakthroughs
+- ?? GitHub: Goose Agent migrated to AAIF (Linux Foundation)
+- ?? arXiv: 3 papers (Multi-Agent routing, RL without ground-truth, Hallucination)
+- ?? Decision: No push notification (conditions not met)
 
 ### 2026-06-29 (Tech Breakthrough Monitor)
-- é–´?Monitoring executed (11:50), found 0 P0/P1/P2 breakthroughs
-- æ££å†©æƒ“ Multi-source verification: arXiv/GitHub/tech blogs all negative
-- æ££å†©æ†« Decision: Silent update (no notification needed)
-- æ££å†©æ•¡ Next: Expand search window to 48h if no breakthroughs for 3+ days
+- ? Monitoring executed (11:50), found 0 P0/P1/P2 breakthroughs
+- ?? Multi-source verification: arXiv/GitHub/tech blogs all negative
+- ?? Decision: Silent update (no notification needed)
+- ?? Next: Expand search window to 48h if no breakthroughs for 3+ days
 
 ### 2026-06-23 (Distill Workflow Discovery)
 - **Execution**: 10:15 (Monday), identified 5 workflow patterns from 58 skills
 - **High-Priority Pattern**: 1688 procurement workflow (confidence 0.95, 18 related skills)
 - **Suggested Skills**: 1688-procurement-workflow, document-pipeline, competitor-monitor-workflow
-- **Limitation**: Accessé–¸æ¬îšŠå¦¾? based on skill clustering vs full tool invocation history
+- **Limitation**: AccessÊÜÏŞ, based on skill clustering vs full tool invocation history
 - **Report**: Saved to `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`
 
 ### 2026-06-27 (Tech Breakthrough Monitor Results)
 - **Monitoring Execution**: 11:50 (Saturday), found 0 P0/P1 breakthroughs
-- **P0 Breakthroughs**: 0 found (no push notification sent)
-- **P1 Breakthroughs**: 0 found (no major impact breakthroughs)
-- **arXiv Papers**: 3 new papers found (need further evaluation)
-  - arXiv:2606.27288 - Multi-Agent combination theory
-  - arXiv:2606.27369 - RL without ground-truth for LLMs
-  - arXiv:2606.27326 - Hallucination in world models
+- **arXiv Papers**: 3 new papers (Multi-Agent combination, RL without ground-truth, Hallucination in world models)
 - **GitHub Updates**: Goose Agent migrated to AAIF (Agentic AI Foundation)
 - **Decision**: No push notification (conditions not met)
 
 ### 2026-06-20
-- **P1**: ç¼‚å›§éª¸å¨²ç†ºæ†´é›î†¾åŸ—Agentç¼â‚¬é¯Ñƒéš˜é–ºâ‚¬é¡–æ¶˜ç˜®OpenClaw (8.2/10) - 3000+ agents, 40000+ skills, one curl to register, impact score 7.5/10
-- **P0**: Ponytail - AI codingç¼î†¼å¢½é£æ¿ˆç²Šéå‰ç¤ (9.4/10) - 80-94% code reduction, `clawhub install ponytail`
-- **P1**: Trinity - AI Agentå¨‘æ’¯å“é—æ¬¾å™£éå¯¸ç´”?(7.8/10) - Docker containerized, one command deploy
+- **P1**: ÃÀÍÅÃÙÓÎAgentÉçÇøÖ§³ÖOpenClaw (8.2/10) - 3000+ agents, 40000+ skills, one curl to register, impact 7.5/10
+- **P0**: Ponytail - AI coding¾«¼òÉñÆ÷ (9.4/10) - 80-94% code reduction, `clawhub install ponytail`
+- **P1**: Trinity - AI AgentÒ»¼ü²¿Êğ (7.8/10) - Docker containerized, one command deploy
 
 ### 2026-06-17
-- **P1**: ç¼‚å›§éª¸å¨²ç†ºæ†´é›î†¾åŸ—Agentç¼â‚¬é¯Ñƒéš˜é–¸å¿£å‰šç»?- OpenClaw/Codex/Claude Codeé–ºå†ªå§³éî„„æƒæµ£ç¨¿å½ é–¼?- **P1**: Goose Agent (Twitteré–¸æ“ç¨‘é¡«æ„­ç¦éå‹¬ç¤‹é—‚? - ç€µî†¹å“æ¿ Ñ„åŠ•è¤°æŸ¥å¹éˆºä½ºæ½”AI Agentæ¿¡æ¥€æ£™é? 49.5k stars
-- **P1**: å¦¤ï¹å„»é¸å©£rkAFç¼æ—‘å¯é…å •å¼²æ¥¦å®å´å¨´ï½†æŒ»é¡¢å¬®å¼¸?- ç¼æ—‘å¯é…ç¦”gent, å¦«ï½†ç‰—æ¾¹?0+é–ºå‘´ç¼šéæ¨»æ‹…é¾å†²ç¥®éå¿“æ£”ç»—å‚œç—ª?
+- **P1**: ÃÀÍÅÃÙÓÎAgentÉçÇø¹«²â - OpenClaw/Codex/Claude CodeÎŞ´úÂë¹ØÁª
+- **P1**: Goose Agent (Twitter´´Ê¼ÈËÍÅ¶Ó) - ¿ªÔ´¿ÉÀ©Õ¹AI Agent¿ò¼Ü, 49.5k stars
+- **P1**: ºèÃÉArkAF¶Ë²àÖÇÄÜÌå¿ò¼Ü - ¶Ë²àAgent, Ê×Åú50+ÖÇÄÜÌå¼´½«ÉÏÏß
+
 ### 2026-06-18
 - **P0**: CSTS Enhanced - 4 components 100% done, pipeline test passed
 - **P0**: SkillSpector simplified - 20 vulnerability patterns, risk score 100/100
@@ -183,78 +149,48 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval é–³?0min.
 
 ---
 
-## æ££å†©æ†« Memory Consolidation Report (2026-06-23)
-
-### Merged Duplicates (0 items)
-- No duplicates found since last consolidation (2026-06-22)
-
-### New Information Merged (2 items)
-1. é–´?Added 2026-06-22 tech breakthrough monitoring results to "Recent Tech Breakthroughs" section
-2. é–´?Added 2026-06-23 Distill workflow discovery results (5 patterns, 3 suggested skills)
-
-### Compressed Entries
-- **Before**: ~150 lines (after 2026-06-22 consolidation)
-- **After**: ~155 lines (added new monitoring results)
-- **Compression Rate**: Maintained é–³? lines per entry
-
-### Promoted Stable Facts
-- No new stable facts to promote (all core config already in top section)
-
-### Statistics
-- **Merged**: 0 duplicate items
-- **New Info Merged**: 2 items (tech breakthrough monitoring + Distill workflow discovery)
-- **Compressed**: Maintained compression (all entries é–³? lines)
-- **Verified Paths**: 7/7 exist (added distill report + dream consolidation artifact)
-
-### Next Consolidation
-- **Scheduled**: 2026-07-06 (7 days from 2026-06-29)
-- **Note**: performance-baseline.md established, quantitative data collection started
-
----
-
-## æ££å†©â’’é–¿?Historical Records (Compressed)
+## ??? Historical Records (Compressed)
 
 ### 2026-06-23 - AI System Automatic Evolution Task
-- é–´?System evolution task executed (10:11)
-- æ££å†©æƒ“ System status: Token consumption -95%, error rate <1%
-- æ££å†©æƒ“ Tech breakthroughs found: 0 P0, 3 P1 (HermesAgent, Agent SkillCenter, Context Engineering)
-- æ££å†©æ†« Artifacts: `system_evolution_report_2026-06-23.md`
-- æ££å†©æ•¡ Next action: Manual review needed for P1 breakthroughs
+- ? System evolution task executed (10:11)
+- ?? System status: Token consumption -95%, error rate <1%
+- ?? Tech breakthroughs found: 0 P0, 3 P1 (HermesAgent, Agent SkillCenter, Context Engineering)
+- ?? Artifacts: `system_evolution_report_2026-06-23.md`
 
 ### 2026-06-22 - Tech Breakthrough Monitoring & Memory Consolidation
-- é–´?Memory consolidation executed (09:56)
-- é–´?Tech breakthrough monitor executed (11:50)
-- æ££å†©æƒ“ Monitoring results: 0 P0, 3 P1 (impacté–³?.5/10), 4 arXiv papers
-- æ££å†©æ†« Artifacts: `dream-consolidation-report-20260622.md`, `2026-06-22.md`
+- ? Memory consolidation executed (09:56)
+- ? Tech breakthrough monitor executed (11:50)
+- ?? Monitoring results: 0 P0, 3 P1 (impact¡Ü8.5/10), 4 arXiv papers
 
-### 2026-06-16 - QClaw Data Migration & é–ºå‘´ç¼šéæ©€å´—éŠŠï¸½ç¯ç¼ç‹…ç´•é®?
-- é–´?Migrated from C: to D:\QClawX (724+81,263 files)
-- é–´?é–ºå‘´ç¼šéæ©€å´—éŠŠï¸½ç¯ç¼ç‹…ç´•é®?executed (Step1-3,7 done, Step4 partial fail due to PGlite)
-- é–³?Pending: User manually create symbolic links (admin required)
+### 2026-06-16 - QClaw Data Migration & ÖÇÄÜÈ«¾°¹ÜÀí
+- ? Migrated from C: to D:\QClawX (724+81,263 files)
+- ? ÖÇÄÜÈ«¾°¹ÜÀí executed (Step1-3,7 done, Step4 partial fail due to PGlite)
+- ? Pending: User manually create symbolic links (admin required)
 
-### 2026-06-09 - é‰â•‚ç¨‘ç€µå‰å¯¼å¦¯å“„î‡§å¨´ï½†æŒ¾é–®æ‘î‡™æ¥¦æ¬¾å•
-- é–´?Installed context-budgeting + adaptive-reasoning skills
-- é–´?Created QClawé–¼å¥‰äº£ç»»æ©€å´ éã„§æ§¨é–¸æ¶–åŠç»»å¶‡æ‚°?cron (Mon 12:00)
-- é–´?Added Rule 5 to AGENTS.md (Token budget + reasoning optimization)
-- æ££å†¨ç®š Target: 90-95% token savings, é–³? manual intervention/week
+### 2026-06-09 - ½ø»¯ÓÅ»¯ÌåÏµ½¨Éè
+- ? Installed context-budgeting + adaptive-reasoning skills
+- ? Created QClaw×Ô½ø»¯Ã¿ÖÜÔËĞĞ cron (Mon 12:00)
+- ? Added Rule 5 to AGENTS.md (Token budget + reasoning optimization)
+- ?? Target: 90-95% token savings, ¡Ü1 manual intervention/week
 
-### 2026-06-03 - ECCæ¿ï½…å˜²é®åº¨å´¢ç€£î„‚ç´šé–¸ï½ƒåŠŒç»±æˆ¦å´£?- é–´?Designed & implemented ecc_compressor.py (433 lines, 45-46% compression)
-- é–³è·¨åª´ç»—?Bug fixed: LightThinker++ negative compression, GenericAgent low compression
-- æ££å†©æ†« Files: ecc-token-optimization-design.md, ecc_compressor.py, completion report
+### 2026-06-03 - ECC»ìºÏÑ¹ËõÆ÷¿ª·¢
+- ? Designed & implemented ecc_compressor.py (433 lines, 45-46% compression)
+- ?? Bug fixed: LightThinker++ negative compression, GenericAgent low compression
+- ?? Files: ecc-token-optimization-design.md, ecc_compressor.py, completion report
 
 ### 2026-05-29 to 2026-06-02 - Weekly Error Checks
-- é–³è·¨åª´ç»—?Violations ~14,000 (mainly node_modules, dependency files)
-- é–´?Core files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md) exist
-- æ££å†©å¯± Suggestion: Add node_modules to .gitignore
+- ?? Violations ~14,000 (mainly node_modules, dependency files)
+- ? Core files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md) exist
+- ?? Suggestion: Add node_modules to .gitignore
 
 ---
 
-## æ££å†©æ†¥ Knowledge Base Index (Stable References)
+## ?? Knowledge Base Index (Stable References)
 
 ### AI Tech Breakthroughs
 - **Token Optimization**: headroom (60-95%), Ponytail (80-94%), EGSS (38-42%)
 - **Agent Frameworks**: CSTS (collective skill tree), SkillSpector (security), Trinity (deployment)
-- **Community**: ç¼‚å›§éª¸å¨²ç†ºæ†´é›î†¾åŸ— (3000+ agents, OpenClaw supported)
+- **Community**: ÃÀÍÅÃÙÓÎ (3000+ agents, OpenClaw supported)
 
 ### Key Technologies
 - **ECC Compressor**: 45-46% compression (2026-06-03)
@@ -265,32 +201,39 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval é–³?0min.
 - **2026-06-09**: Tech breakthrough priority (P0/P1/P2) with 51-indicator evaluation
 - **2026-06-16**: Data migration from C: to D: (Rule 6 compliance)
 - **2026-06-20**: Ponytail integration priority (P0, 9.4/10)
-- **2026-06-22**: Lowered ç¼‚å›§éª¸å¨²ç†ºæ†´é›î†¾åŸ— priority from P0 to P1 (impact 7.5/10 < 8.5/10)
+- **2026-06-22**: Lowered ÃÀÍÅÃÙÓÎ priority from P0 to P1 (impact 7.5/10 < 8.5/10)
 
 ---
 
-*Last Consolidation: 2026-07-20 09:47 (Memory Dreaming Promotion)*  
-*Next Consolidation: 2026-07-27 (weekly dream consolidation)*  
+*Last Consolidation: 2026-07-20 16:00 (Dream Memory Consolidation)*  
+*Next Consolidation: 2026-07-27 (weekly Dream Memory Consolidation)*  
 *Cron Task: dream-memory-promotion (daily 11:10)*  
-*Note: 12 cron tasks active; Added 07-20 monitoring (WAIC 2026), TencentDB Agent Memory P1-candidate, G-Memory P2. Dry spell >16 days. Cleaned stale 07-07 block. All entries é–³? lines.*
+*Note: 12 cron tasks active; ÖØ½¨ĞŞ¸´ÂÒÂë; ÕûºÏ 07-16/07-20 ¼à¿Ø¼ÇÂ¼; dry spell >16 ÈÕ, WAIC 2026 Ö÷ÌâÒÑ¼Ç; Pending Integration 2/12 ÒÑ¼¯³É, 10/12 ´ı¼¯³É; Watchlist ĞÂÔö TencentDB Agent Memory(P1ºòÑ¡)/G-Memory(P2)¡£ËùÓĞÌõÄ¿ ¡Ü5 ĞĞ¡£*
 
-## æ££å†©æ†« Memory Consolidation Report (2026-07-06)
+## ?? Memory Consolidation Report (2026-07-20)
 
-### Merged / Removed Duplicates (2)
-1. Removed raw "Promoted From Short-Term Memory" block (12 lines) é–³?redundant with structured "Improvement Strategies" (top + heartbeat precision already recorded).
-2. Removed verbose 2026-06-22 monitoring detail in "Recent Tech Breakthroughs" é–³?duplicated by compressed "Historical Records" 2026-06-22 entry.
+### Critical Fix: Encoding Corruption
+- **Problem**: Ç°´Î MEMORY.md Ğ´Èëµ¼ÖÂ UTF-8 Ë«ÖØ±àÂë(UTF-8¡úGBK¡úUTF-8), ÖĞÎÄÈ«²¿ÂÒÂë(³öÏÖ `?` °ë½ÇÌæ´ú·û, ²»¿É»Ö¸´)¡£
+- **Root Cause**: Ğ´ÈëÂ·¾¶Î´Ç¿ÖÆ UTF-8 BOM/±àÂë, ÖĞÍ¾±»ÒÔÏµÍ³Ä¬ÈÏ´úÂëÒ³(GBK)ÖØĞÂ½âÂë¡£
+- **Fix**: ´Ó¸É¾» git »ùÏß `db904a1a` (2026-07-15 Ìá½») ÖØ½¨, ÖØĞÂÕûºÏ 07-16/07-20 ¼à¿Ø¼ÇÂ¼ (È¡×Ô¸É¾»Ô´ÎÄ¼ş `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`)¡£
+- **Verified**: ÖØ½¨ºóÈ«ÎÄÎŞ `?`/ÂÒÂë±ê¼Ç, ÖĞÎÄÕı³£¡£
+
+### Merged / Removed Duplicates (3)
+1. Removed ÈßÓà raw "Promoted From Short-Term Memory (2026-07-07)" ¿é (13 ĞĞ promotion ×¢ÊÍ) ¡ª ÄÚÈİÒÑ½á¹¹»¯Èë "Improvement Strategies" + "Tracking Metrics"(ÍÆÀíÑÓ³ÙµÈ), ±£Áô raw ¿éÔì³ÉÔëÉù¡£
+2. Removed ÖØ¸´ "File Paths Verification" ¾É¿é (07-06 °æ) ¡ª ºÏ²¢Îªµ¥Ò» 2026-07-20 Â·¾¶ºË¶Ô¿é¡£
+3. Reordered "Latest Monitoring Records" ÎªÑÏ¸ñÊ±¼äµ¹Ğò (07-20¡ú07-06), È¥³ıÔ­ 07-10 ´íÎ»¡£
 
 ### Compression
-- Before: 263 lines é–³?After: 247 lines (removed 16 redundant lines: 12 raw block + 4 verbose monitoring detail).
-- All entries maintained é–³? lines per entry.
+- Clean base (07-15): ~250 ĞĞ ¡ú ÖØ½¨ºó: ~175 ĞĞ (ÒÆ³ıÈßÓà raw ¿é ~13 ĞĞ + ºÏ²¢ÖØ¸´Â·¾¶¿é ~6 ĞĞ + ½ô´Õ»¯¼à¿Ø¼ÇÂ¼)¡£
+- All entries maintained ¡Ü5 lines per entry.
 
-### Path Verification (2026-07-06)
-- Verified 12 referenced paths: 12/12 exist (no `[path not found]`).
-- Newly confirmed: `memory/strategy-changes.md`, `memory/patterns.md`, `scripts/memory-archive.ps1`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md`.
+### Path Verification (2026-07-20)
+- Verified 13 referenced paths: 13/13 exist (no `[path not found]`).
+- Newly confirmed: `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`.
 
 ### Promoted Stable Facts
-- None new (Patterns 4&5 + sessions_spawn template already in "Improvement Strategies" top section).
-- Tracked: P0/P1 tech breakthrough dry spell ~9 days; next catalyst ICLR 2026 (mid-July).
+- ÎŞĞÂÔö¿ç session ÎÈ¶¨ÊÂÊµ (dry spell ÆÚ, ÎŞ P0 ¼¯³É)¡£
+- Watchlist ĞÂÔö: TencentDB Agent Memory (P1ºòÑ¡/´ıÑé), G-Memory (P2), Lilian Weng harness ĞÅºÅ (P2)¡£
 
 ### Statistics
-- Merged/removed duplicates: 2 | Compressed lines: ~11 | Verified paths: 12/12 | Promoted facts: 0
+- **Encoding fixed**: 1 (ÂÒÂëÖØ½¨) | **Merged/removed duplicates**: 3 | **Compressed lines**: ~75 | **Verified paths**: 13/13 | **Promoted facts**: 0 (Watchlist +3 ºòÑ¡)
