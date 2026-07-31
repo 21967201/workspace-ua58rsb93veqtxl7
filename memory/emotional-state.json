@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "created": "2026-07-30",
+  "default": {
+    "pleasure": 0.1,
+    "arousal": -0.1,
+    "dominance": 0.0,
+    "label": "冷静"
+  },
+  "transitions": [],
+  "alerts": [],
+  "config": {
+    "alpha": 0.4,
+    "beta": 0.4,
+    "gamma": 0.2,
+    "high_risk_threshold": {
+      "pleasure_max": -0.5,
+      "arousal_min": 0.5
+    }
+  }
+}

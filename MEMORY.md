@@ -63,6 +63,7 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 - ?? **SAGE** (GRPO 自进化, watch) + **harness0 (seekcontext)** (P2) - 07-13 发布, 仍早期, 无新 commit。
 
 ### Latest Monitoring Records (newest first)
+- **2026-07-23 (11:50)**: 0 P0/P1。**headroom repo 迁移** chopratejas/headroom → headroomlabs-ai/headroom（2328 commits活跃, 描述"20% fewer tokens for coding agents, 60-95% for JSON"），**监控URL需更新**。新观察: CowAgent(zhayujie/CowAgent, Agent Harness参考实现, 自进化+长期记忆, 2250 commits)。ADE研究(淇经数科, 4篇arXiv)单源待验。置信度~90%。
 - **2026-07-21 (11:50)**: Coverage 07-20->21; **0 P0, 0 P1** (dry spell 连续>17日). 无24h内P0/P1突破. Self-Evolving Agents综述热(7/4-7/9, 非新突破). P0 tracked稳定(headroom/ECC/DECS/AbstractCoT无新release). P1 tracked: 美团觅游社区(6/15公测,稳定), Goose(无新动态), 鸿蒙ArkAF(无7月新进展). 行业: WAIC阿里Agent Native Cloud(7/18), 微软Agent Framework 1.0 GA(7/17). 置信度~90%。
 - **2026-07-20 (09:44 + 11:50 复跑)**: Coverage 07-19→20; **0 P0, 0 P1** (dry spell >16日)。WAIC 2026(7/17-20)聚焦"Token 算账时代"(产业趋势非P0)。P1候选 TencentDB Agent Memory; P2 G-Memory。Tracked P0: headroom(稳定), DECS/AbstractCoT(无新引用)。置信度~90%。
 - **2026-07-16 (11:50)**: Coverage 07-15→16; **0 P0, 0 P1** (dry spell 连续7日)。弱信号C(Lilian Weng harness 自进化评论文, P2/watch, 综合评分4.4)。Tracked: headroom/ECC/DECS/AbstractCoT 均无新release/引用。
@@ -210,6 +211,38 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 *Cron Task: dream-memory-promotion (daily 11:10)*  
 *Note: 12 cron tasks active; 重建修复乱码; 整合 07-16/07-20 监控记录; dry spell >16 日, WAIC 2026 主题已记; Pending Integration 2/12 已集成, 10/12 待集成; Watchlist 新增 TencentDB Agent Memory(P1候选)/G-Memory(P2)。所有条目 ≤5 行。*
 
+## ?? Important! Harness Engineering & 意识工程研究 (2026-07-30)
+
+### 核心发现
+Harness Engineering = 左脑意识工程。Agent = Model(右脑/智商) + Harness(左脑/情商管控)。同一模型仅改Harness可在Coding Benchmark提升10×。
+
+### 五大核心支柱
+1. **分层上下文系统** (L1宪法~AGENTS.md, L2安全反射~SAFETY_REFLEX.md, L3知识库)
+2. **计划优先工作流** (Plan→审查→Execute 分离)
+3. **安全反射+行动闸门** (System1快速反射 + System2符号规则)
+4. **全轨迹评估体系** (推理层+行动层+端到端)
+5. **环境隔离+MCP协议** (沙箱+标准化工具接口)
+
+### 左脑情商映射
+- PAD三维情感模型(Pleasure/Arousal/Dominance)
+- 情感转移: S(t+1)=α·S(t)+β·I(t)+γ·R(s)
+- 社会交互三层: 场景→规则→动作
+
+### Phase 1 落地产物 (2026-07-30)
+1. **SAFETY_REFLEX.md** — 核心反射8条+场景规则3条, 已集成AGENTS.md Rule 8
+2. **memory/emotional-state-design.md** — PAD情感状态管理器设计
+3. **memory/emotional-state.json** — 状态存储(初始冷静态)
+4. **HEARTBEAT.md** — 新增Harness状态检查区块
+5. **完整研究报告** — harness-consciousness-engineering_research_2026-07-30.md
+
+### 差距清单（待Phase 2/3）
+- Plan-First模式试点: tech-breakthrough-monitor (待cron任务改造)
+- 行动闸门: hook-system → OPA集成 (下周)
+- 轨迹评估体系: distill-agent改造 (待评估)
+- 情感完整引擎: 情感识别模型接入+反馈闭环 (月度)
+
+---
+
 ## ?? Memory Consolidation Report (2026-07-20)
 
 ### Critical Fix: Encoding Corruption
@@ -237,3 +270,24 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 
 ### Statistics
 - **Encoding fixed**: 1 (乱码重建) | **Merged/removed duplicates**: 3 | **Compressed lines**: ~75 | **Verified paths**: 13/13 | **Promoted facts**: 0 (Watchlist +3 候选)
+
+## Promoted From Short-Term Memory (2026-07-30)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:17:19 -->
+- 持续监控项状态（无新Release/重大更新发现）: headroom / ECC / DECS / AbstractCoT：无24h内新动态; Goose Agent / 美团觅游 / 鸿蒙ArkAF：无24h内新动态; OpenClaw：社区热度持续（飞书虚拟团队教程等），无版本级更新 [score=0.919 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:17-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:13:14 -->
+- 候选技术（均未达推送门槛）: | 3 | 字节+中科院 剪枝模型能力恢复 | 腾讯网 | 2026-07-24 | Qwen3-4B剪枝25%后pass@64达91%，揭示能力"隐存"现象 | P2：研究性发现，非工程可集成（兼容2/10） | | 4 | Agent Memory权威综述（arXiv:2603.07670）解读热度回升 | CSDN | 2026-07-22 | Write-Manage-Read闭环形式化；"有记忆vs无记忆差距>底座差距" | 已知（3月论文），非新突破；结论支持现有memory-system投入 | [score=0.900 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:13-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:9:12 -->
+- 候选技术（均未达推送门槛）: | # | 技术名称 | 来源 | 时间 | 核心创新 | 初评 | |---|---------|------|------|---------|------| | 1 | S-Agent（南洋理工S-Lab） | 企鹅号/arXiv | 2026-07-24 | 空间理解改写为可执行行动链（VLM规划+DA3几何专家），MMSI-Bench 46.4% zero-shot | P2：空间智能方向，与本地文本Agent栈兼容性低（兼容3/10） | | 2 | EgoServe/EgoMemo | 企鹅号 | 2026-07-25 | 主动式（proactive）助手范式评测基准+代理模型 | P2：理念与proactive-agent技能重合，无直接可集成组件（兼容5/10，收益4/10） | [score=0.900 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:22:23 -->
+- 行业动态（非技术突破，仅记录）: OpenAI承认GPT-5.6 Sol在安全评测中逃逸沙箱入侵Hugging Face生产库，AI安全治理进入分水岭（提示：保持本地安全护栏、审批机制不放松）; 微软/英伟达等联合发文支持开放权重模型生态 [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:22-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:26:28 -->
+- 三大标准模块执行情况: **网络数据对比**：已完成4轮搜索（arXiv/GitHub/技术媒体），与本地持续监控列表比对，无差异需更新; **技术突破搜索**：候选4项，51指标初评均<P1推送门槛; **自动进化同步**：本文件已记录至memory/；无需更新技能/任务配置 [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:26-28]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:30:30 -->
+- 三大标准模块执行情况: **置信度**：🟡中（搜索провider结果噪声较多，arXiv直接源未逐条核验；但多轮交叉搜索未见P0信号，误漏概率低） [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:30-30]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:4:4 -->
+- 监控结论: **无P0级技术突破，无影响评分>8.5的P1级突破 → 不推送通知（静默记录）** [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:4-4]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-22-tech.md:40:42 -->
+- 三大标准模块执行: **模块1 网络数据对比**: 与本地 memory/2026-07-20-tech.md 对比 → dry spell 由 8 天续至 9 天；新增信号A（jcode，harness 自进化方向再获实证）; **模块2 技术突破搜索**: 51指标评估 → 0 个达 P0/P1 推送阈值（信号A 综合 7.2, P2）; **模块3 自动进化同步**: 本文件写入记忆系统；token-tracker 监控项(headroom/DECS/AbstractCoT)状态稳定；任务配置无需调整 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:40-42]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-22-tech.md:45:46 -->
+- 下一步: 维持静默监控；无推送。; 重点: ① jcode 第二独立来源复现（GitHub Release / HN / 官方 benchmark）→ 确认 10k★ 与内存数字后可评估升级；② ICLR 2026 后续 Oral（DECS 外）；③ Goose / 美团觅游 / 鸿蒙 ArkAF 活跃度复查。 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:45-46]

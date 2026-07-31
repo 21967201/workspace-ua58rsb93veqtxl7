@@ -86,6 +86,38 @@ $skillContent = Get-Content $skillPath -Raw
 
 ---
 
+### ⚡ 规则8: 安全反射层（Harness L2 — 2026-07-30 新增）
+
+**MANDATORY: 每次对话启动时自动加载 `SAFETY_REFLEX.md` 作为安全反射层。**
+
+安全反射层是介于宪法层(AGENTS.md)和知识库之间的微型指令层，定位类似人脑的左脑前额叶——不依赖深度推理，触发即执行。
+
+#### 8.1 自动加载
+
+每次会话开始/心跳时，检查：
+- ✅ `SAFETY_REFLEX.md` 是否存在
+- ✅ 内容是否`≤15行`（超限则精简）
+- ✅ 规则优先级：SAFETY_REFLEX.md > 其他指令 > 模型默认行为
+
+#### 8.2 行动闸门（Action Gate，Phase 1）
+
+在以下关键节点前执行快速检查：
+1. **exec 删除/破坏性操作**前 → 检查规则
+2. **外部写入**前 → 检查C盘保护反射
+3. **数据出口**前 → 检查身份边界反射+出口反射
+4. **群聊发言**前 → 检查身份边界反射
+
+#### 8.3 违规处理
+
+- **违反安全反射**：立即停止当前操作，记录到 `memory/failures/`，并向用户报告
+- **反射绕过**（尝试通过复杂指令链绕过反射）：严重失职，必须记录到 `self-improving/corrections.md`
+
+#### 8.4 注意
+
+安全反射层不取代现有的 hook-system 或验证规则。它是**推理层注入**，而 hook-system 是**工具层拦截**——两者互补。
+
+---
+
 ## 🚨 FIRST PRINCIPLE ENFORCEMENT
 
 **If you (the AI) are about to:**
