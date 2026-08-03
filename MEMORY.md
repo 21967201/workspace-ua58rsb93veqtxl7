@@ -303,3 +303,33 @@ Harness Engineering = 左脑意识工程。Agent = Model(右脑/智商) + Harnes
 - 三大标准模块执行: **模块1 网络数据对比**: 与本地 memory/2026-07-20-tech.md 对比 → dry spell 由 8 天续至 9 天；新增信号A（jcode，harness 自进化方向再获实证）; **模块2 技术突破搜索**: 51指标评估 → 0 个达 P0/P1 推送阈值（信号A 综合 7.2, P2）; **模块3 自动进化同步**: 本文件写入记忆系统；token-tracker 监控项(headroom/DECS/AbstractCoT)状态稳定；任务配置无需调整 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:40-42]
 <!-- openclaw-memory-promotion:memory:memory/2026-07-22-tech.md:45:46 -->
 - 下一步: 维持静默监控；无推送。; 重点: ① jcode 第二独立来源复现（GitHub Release / HN / 官方 benchmark）→ 确认 10k★ 与内存数字后可评估升级；② ICLR 2026 后续 Oral（DECS 外）；③ Goose / 美团觅游 / 鸿蒙 ArkAF 活跃度复查。 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:45-46]
+
+## 系统自动进化 (2026-08-03)
+
+**结论**: 无 P0 外部技术突破；内部审计发现并修复 3 个 P0 级线上缺陷。
+
+### skill-router 从 0% 修到 100%
+6-20 的 `complete_optimization_report.md` 声称"方案3 Agentic Routing 已完成、Token 节省 99%"——实测**从未跑过一次**，搜索准确率 0%，demo 直接 KeyError 崩溃。修复项：
+1. `auto_partition()` 清空 metadata_cache/cold_storage 后回填是 `pass # TODO`，索引恒空 → 改为全量扫描磁盘 + 真实回填
+2. `corpus-ref` 用内置 `hash()`，受 PYTHONHASHSEED 随机化，跨进程不一致 → 新增 `stable_ref()` 用 md5
+3. 中文长句未分词（整段当单 term）→ 加 bigram 切分 + 同义词表 6→22 条双向映射
+4. `skill-loader/SKILL.md`（15 处 U+FFFD + 缺 frontmatter）、`today-task/SKILL.md`（905 行中 502 行乱码）编码损坏 → 重建/用 `.openclaw/skills` 干净副本替换，损坏版归档 `data/archive/warm/2026-08/`
+
+准确率轨迹: 0% → 56.2% → 93.8% → **100%** (Top-1, 16 条中英混合查询)
+新增回归基准: `skills/skill-router/scripts/bench_router.py`，纳入每周固定回归项
+备份: `router.py.bak-20260803`
+
+### 技术监控 (近 7 天)
+5 项候选，0 个 P0。最高 P1 = **context-compress** (Open330, GitHub 8-01)：MCP server + hook，工具输出压缩 93%，FTS5+BM25 保留可搜索原始数据。触及核心执行链路且 >1h 工作量 → 转人工，下周专项评估。
+P2 观察: KV-Cache 压缩综述、HermesAgent v0.10.0、memU、Harness GEPA。
+
+### 元教训（重要）
+AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"这类产出没落地执行，导致虚假完成声明存活 44 天。结构性措施：为每个自研优化工具建立可重复基准脚本。
+
+### 待办（人工确认）
+- context-compress 集成评估
+- Git 工作区 565 项变更（549 删除）合法性确认后分批提交
+- `.qclaw/skills` 183 个 SKILL.md 编码全量审计（本次只覆盖 workspace/skills 12 个 + memory/ 24 个）
+
+**推送**: 负一屏 HTTP 200 `{"code":"0000000000","desc":"OK"}`
+**置信度**: 🔴 高（全部经真实运行验证）
