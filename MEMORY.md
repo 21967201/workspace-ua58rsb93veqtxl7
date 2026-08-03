@@ -63,6 +63,7 @@ All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
 - ?? **SAGE** (GRPO 自进化, watch) + **harness0 (seekcontext)** (P2) - 07-13 发布, 仍早期, 无新 commit。
 
 ### Latest Monitoring Records (newest first)
+- **2026-08-03 (16:05)**: 0 P0, **1 P1>8.5 → 推送**。🚨 **MCP 2026-07-28 规范发布**（Anthropic, 协议史上最大升级）：有状态→无状态架构，移除initialize握手/Mcp-Session-Id，消除粘性路由，6个SEP破解企业级部署三大瓶颈（扩容/存储/网关）。TS+Python SDK同步发布（各超10亿下载）。综合8.8/10，成本4/10未达P0，P1推送。**集成建议**: 检查本地MCP客户端兼容性，规划无状态迁移。新观察(P2): DMSampler(ICML26), GradAlign(COLM26), MobileWorld(ACL26), CKA-Agent。置信度~90%。详情: memory/2026-08-03-tech.md。
 - **2026-07-23 (11:50)**: 0 P0/P1。**headroom repo 迁移** chopratejas/headroom → headroomlabs-ai/headroom（2328 commits活跃, 描述"20% fewer tokens for coding agents, 60-95% for JSON"），**监控URL需更新**。新观察: CowAgent(zhayujie/CowAgent, Agent Harness参考实现, 自进化+长期记忆, 2250 commits)。ADE研究(淇经数科, 4篇arXiv)单源待验。置信度~90%。
 - **2026-07-21 (11:50)**: Coverage 07-20->21; **0 P0, 0 P1** (dry spell 连续>17日). 无24h内P0/P1突破. Self-Evolving Agents综述热(7/4-7/9, 非新突破). P0 tracked稳定(headroom/ECC/DECS/AbstractCoT无新release). P1 tracked: 美团觅游社区(6/15公测,稳定), Goose(无新动态), 鸿蒙ArkAF(无7月新进展). 行业: WAIC阿里Agent Native Cloud(7/18), 微软Agent Framework 1.0 GA(7/17). 置信度~90%。
 - **2026-07-20 (09:44 + 11:50 复跑)**: Coverage 07-19→20; **0 P0, 0 P1** (dry spell >16日)。WAIC 2026(7/17-20)聚焦"Token 算账时代"(产业趋势非P0)。P1候选 TencentDB Agent Memory; P2 G-Memory。Tracked P0: headroom(稳定), DECS/AbstractCoT(无新引用)。置信度~90%。
@@ -240,6 +241,17 @@ Harness Engineering = 左脑意识工程。Agent = Model(右脑/智商) + Harnes
 - 行动闸门: hook-system → OPA集成 (下周)
 - 轨迹评估体系: distill-agent改造 (待评估)
 - 情感完整引擎: 情感识别模型接入+反馈闭环 (月度)
+
+### Phase 2 落地产物 (2026-08-03)
+1. **cron 12任务修复** — 根因: payload.model=`qclaw/pool-deepseek-v4-flash` 被 agents.defaults.models allowlist(仅pool-hy3-preview)拒绝; Gateway重启后自动解决。重建3个job: 每日监控(5755dbe7)、Memory Dreaming(fd2001c9)、tech-monitor(68b7338b)
+2. **行动闸门 scripts/action_gate.py** (零依赖Python替代OPA) — 命令黑名单→level3拦截; 路径规则(D:\QClawX放行/C:拦截/Desktop警告); PAD情感联动。测试通过
+3. **Plan-First工作流** — tech-breakthrough-monitor改造为Plan→Execute→Verify, PLAN-FIRST-PILOT.md, 验证成功
+4. **轨迹评估 scripts/trajectory_eval.py** — 权重推理0.3+行动0.4+端到端0.3; 等级A≥8.5/B≥7.0/C≥5.0/D<5.0触发改进; tech-monitor评估7.9=B
+
+### Cron运维关键陷阱 (2026-08-03)
+- `cron.update` 的 delivery patch 被系统忽略（安全限制）→ 需删除重建job
+- `openclaw cron edit --announce` 在 Windows 破坏 UTF-8（乱码），慎用
+- Gateway重启可自动解决模型allowlist拒绝问题
 
 ---
 
