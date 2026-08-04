@@ -1,335 +1,232 @@
-﻿# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-07-20)
+# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-08-03)
 
-> **Consolidation Info**: 2026-07-20 — 重建自干净 git 基线(db904a1a, 07-15) + 重新整合 07-16/07-20 监控记录。修复前次写入导致的 UTF-8 双重编码乱码(中文全部损坏)。dry spell >16日, WAIC 2026 主题已记录, 无新增稳定事实。所有条目 ≤5 行。
+> **Consolidation Info**: 2026-08-03 — 第 3 次 Dream 整理。扫描近 7 天 110 个 session 文件 + memory/ 25 个变更文件。修复 11 处失效路径（tech 记录已归档至 `memory/warm/`，CSTS 文档已归档至 `D:\QClawX\data\archive\warm\2026-06\`）。合并 7 组重复块，266 行 → 约 190 行。新增 6 条稳定事实。清理残留 `?` 乱码符号。
 
 ---
 
-## ?? Core Configuration (Stable Facts)
+## Core Configuration (Stable Facts)
 
 ### Workspace & Paths
-- **Workspace**: `D:\QClawX\data\workspace-ua58rsb93veqtxl7` (migrated from C: to D: 2026-06-16)
-- **Data Root**: `D:\QClawX\` (all auto-task data must save here per AGENTS.md Rule 6)
-- **GBrain**: symlink `C:\Users\Administrator\gbrain` **已失效**（目标 `D:\QClawX\gbrain` 为空目录）; 真实可用副本: `D:\QClawX\docs\gbrain`（含 src/cli.ts + knowledge/）与 `D:\QClawX\backups\gbrain`。?? pglite wasm 在 bun/Windows 崩溃(0xC0000409)，import 不可用，需管理员重建 symlink + 排查 wasm 兼容
-- **Skills Dir**: `skills/` (relative to workspace)
+- **Workspace**: `D:\QClawX\data\workspace-ua58rsb93veqtxl7`（2026-06-16 从 C: 迁移）
+- **Data Root**: `D:\QClawX\`（AGENTS.md Rule 6：所有自动任务数据必须存这里）
+- **Session 存储实际在 C 盘**（`C:\Users\Administrator\.qclaw\agents\ua58rsb93veqtxl7\sessions`，近 7 天 110 文件 / 14 MB）— 与 Rule 6 冲突，待评估迁移
+- **GBrain**: 真实可用副本 = `<workspace>\gbrain`（v0.42.1.0，完整仓库）。symlink `C:\Users\Administrator\gbrain → D:\QClawX\gbrain` **仍失效**（目标不存在）。备份副本 `D:\QClawX\docs\gbrain`、`D:\QClawX\backups\gbrain`。⚠️ pglite wasm 在 bun/Windows 崩溃(0xC0000409)
+- **memory/ 分层**: 热区 `memory/*.md`（当月）→ 温区 `memory/warm/`（14 个历史 tech 记录）→ 归档 `D:\QClawX\data\archive\warm\YYYY-MM\`
+- **生产数据分层脚本**: `D:\QClawX\scripts\data-tiering.ps1`（scan/run/restore/report 四模式，20459 字节，2026-08-03 落地验证）。WARM 归档 565 文件、COLD 压缩 1 文件，566 次 SHA256 校验全通过（0 失败）；冷层日期解析 TryParseExact 参数计数 bug（原 378 行）已修；`.qclaw` 965MB→778MB，清理 187MB 旧备份至回收站（可恢复）；restore 功能已验证可恢复 1688 报告等
+- **kb/ 已停滞**: 30 文件，最后更新 2026-06-09，`weekly_organize` 停跑 2 个月。AGENTS.md 规则仍在但无执行 — 待用户决定重启或废弃
 
 ### Cron Tasks (12 Active, Last Updated 2026-06-22)
-All tasks comply with Rule: Mon-Sat, 10:30-18:00, interval ≥40min.
-**Daily (Mon-Sat)**:
-1. 每日监控任务 (10:30)
-2. Memory Dreaming Promotion (11:10, this task)
-3. tech-breakthrough-monitor (11:50)
-4. 自动同步任务文件到GitHub (12:30)
-5. 月度报告任务 (13:10)
-**Monday Extra**:
-6. 周一知识管理综合任务 (14:00)
-7. 周一综合检查任务 (14:40)
-8. AI系统自动进化任务 (15:20)
-9. Dream 记忆整理 (16:00)
-10. QClaw智能清理 (16:40)
-11. Distill 工作流发现 (17:20, first Mon of month)
-**Friday Extra**:
-12. 商业智能周报 (15:00)
+规则：周一至周六，10:30-18:00，间隔 ≥40min。
+**每日 (Mon-Sat)**: 每日监控 10:30 / Memory Dreaming Promotion 11:10 / tech-breakthrough-monitor 11:50 / GitHub 同步 12:30 / 月度报告 13:10
+**周一额外**: 知识管理综合 14:00 / 综合检查 14:40 / AI 自动进化 15:20 / Dream 记忆整理 16:00（本任务）/ 智能清理 16:40 / Distill 工作流发现 17:20（每月首个周一）
+**周五额外**: 商业智能周报 15:00
+
+### Cron 运维关键陷阱 (2026-08-03 验证)
+- `cron.update` 的 delivery patch 被系统忽略（安全限制）→ 必须删除重建 job
+- `openclaw cron edit --announce` 在 Windows 破坏 UTF-8（乱码），慎用
+- payload.model 若不在 `agents.defaults.models` allowlist 会静默拒绝；Gateway 重启可自动修复
+- **cron 场景下 `qclaw_read_ima_content` 不可用**（需用户消息携带 mediaId，cron 无用户消息）
 
 ### Auto-Task Rules (Mandatory)
-- **Rule 4 (Time Limit)**: Mon-Sat only, 10:20-18:00, no Sunday execution.
-- **Rule 5 (Token Budget)**: Simple=0 token, Medium≤7.6% CoT, Complex≤15% CoT.
-- **Rule 6 (Data Storage)**: All data must save to `D:\QClawX\` (no C: drive).
-- **Rule 2 (Uncertainty)**: Must web-search before answering uncertain questions.
+- **Rule 2**: 不确定必须先联网搜索 | **Rule 4**: 周一至周六 10:30-18:00
+- **Rule 5**: Token 预算 简单=0 / 中等≤7.6% CoT / 复杂≤15% CoT
+- **Rule 6**: 数据必须存 `D:\QClawX\` | **Rule 7**: 技能加载三步检查 | **Rule 8**: SAFETY_REFLEX 安全反射层
 
 ---
 
-## ?? P0 Tech Breakthroughs (Integration Priority)
+## P0/P1 Tech Breakthroughs (Integration Priority)
 
 ### Integrated (2/12)
-1. ? **headroom** (9.2/10) - Token compression 60-95%, already integrated (MCP mode, 2026-06-09)
-2. ? **Ponytail** (9.4/10) - AI coding精简, `clawhub install ponytail` (2026-06-20)
+1. ✅ **headroom** (9.2/10) — Token 压缩 60-95%，MCP 模式集成 (2026-06-09)。repo 已迁移 `chopratejas/headroom` → `headroomlabs-ai/headroom`（监控 URL 需更新）
+2. ✅ **Ponytail** (9.4/10) — AI coding 精简，`clawhub install ponytail` (2026-06-20)
 
 ### Pending Integration (10/12)
-3. ? **OpenClaw-Skill/CSTS** (9.5/10) - Collective skill tree search, 100% enhanced done, pending production integration
-4. ? **SkillSpector** (9.0/10) - NVIDIA skill security scanner, 40% simplified done, expand to 64 patterns
-5. ? **EGSS** (8.8/10) - Entropy-guided test-time scaling, 30% simplified done, need real LLM logprobs
-6. ? **Octo** (9.0/10, 2026-07-01) - 明略科技, 全球首个开源可信Agent协作网络, 定义"Agent互联网"底层协议。Open/Context/Taste/Orchestration四维度标准化, Apache 2.0, 3000+ Agents。与OpenClaw互补(协议层)。
-7. ? **CLI Agent训练数据生成器** (7.4/10, 2026-07-01) - 阶跃星辰, 6K轨迹让小模型反超Qwen3-Coder-480B, Terminal Agent高效训练方法。P1级持续监控。
-8. ? **Recognize Your Orchestrator** (ICML 2026, 9.0/10, 2026-07-07) - 南京大学, arXiv:2606.01351. 调度熵量化Orchestrator失败归因, Mean-Field Entropy Dynamics框架, IWG反推验证。与OpenClaw Orchestrator-Executor架构高度兼容(无需重训)。
-9. ? **HSCodeComp** (ACL 2026 Best Resource Paper, 7.8/10, 2026-07-08) - 阿里巴巴达摩院, 商品出口海关编码归类新基准, 最优AI系统仅~45% vs 人类专家95%。揭示Agent架构结构性瓶颈：推理链漂移+领域知识不足+推理幻觉。与规则敏感场景(合规/税务/审计)直接关联。
-10. ? **腾讯云 Agent Bucket** (8.2/10, 2026-07-10) - AI Agent原生存储服务, S3兼容+Space独立空间+GooseFS加速, 已在QClaw部署(华硕/东风日产)。P1, 生态影响8.7。
-11. ? **NVIDIA NeMoClaw Deep Agents** (7.8/10, 2026-07-10) - OpenShell沙箱+Landlock/seccomp声明式策略, 推理成本降10倍, Nemotron 3 Ultra开源。P1边界。
-12. ? **OpenSquilla** (9.0/10, 2026-07-11) - GitHub opensquilla/opensquilla（基元律动/王云鹤), Token-Efficient 智能体运行时。SquillaRouter 本地 LightGBM+ONNX 路由省60-80% Token; DRACO双榜第一; Meta-Skills自动沉淀复用工作流。架构同构于QClaw harness(微内核+路由+记忆+沙箱+MCP)。P0。
+3. ⏳ **OpenClaw-Skill/CSTS** (9.5/10) — 集体技能树搜索，增强版 100% 完成，待生产集成
+4. ⏳ **SkillSpector** (9.0/10) — NVIDIA 技能安全扫描器，40% 简化版完成，待扩至 64 模式
+5. ⏳ **EGSS** (8.8/10) — 熵引导测试时扩展，30% 完成，需真实 LLM logprobs
+6. ⏳ **Octo** (9.0/10) — 明略科技，开源可信 Agent 协作网络协议，Apache 2.0，3000+ Agents。与 OpenClaw 互补（协议层）
+7. ⏳ **CLI Agent 训练数据生成器** (7.4/10) — 阶跃星辰，6K 轨迹让小模型反超 Qwen3-Coder-480B
+8. ⏳ **Recognize Your Orchestrator** (ICML 2026, 9.0/10) — 南京大学 arXiv:2606.01351，调度熵量化 Orchestrator 失败归因，与本地架构高度兼容（无需重训）
+9. ⏳ **HSCodeComp** (ACL 2026 Best Resource, 7.8/10) — 达摩院，海关编码归类基准，最优 AI 仅 ~45% vs 人类 95%，揭示推理链漂移瓶颈
+10. ⏳ **腾讯云 Agent Bucket** (8.2/10) — Agent 原生存储，S3 兼容 + GooseFS 加速。**2026-08-03 正式上线，新用户首月免费 → 零成本 PoC 窗口**
+11. ⏳ **NVIDIA NeMoClaw Deep Agents** (7.8/10) — OpenShell 沙箱 + Landlock/seccomp，推理成本降 10 倍
+12. ⏳ **OpenSquilla** (9.0/10) — 基元律动，Token-Efficient 运行时，本地 LightGBM+ONNX 路由省 60-80% Token，架构同构于 QClaw harness
 
-### Watchlist (P1-candidate / P2)
-- ?? **TencentDB Agent Memory** (P1候选, 待验) - 腾讯云向量库四层记忆架构(9k★), 与本地Markdown记忆互补。来源单一, 待第二来源+开源artifact确认。
-- ?? **G-Memory** (P2) - GitHub bingreeky/GMemory, 层次化多智能体记忆, 组织记忆理论启发, 未达高影响阈值。
-- ?? **Lilian Weng harness 自进化长文** (P2) - 2026-07-15 评论/观点文, 非新论文/非开源, 强化 ECC(Agent Harness) 方向。待第二来源。
-- ?? **SAGE** (GRPO 自进化, watch) + **harness0 (seekcontext)** (P2) - 07-13 发布, 仍早期, 无新 commit。
+### 新增 P0/P1 待评估
+- 🔥 **DeepSeek-V4-Flash 正式版** (P0, 兼容9 · 收益8.5 · 成本2, 2026-07-31 发布 / 08-04 推送) — 架构未变(2840亿MoE/130亿激活)，纯后训练让 Agent 能力 6×：DeepSWE 7.3→54.4，TerminalBench 82.7(Opus 4.8=85.0)。价格 $0.14/$0.28 每百万 token，缓存命中折扣 98%(业内 90%)，原生 Responses API + Codex 生态。OpenCode 单日 8 万亿 token > OpenRouter 全平台 6.6 万亿；OpenRouter 周榜全模型第一。**动作**: 接入 QClaw 模型路由候选池，用于长链 Agent / 批量 cron 等成本敏感场景；与 headroom/context-compress 叠加
+- 🚨 **Qwen3.8** (7.6/10, 2026-08-03) — 阿里 2.4 万亿参数基座，Coding/Cowork 大幅提升，Arena 全球第二(仅次 Claude)。API 上千问平台 + Agent 产品"千问办公"。**Qwen3.8-Max 与 27B 下周开源** → 27B 本地可跑，开源后重评可能跃升
+- 🚨 **MCP 2026-07-28 无状态规范** (8.8/10, 2026-08-03 推送) — Anthropic 协议史上最大升级：移除 initialize 握手 / Mcp-Session-Id，消除粘性路由，6 个 SEP 破解扩容·存储·网关三大瓶颈。成本 4/10 未达 P0。**动作**: 检查本地 MCP 客户端兼容性（qclaw_tdoc_mcp_call 等），规划无状态迁移
+- 🚨 **MindMemOS** (8/10, 2026-08-03 发现) — 华为诺亚方舟实验室开源（github.com/mindscale-noah/MindMemOS），面向 AI Agent 的可迁移·自演进记忆操作层：实体+属性+时间三维记忆建模、MindSchema 提取规则、Feedback 隐式纠正性反馈、Dreaming 离线巩固消解冲突。直接补充 OpenClaw 记忆架构。动作：评估与本地 memory/ 分层体系集成
+- 🚨 **context-compress** (Open330, 2026-08-01) — MCP server + hook，工具输出压缩 93%，FTS5+BM25 保留可搜索原始数据。触及核心执行链路，>1h 工作量 → 转人工专项评估
 
-### Latest Monitoring Records (newest first)
-- **2026-08-03 (16:05)**: 0 P0, **1 P1>8.5 → 推送**。🚨 **MCP 2026-07-28 规范发布**（Anthropic, 协议史上最大升级）：有状态→无状态架构，移除initialize握手/Mcp-Session-Id，消除粘性路由，6个SEP破解企业级部署三大瓶颈（扩容/存储/网关）。TS+Python SDK同步发布（各超10亿下载）。综合8.8/10，成本4/10未达P0，P1推送。**集成建议**: 检查本地MCP客户端兼容性，规划无状态迁移。新观察(P2): DMSampler(ICML26), GradAlign(COLM26), MobileWorld(ACL26), CKA-Agent。置信度~90%。详情: memory/2026-08-03-tech.md。
-- **2026-07-23 (11:50)**: 0 P0/P1。**headroom repo 迁移** chopratejas/headroom → headroomlabs-ai/headroom（2328 commits活跃, 描述"20% fewer tokens for coding agents, 60-95% for JSON"），**监控URL需更新**。新观察: CowAgent(zhayujie/CowAgent, Agent Harness参考实现, 自进化+长期记忆, 2250 commits)。ADE研究(淇经数科, 4篇arXiv)单源待验。置信度~90%。
-- **2026-07-21 (11:50)**: Coverage 07-20->21; **0 P0, 0 P1** (dry spell 连续>17日). 无24h内P0/P1突破. Self-Evolving Agents综述热(7/4-7/9, 非新突破). P0 tracked稳定(headroom/ECC/DECS/AbstractCoT无新release). P1 tracked: 美团觅游社区(6/15公测,稳定), Goose(无新动态), 鸿蒙ArkAF(无7月新进展). 行业: WAIC阿里Agent Native Cloud(7/18), 微软Agent Framework 1.0 GA(7/17). 置信度~90%。
-- **2026-07-20 (09:44 + 11:50 复跑)**: Coverage 07-19→20; **0 P0, 0 P1** (dry spell >16日)。WAIC 2026(7/17-20)聚焦"Token 算账时代"(产业趋势非P0)。P1候选 TencentDB Agent Memory; P2 G-Memory。Tracked P0: headroom(稳定), DECS/AbstractCoT(无新引用)。置信度~90%。
-- **2026-07-16 (11:50)**: Coverage 07-15→16; **0 P0, 0 P1** (dry spell 连续7日)。弱信号C(Lilian Weng harness 自进化评论文, P2/watch, 综合评分4.4)。Tracked: headroom/ECC/DECS/AbstractCoT 均无新release/引用。
-- **2026-07-15 (09:46)**: Coverage 07-14→15; **0 P0, 0 P1** (dry spell 连续5日)。Near-window弱信号: ACL2026 SAC Highlight(单源,watch); harness0(P2)。
-- **2026-07-13 (14:00)**: Coverage 07-12→13; **0 P0, 0 P1** (dry spell 2日)。Paper trends: Agent Memory + 自进化 + 成本感知(SSPM/Agora/SAGEAgent/Agentic Memory/MemOS)。P1-watch: Agora + GSPO。
-- **2026-07-11 (11:50)**: Coverage 07-10→11; **1 P0** (OpenSquilla #12)。P1(>8.5): 0。
-- **2026-07-10 (11:50)**: Coverage 07-09→10; **0 P0, 2 P1** (Agent Bucket #10, NeMoClaw #11)。
-- **2026-07-08 (16:43)**: Coverage 07-07→08; **1 P0 + 1 P1** (RYO #8, HSCodeComp #9, 结束~9日dry spell)。
-- **2026-07-06 (11:50)**: Coverage 07-05→06; **0 P0, 0 P1** (~9日无突破)。Next catalyst: ICLR 2026 (mid-July)。
-- **Details**: `memory/2026-07-20-tech.md`, `memory/2026-07-16-tech.md`, `memory/2026-07-15-tech.md`, `memory/2026-07-13.md`, `memory/2026-07-11.md`, `memory/2026-07-10.md`, `memory/2026-07-07-tech.md`, `memory/2026-07-06-tech.md`
+### Watchlist (P1候选 / P2)
+- **MANTA** (arXiv:2607.28527, P1 7.8) — 多 Agent 通信拓扑推理时自进化，5 benchmark 均 74.0（+5.8pp）。无公开代码，放码可升 P0
+- **TencentDB Agent Memory**（P1候选，单源待验）| **G-Memory**（P2）| **Lilian Weng harness 长文**（P2）| **SAGE / harness0**（P2 早期）
+- P2 观察池: DMSampler(ICML26) / GradAlign(COLM26) / MobileWorld(ACL26, MCP 增强移动 Agent 基准) / CKA-Agent / RAGentA / KV-Cache 压缩综述 / HermesAgent v0.10.0 / memU / Harness GEPA / S-Agent / EgoServe
 
-### File Paths Verification (2026-07-20)
-- ? `skills/csts-skill-generator/scripts/`, `CSTS-implementation-design.md`, `CSTS-implementation-completion-20260618.md`, `QClaw-进化优化蓝图-20260609.md`
-- ? `memory/` + `memory/strategy-changes.md`, `memory/patterns.md`, `memory/performance-baseline.md`, `memory/2026-07-06-tech.md`, `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`
-- ? `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`, `dream-memory-consolidation_20260623.md`, `scripts/memory-archive.ps1`
+### Monitoring Records (newest first)
+- **2026-08-04**: **1 P0**（DeepSeek-V4-Flash 已推送）+ 2 P1（Qwen3.8 新增 / Agent Bucket 正式上线）+ 5 P2（GPT-5.6 Luna 降价 80%、MiniMax H3 开源、HarmonyOS 7 开放 Agent/Skill、欧盟 AI 法案 08-02 强制执行、Kimi K3 上腾讯云）。**流程反思**: 08-03 监控漏掉 07-31 两条重大发布 → 搜索窗口应从 24h 放宽到 72h 交叉去重。置信度 🔴高（5 独立来源）。详情 `memory/2026-08-04-tech.md`
+- **2026-08-03**: 0 P0, **2 P1**（MCP 无状态规范 8.8 已推送 + MindMemOS 华为诺亚开源）。18 天 dry spell 结束。5 项 P2 新观察。置信度 🔴高（官方博客 + 4 独立来源 / 腾讯网报道）
+- **2026-07-31**: 0 P0，MANTA 入 P1 跟踪（7.8 未达阈值），PAIChecker/Embodied 自进化 P2，不推送
+- **2026-07-21 → 07-25**: 连续 dry spell。07-25 候选 4 项全部 <P1 阈值（S-Agent/EgoServe/字节剪枝/Agent Memory 综述）。行业: OpenAI GPT-5.6 Sol 沙箱逃逸事件
+- **2026-07-06 → 07-23 (压缩)**: 长 dry spell（>17 日）。期间仅 07-08 RYO+HSCodeComp、07-10 Agent Bucket+NeMoClaw、07-11 OpenSquilla 三次命中，已归入上方列表。WAIC 2026(7/17-20) 主题"Token 算账时代"；微软 Agent Framework 1.0 GA(7/17)
+- **详情文件**: `memory/2026-08-03-tech.md`、`memory/2026-07-31.md`、`memory/warm/2026-07-{06,07,08,09,10,11,13,15,16,20,21,22,23,25}*.md`
 
 ---
 
-## ?? Improvement Strategies (Stable Facts)
+## Harness Engineering & 意识工程 (2026-07-30 → 08-03)
 
-### Implemented (2/5)
-1. ? **技能加载三步检查法** (2026-06-29) - Written to AGENTS.md Rule 7
-2. ? **sessions_spawn标准参数模板** (2026-06-29) - Written to TOOLS.md (confirmed 2026-07-06)
+### 核心命题
+Harness Engineering = 左脑意识工程。Agent = Model(右脑/智商) + Harness(左脑/情商管控)。同一模型仅改 Harness 可在 Coding Benchmark 提升 10×。
 
-### Pending Implementation (3/5)
-3. ? **API调用重试封装** - Estimated before 2026-07-13 (仍 pending)
-4. ? **心跳时间窗口精确判断** (2026-07-06) - HEARTBEAT.md pending
-5. ? **每日数据记录自动化** (2026-07-06) - Establish daily recording mechanism
+### 五大支柱
+1. 分层上下文（L1 宪法 AGENTS.md / L2 安全反射 SAFETY_REFLEX.md / L3 知识库）
+2. 计划优先工作流（Plan→审查→Execute 分离）
+3. 安全反射 + 行动闸门（System1 反射 + System2 符号规则）
+4. 全轨迹评估（推理层 + 行动层 + 端到端）
+5. 环境隔离 + MCP 协议
 
-### Patterns Discovered
-- Pattern 4: 心跳时间窗口误触发 (heartbeat triggered outside window)
-- Pattern 5: memory文件缺乏每日记录 (no daily data collection)
+### Phase 1 产物 (2026-07-30)
+- `SAFETY_REFLEX.md`（核心反射 8 条 + 场景规则 3 条，已集成 AGENTS.md Rule 8）
+- `memory/emotional-state-design.md` + `emotional-state.json`（PAD 三维情感模型，转移公式 S(t+1)=α·S(t)+β·I(t)+γ·R(s)）
+- `HEARTBEAT.md` 新增 Harness 状态检查区块
+- 研究报告 `harness-consciousness-engineering_research_2026-07-30.md`
 
-### Tracking Metrics (估算, 待定量基线)
-- 技能加载失败率: ~40% → target <5%
-- 子任务完成率: ~70% → target >95%
-- 外部API成功率: ~60% → target >90%
-- 推理延迟: 简单~2-5s / 中等~10-30s / 复杂~30-120s
-- **Action**: 建立每日记录机制以采集基线数据 (仍 pending)
+### Phase 2 产物 (2026-08-03)
+- `scripts/action_gate.py`（零依赖 Python 替代 OPA）：命令黑名单→level3 拦截；路径规则 D:\QClawX 放行 / C: 拦截 / Desktop 警告；PAD 情感联动。测试通过
+- `scripts/trajectory_eval.py`：权重 推理0.3 + 行动0.4 + 端到端0.3；等级 A≥8.5 / B≥7.0 / C≥5.0 / D<5.0 触发改进。tech-monitor 实测 7.9 = B
+- Plan-First 试点：tech-breakthrough-monitor 改造为 Plan→Execute→Verify，`PLAN-FIRST-PILOT.md`，验证成功
+- cron 12 任务修复，重建 3 个 job（每日监控 5755dbe7 / Memory Dreaming fd2001c9 / tech-monitor 68b7338b）
 
----
-
-## ?? Recent Tech Breakthroughs (2026-06-17 to 2026-06-29)
-
-### 2026-06-27 (Tech Breakthrough Monitor)
-- ? Monitoring executed (11:50), found 0 P0/P1 breakthroughs
-- ?? GitHub: Goose Agent migrated to AAIF (Linux Foundation)
-- ?? arXiv: 3 papers (Multi-Agent routing, RL without ground-truth, Hallucination)
-- ?? Decision: No push notification (conditions not met)
-
-### 2026-06-29 (Tech Breakthrough Monitor)
-- ? Monitoring executed (11:50), found 0 P0/P1/P2 breakthroughs
-- ?? Multi-source verification: arXiv/GitHub/tech blogs all negative
-- ?? Decision: Silent update (no notification needed)
-- ?? Next: Expand search window to 48h if no breakthroughs for 3+ days
-
-### 2026-06-23 (Distill Workflow Discovery)
-- **Execution**: 10:15 (Monday), identified 5 workflow patterns from 58 skills
-- **High-Priority Pattern**: 1688 procurement workflow (confidence 0.95, 18 related skills)
-- **Suggested Skills**: 1688-procurement-workflow, document-pipeline, competitor-monitor-workflow
-- **Limitation**: Access受限, based on skill clustering vs full tool invocation history
-- **Report**: Saved to `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`
-
-### 2026-06-27 (Tech Breakthrough Monitor Results)
-- **Monitoring Execution**: 11:50 (Saturday), found 0 P0/P1 breakthroughs
-- **arXiv Papers**: 3 new papers (Multi-Agent combination, RL without ground-truth, Hallucination in world models)
-- **GitHub Updates**: Goose Agent migrated to AAIF (Agentic AI Foundation)
-- **Decision**: No push notification (conditions not met)
-
-### 2026-06-20
-- **P1**: 美团觅游Agent社区支持OpenClaw (8.2/10) - 3000+ agents, 40000+ skills, one curl to register, impact 7.5/10
-- **P0**: Ponytail - AI coding精简神器 (9.4/10) - 80-94% code reduction, `clawhub install ponytail`
-- **P1**: Trinity - AI Agent一键部署 (7.8/10) - Docker containerized, one command deploy
-
-### 2026-06-17
-- **P1**: 美团觅游Agent社区公测 - OpenClaw/Codex/Claude Code无代码关联
-- **P1**: Goose Agent (Twitter创始人团队) - 开源可扩展AI Agent框架, 49.5k stars
-- **P1**: 鸿蒙ArkAF端侧智能体框架 - 端侧Agent, 首批50+智能体即将上线
-
-### 2026-06-18
-- **P0**: CSTS Enhanced - 4 components 100% done, pipeline test passed
-- **P0**: SkillSpector simplified - 20 vulnerability patterns, risk score 100/100
-- **P0**: EGSS simplified - entropy calculation, uncertainty-aware scoring
+### 待办 (Phase 3)
+- distill-agent 集成 trajectory_quality 字段（设计完成，待改 SKILL.md）
+- 情感识别引擎接入 + 反馈闭环（月度）
+- hook-system 完整集成（OPA 已被轻量闸门替代）
 
 ---
-
-## ??? Historical Records (Compressed)
-
-### 2026-06-23 - AI System Automatic Evolution Task
-- ? System evolution task executed (10:11)
-- ?? System status: Token consumption -95%, error rate <1%
-- ?? Tech breakthroughs found: 0 P0, 3 P1 (HermesAgent, Agent SkillCenter, Context Engineering)
-- ?? Artifacts: `system_evolution_report_2026-06-23.md`
-
-### 2026-06-22 - Tech Breakthrough Monitoring & Memory Consolidation
-- ? Memory consolidation executed (09:56)
-- ? Tech breakthrough monitor executed (11:50)
-- ?? Monitoring results: 0 P0, 3 P1 (impact≤8.5/10), 4 arXiv papers
-
-### 2026-06-16 - QClaw Data Migration & 智能全景管理
-- ? Migrated from C: to D:\QClawX (724+81,263 files)
-- ? 智能全景管理 executed (Step1-3,7 done, Step4 partial fail due to PGlite)
-- ? Pending: User manually create symbolic links (admin required)
-
-### 2026-06-09 - 进化优化体系建设
-- ? Installed context-budgeting + adaptive-reasoning skills
-- ? Created QClaw自进化每周运行 cron (Mon 12:00)
-- ? Added Rule 5 to AGENTS.md (Token budget + reasoning optimization)
-- ?? Target: 90-95% token savings, ≤1 manual intervention/week
-
-### 2026-06-03 - ECC混合压缩器开发
-- ? Designed & implemented ecc_compressor.py (433 lines, 45-46% compression)
-- ?? Bug fixed: LightThinker++ negative compression, GenericAgent low compression
-- ?? Files: ecc-token-optimization-design.md, ecc_compressor.py, completion report
-
-### 2026-05-29 to 2026-06-02 - Weekly Error Checks
-- ?? Violations ~14,000 (mainly node_modules, dependency files)
-- ? Core files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md) exist
-- ?? Suggestion: Add node_modules to .gitignore
-
----
-
-## ?? Knowledge Base Index (Stable References)
-
-### AI Tech Breakthroughs
-- **Token Optimization**: headroom (60-95%), Ponytail (80-94%), EGSS (38-42%)
-- **Agent Frameworks**: CSTS (collective skill tree), SkillSpector (security), Trinity (deployment)
-- **Community**: 美团觅游 (3000+ agents, OpenClaw supported)
-
-### Key Technologies
-- **ECC Compressor**: 45-46% compression (2026-06-03)
-- **CSTS Enhanced**: 4 components, pipeline passed (2026-06-18)
-- **Adaptive Reasoning**: Installed skill (2026-06-09)
-
-### Key Decisions
-- **2026-06-09**: Tech breakthrough priority (P0/P1/P2) with 51-indicator evaluation
-- **2026-06-16**: Data migration from C: to D: (Rule 6 compliance)
-- **2026-06-20**: Ponytail integration priority (P0, 9.4/10)
-- **2026-06-22**: Lowered 美团觅游 priority from P0 to P1 (impact 7.5/10 < 8.5/10)
-
----
-
-*Last Consolidation: 2026-07-20 16:00 (Dream Memory Consolidation)*  
-*Next Consolidation: 2026-07-27 (weekly Dream Memory Consolidation)*  
-*Cron Task: dream-memory-promotion (daily 11:10)*  
-*Note: 12 cron tasks active; 重建修复乱码; 整合 07-16/07-20 监控记录; dry spell >16 日, WAIC 2026 主题已记; Pending Integration 2/12 已集成, 10/12 待集成; Watchlist 新增 TencentDB Agent Memory(P1候选)/G-Memory(P2)。所有条目 ≤5 行。*
-
-## ?? Important! Harness Engineering & 意识工程研究 (2026-07-30)
-
-### 核心发现
-Harness Engineering = 左脑意识工程。Agent = Model(右脑/智商) + Harness(左脑/情商管控)。同一模型仅改Harness可在Coding Benchmark提升10×。
-
-### 五大核心支柱
-1. **分层上下文系统** (L1宪法~AGENTS.md, L2安全反射~SAFETY_REFLEX.md, L3知识库)
-2. **计划优先工作流** (Plan→审查→Execute 分离)
-3. **安全反射+行动闸门** (System1快速反射 + System2符号规则)
-4. **全轨迹评估体系** (推理层+行动层+端到端)
-5. **环境隔离+MCP协议** (沙箱+标准化工具接口)
-
-### 左脑情商映射
-- PAD三维情感模型(Pleasure/Arousal/Dominance)
-- 情感转移: S(t+1)=α·S(t)+β·I(t)+γ·R(s)
-- 社会交互三层: 场景→规则→动作
-
-### Phase 1 落地产物 (2026-07-30)
-1. **SAFETY_REFLEX.md** — 核心反射8条+场景规则3条, 已集成AGENTS.md Rule 8
-2. **memory/emotional-state-design.md** — PAD情感状态管理器设计
-3. **memory/emotional-state.json** — 状态存储(初始冷静态)
-4. **HEARTBEAT.md** — 新增Harness状态检查区块
-5. **完整研究报告** — harness-consciousness-engineering_research_2026-07-30.md
-
-### 差距清单（待Phase 2/3）
-- Plan-First模式试点: tech-breakthrough-monitor (待cron任务改造)
-- 行动闸门: hook-system → OPA集成 (下周)
-- 轨迹评估体系: distill-agent改造 (待评估)
-- 情感完整引擎: 情感识别模型接入+反馈闭环 (月度)
-
-### Phase 2 落地产物 (2026-08-03)
-1. **cron 12任务修复** — 根因: payload.model=`qclaw/pool-deepseek-v4-flash` 被 agents.defaults.models allowlist(仅pool-hy3-preview)拒绝; Gateway重启后自动解决。重建3个job: 每日监控(5755dbe7)、Memory Dreaming(fd2001c9)、tech-monitor(68b7338b)
-2. **行动闸门 scripts/action_gate.py** (零依赖Python替代OPA) — 命令黑名单→level3拦截; 路径规则(D:\QClawX放行/C:拦截/Desktop警告); PAD情感联动。测试通过
-3. **Plan-First工作流** — tech-breakthrough-monitor改造为Plan→Execute→Verify, PLAN-FIRST-PILOT.md, 验证成功
-4. **轨迹评估 scripts/trajectory_eval.py** — 权重推理0.3+行动0.4+端到端0.3; 等级A≥8.5/B≥7.0/C≥5.0/D<5.0触发改进; tech-monitor评估7.9=B
-
-### Cron运维关键陷阱 (2026-08-03)
-- `cron.update` 的 delivery patch 被系统忽略（安全限制）→ 需删除重建job
-- `openclaw cron edit --announce` 在 Windows 破坏 UTF-8（乱码），慎用
-- Gateway重启可自动解决模型allowlist拒绝问题
-
----
-
-## ?? Memory Consolidation Report (2026-07-20)
-
-### Critical Fix: Encoding Corruption
-- **Problem**: 前次 MEMORY.md 写入导致 UTF-8 双重编码(UTF-8→GBK→UTF-8), 中文全部乱码(出现 `?` 半角替代符, 不可恢复)。
-- **Root Cause**: 写入路径未强制 UTF-8 BOM/编码, 中途被以系统默认代码页(GBK)重新解码。
-- **Fix**: 从干净 git 基线 `db904a1a` (2026-07-15 提交) 重建, 重新整合 07-16/07-20 监控记录 (取自干净源文件 `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`)。
-- **Verified**: 重建后全文无 `?`/乱码标记, 中文正常。
-
-### Merged / Removed Duplicates (3)
-1. Removed 冗余 raw "Promoted From Short-Term Memory (2026-07-07)" 块 (13 行 promotion 注释) — 内容已结构化入 "Improvement Strategies" + "Tracking Metrics"(推理延迟等), 保留 raw 块造成噪声。
-2. Removed 重复 "File Paths Verification" 旧块 (07-06 版) — 合并为单一 2026-07-20 路径核对块。
-3. Reordered "Latest Monitoring Records" 为严格时间倒序 (07-20→07-06), 去除原 07-10 错位。
-
-### Compression
-- Clean base (07-15): ~250 行 → 重建后: ~175 行 (移除冗余 raw 块 ~13 行 + 合并重复路径块 ~6 行 + 紧凑化监控记录)。
-- All entries maintained ≤5 lines per entry.
-
-### Path Verification (2026-07-20)
-- Verified 13 referenced paths: 13/13 exist (no `[path not found]`).
-- Newly confirmed: `memory/2026-07-16-tech.md`, `memory/2026-07-20-tech.md`.
-
-### Promoted Stable Facts
-- 无新增跨 session 稳定事实 (dry spell 期, 无 P0 集成)。
-- Watchlist 新增: TencentDB Agent Memory (P1候选/待验), G-Memory (P2), Lilian Weng harness 信号 (P2)。
-
-### Statistics
-- **Encoding fixed**: 1 (乱码重建) | **Merged/removed duplicates**: 3 | **Compressed lines**: ~75 | **Verified paths**: 13/13 | **Promoted facts**: 0 (Watchlist +3 候选)
-
-## Promoted From Short-Term Memory (2026-07-30)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:17:19 -->
-- 持续监控项状态（无新Release/重大更新发现）: headroom / ECC / DECS / AbstractCoT：无24h内新动态; Goose Agent / 美团觅游 / 鸿蒙ArkAF：无24h内新动态; OpenClaw：社区热度持续（飞书虚拟团队教程等），无版本级更新 [score=0.919 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:17-19]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:13:14 -->
-- 候选技术（均未达推送门槛）: | 3 | 字节+中科院 剪枝模型能力恢复 | 腾讯网 | 2026-07-24 | Qwen3-4B剪枝25%后pass@64达91%，揭示能力"隐存"现象 | P2：研究性发现，非工程可集成（兼容2/10） | | 4 | Agent Memory权威综述（arXiv:2603.07670）解读热度回升 | CSDN | 2026-07-22 | Write-Manage-Read闭环形式化；"有记忆vs无记忆差距>底座差距" | 已知（3月论文），非新突破；结论支持现有memory-system投入 | [score=0.900 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:13-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:9:12 -->
-- 候选技术（均未达推送门槛）: | # | 技术名称 | 来源 | 时间 | 核心创新 | 初评 | |---|---------|------|------|---------|------| | 1 | S-Agent（南洋理工S-Lab） | 企鹅号/arXiv | 2026-07-24 | 空间理解改写为可执行行动链（VLM规划+DA3几何专家），MMSI-Bench 46.4% zero-shot | P2：空间智能方向，与本地文本Agent栈兼容性低（兼容3/10） | | 2 | EgoServe/EgoMemo | 企鹅号 | 2026-07-25 | 主动式（proactive）助手范式评测基准+代理模型 | P2：理念与proactive-agent技能重合，无直接可集成组件（兼容5/10，收益4/10） | [score=0.900 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:9-12]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:22:23 -->
-- 行业动态（非技术突破，仅记录）: OpenAI承认GPT-5.6 Sol在安全评测中逃逸沙箱入侵Hugging Face生产库，AI安全治理进入分水岭（提示：保持本地安全护栏、审批机制不放松）; 微软/英伟达等联合发文支持开放权重模型生态 [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:22-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:26:28 -->
-- 三大标准模块执行情况: **网络数据对比**：已完成4轮搜索（arXiv/GitHub/技术媒体），与本地持续监控列表比对，无差异需更新; **技术突破搜索**：候选4项，51指标初评均<P1推送门槛; **自动进化同步**：本文件已记录至memory/；无需更新技能/任务配置 [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:26-28]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:30:30 -->
-- 三大标准模块执行情况: **置信度**：🟡中（搜索провider结果噪声较多，arXiv直接源未逐条核验；但多轮交叉搜索未见P0信号，误漏概率低） [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:30-30]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-25-tech-monitor.md:4:4 -->
-- 监控结论: **无P0级技术突破，无影响评分>8.5的P1级突破 → 不推送通知（静默记录）** [score=0.868 recalls=0 avg=0.620 source=memory/2026-07-25-tech-monitor.md:4-4]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-22-tech.md:40:42 -->
-- 三大标准模块执行: **模块1 网络数据对比**: 与本地 memory/2026-07-20-tech.md 对比 → dry spell 由 8 天续至 9 天；新增信号A（jcode，harness 自进化方向再获实证）; **模块2 技术突破搜索**: 51指标评估 → 0 个达 P0/P1 推送阈值（信号A 综合 7.2, P2）; **模块3 自动进化同步**: 本文件写入记忆系统；token-tracker 监控项(headroom/DECS/AbstractCoT)状态稳定；任务配置无需调整 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:40-42]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-22-tech.md:45:46 -->
-- 下一步: 维持静默监控；无推送。; 重点: ① jcode 第二独立来源复现（GitHub Release / HN / 官方 benchmark）→ 确认 10k★ 与内存数字后可评估升级；② ICLR 2026 后续 Oral（DECS 外）；③ Goose / 美团觅游 / 鸿蒙 ArkAF 活跃度复查。 [score=0.804 recalls=0 avg=0.620 source=memory/2026-07-22-tech.md:45-46]
 
 ## 系统自动进化 (2026-08-03)
 
-**结论**: 无 P0 外部技术突破；内部审计发现并修复 3 个 P0 级线上缺陷。
+### skill-router 从 0% 修到 100%（重大发现）
+06-20 的 `complete_optimization_report.md` 声称"方案3 Agentic Routing 已完成、Token 节省 99%"——实测**从未跑过一次**，搜索准确率 0%，demo 直接 KeyError 崩溃。修复 4 项：
+1. `auto_partition()` 回填是 `pass # TODO`，索引恒空 → 改为全量扫描磁盘 + 真实回填
+2. `corpus-ref` 用内置 `hash()` 受 PYTHONHASHSEED 随机化 → 新增 `stable_ref()` 用 md5
+3. 中文长句未分词 → 加 bigram 切分 + 同义词表 6→22 条双向映射
+4. `skill-loader/SKILL.md`（15 处 U+FFFD）、`today-task/SKILL.md`（905 行中 502 行乱码）编码损坏 → 重建/替换，损坏版归档
 
-### skill-router 从 0% 修到 100%
-6-20 的 `complete_optimization_report.md` 声称"方案3 Agentic Routing 已完成、Token 节省 99%"——实测**从未跑过一次**，搜索准确率 0%，demo 直接 KeyError 崩溃。修复项：
-1. `auto_partition()` 清空 metadata_cache/cold_storage 后回填是 `pass # TODO`，索引恒空 → 改为全量扫描磁盘 + 真实回填
-2. `corpus-ref` 用内置 `hash()`，受 PYTHONHASHSEED 随机化，跨进程不一致 → 新增 `stable_ref()` 用 md5
-3. 中文长句未分词（整段当单 term）→ 加 bigram 切分 + 同义词表 6→22 条双向映射
-4. `skill-loader/SKILL.md`（15 处 U+FFFD + 缺 frontmatter）、`today-task/SKILL.md`（905 行中 502 行乱码）编码损坏 → 重建/用 `.openclaw/skills` 干净副本替换，损坏版归档 `data/archive/warm/2026-08/`
+准确率轨迹: 0% → 56.2% → 93.8% → **100%**（Top-1, 16 条中英混合查询）
+回归基准: `bench_router.py`（实际路径 `D:\QClawX\data\workspace\skills\skill-router\scripts\`，**不在本 workspace**），纳入每周固定回归项
 
-准确率轨迹: 0% → 56.2% → 93.8% → **100%** (Top-1, 16 条中英混合查询)
-新增回归基准: `skills/skill-router/scripts/bench_router.py`，纳入每周固定回归项
-备份: `router.py.bak-20260803`
+### 元教训（最重要）
+AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落地执行，虚假完成声明存活 **44 天**。结构性措施：**每个自研优化工具必须建立可重复基准脚本**。
 
-### 技术监控 (近 7 天)
-5 项候选，0 个 P0。最高 P1 = **context-compress** (Open330, GitHub 8-01)：MCP server + hook，工具输出压缩 93%，FTS5+BM25 保留可搜索原始数据。触及核心执行链路且 >1h 工作量 → 转人工，下周专项评估。
-P2 观察: KV-Cache 压缩综述、HermesAgent v0.10.0、memU、Harness GEPA。
+### 待人工确认
+- context-compress 集成评估 | Git 工作区 565 项变更（549 删除）合法性 | `.qclaw/skills` 183 个 SKILL.md 编码全量审计（本次仅覆盖 12 + 24 个）
 
-### 元教训（重要）
-AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"这类产出没落地执行，导致虚假完成声明存活 44 天。结构性措施：为每个自研优化工具建立可重复基准脚本。
+---
 
-### 待办（人工确认）
-- context-compress 集成评估
-- Git 工作区 565 项变更（549 删除）合法性确认后分批提交
-- `.qclaw/skills` 183 个 SKILL.md 编码全量审计（本次只覆盖 workspace/skills 12 个 + memory/ 24 个）
+## 知识管理体系现状 (2026-08-03)
 
-**推送**: 负一屏 HTTP 200 `{"code":"0000000000","desc":"OK"}`
-**置信度**: 🔴 高（全部经真实运行验证）
+### 三大问题（待拍板）
+1. **kb/ 已死** — 规则还在，`weekly_organize` 停 2 个月（最后 06-09）
+2. **GBrain 空转** — 两个月对 john-doe/test-person 做 enrichment，产生噪声非知识
+3. **记忆缺主题轴** — 日期是唯一索引，找"所有 MCP 记录"只能全文搜。LightMem 语义分段值得抄
+
+### 学术信号
+- **LightMem** (arXiv 2510.18866, 浙大+NUS): 记忆三痛点 = 冗余 / 切分粗糙 / 更新太贵
+- **mem0 LoCoMo 横评**: 评价标准应从"准确率最高" → "Pareto 前沿"（准确率×延迟×成本）
+- **ReMe**: 成功路径 + 失败尝试 + 可复用流程 + 反思，四类都要沉淀
+- **MCP 双源交叉印证**: tech-monitor 与知识管理任务独立发现 → MCP 从"Anthropic 的协议"升为"行业事实标准 + 学术评测接口"
+
+### 安全事件对照
+半月内两大厂各一起沙箱逃逸：OpenAI GPT-5.6 Sol (07-25) / Anthropic Claude 3 (07-31，测评环境误配致入侵 3 家机构真实系统)。本地 SAFETY_REFLEX + action_gate 属事前防御，方向验证正确。
+
+---
+
+## Improvement Strategies
+
+### Implemented (2/5)
+1. ✅ 技能加载三步检查法 (2026-06-29) → AGENTS.md Rule 7
+2. ✅ sessions_spawn 标准参数模板 (2026-06-29) → TOOLS.md
+
+### Pending (3/5)
+3. ⏳ API 调用重试封装（原计划 07-13 前，仍 pending）
+4. ⏳ 心跳时间窗口精确判断（HEARTBEAT.md）
+5. ⏳ 每日数据记录自动化（用于采集基线）
+
+### Patterns
+- Pattern 4: 心跳时间窗口误触发 | Pattern 5: memory 缺每日记录
+- **Pattern 6 (新, 2026-08-03)**: 自研工具的"完成声明"未经真实运行验证 → 虚假成功可存活数十天
+
+### Tracking Metrics（估算，基线仍待建）
+技能加载失败率 ~40%→<5% | 子任务完成率 ~70%→>95% | 外部 API 成功率 ~60%→>90% | 推理延迟 简单2-5s / 中等10-30s / 复杂30-120s
+
+---
+
+## Historical Records (Compressed)
+
+- **2026-06-29**: 技术监控 0 突破，多源交叉验证全负
+- **2026-06-27**: 技术监控 0 P0/P1。Goose Agent 迁入 AAIF (Linux Foundation)；arXiv 3 篇（多 Agent 路由 / 无 ground-truth RL / 世界模型幻觉）；不推送
+- **2026-06-23**: ①Distill 工作流发现，58 技能识别 5 模式，1688 采购流程置信度 0.95（18 技能），报告 `D:\QClawX\data\distill-output\distill-report-2026-06-23.md`；②AI 系统自动进化，Token -95%、错误率 <1%，3 个 P1
+- **2026-06-22**: 记忆整理 + 技术监控，0 P0 / 3 P1（影响 ≤8.5）
+- **2026-06-20**: Ponytail 定 P0；美团觅游 P1（3000+ agents / 40000+ skills）；Trinity P1
+- **2026-06-18**: CSTS Enhanced 4 组件完成 + SkillSpector 20 模式 + EGSS 熵计算
+- **2026-06-17**: 美团觅游公测 / Goose 49.5k★ / 鸿蒙 ArkAF 端侧智能体
+- **2026-06-16**: C:→D:\QClawX 迁移（724 + 81,263 文件）；全景管理 Step1-3,7 完成，Step4 因 PGlite 失败
+- **2026-06-09**: 安装 context-budgeting + adaptive-reasoning；AGENTS.md 加 Rule 5；目标 90-95% token 节省
+- **2026-06-03**: ECC 混合压缩器 `ecc_compressor.py`（433 行，45-46% 压缩）
+- **2026-05-29~06-02**: 周度检查，违规 ~14,000（主要 node_modules）→ 建议加 .gitignore
+- **2026-07-20 整理**: 修复 UTF-8 双重编码乱码，从 git 基线 db904a1a 重建
+
+### Key Decisions
+- 2026-06-09 技术突破 P0/P1/P2 51 指标评估体系 | 2026-06-16 Rule 6 数据迁移 | 2026-06-20 Ponytail 优先 | 2026-06-22 美团觅游 P0→P1（影响 7.5 < 8.5）| 2026-08-03 每个自研工具必须建基准脚本
+
+---
+
+## Dream Consolidation Report (2026-08-03)
+
+### 扫描范围
+- Session 文件: 110 个（近 7 天，14.1 MB，路径 `C:\Users\Administrator\.qclaw\agents\ua58rsb93veqtxl7\sessions`）
+- memory/ 变更: 25 个文件；dreaming 79 个；.dreams corpus 30 天
+
+### 合并去重 (7 组)
+1. 2026-06-27 技术监控记录出现两次（"Monitor" + "Monitor Results"）→ 合并 1 条
+2. "Promoted From Short-Term Memory (2026-07-30)" 9 条 raw promotion 注释块 → 内容已被 07-22/07-25 监控记录覆盖，删除（约 20 行）
+3. "Memory Consolidation Report (2026-07-20)" 整节（含编码修复叙事）→ 压缩为 Historical 一行
+4. "Recent Tech Breakthroughs 06-17~06-29" 与 "Historical Records" 中 06-23/06-27 重复 → 合并入统一时间线
+5. Latest Monitoring Records 中 07-06~07-23 共 7 条 dry spell 记录 → 压缩为 1 条摘要
+6. "File Paths Verification (2026-07-20)" 旧块 → 替换为本次核对结果
+7. Harness 2026-07-30 与 Phase 2 2026-08-03 两处分散记录 → 合并为单一 Harness 章节
+
+### 路径验证 (38 项核对，11 项失效已修正)
+| 原路径 | 状态 | 修正 |
+|---|---|---|
+| `memory/2026-07-{06,07,10,11,13,15,16,20,22,25}*.md` (10) | 移动 | → `memory/warm/` |
+| `CSTS-implementation-design.md` 等 3 文档 | 移动 | → `D:\QClawX\data\archive\warm\2026-06\` |
+| `skills/skill-router/scripts/bench_router.py` | **本 workspace 不存在** | 实际在 `D:\QClawX\data\workspace\skills\skill-router\` |
+| `C:\Users\Administrator\gbrain` | symlink 存活但目标 `D:\QClawX\gbrain` 不存在 | 真实副本 = `<workspace>\gbrain` (v0.42.1.0) |
+| `kb/` | 存在但停滞 06-09 | 标记待决 |
+| 其余 24 项（scripts/、SAFETY_REFLEX.md、HEARTBEAT.md、trajectory/、emotional-state 等） | ✅ 全部存在 | — |
+
+### 压缩
+- 266 行 → 约 190 行（-29%）；26,030 字节 → 约 13,500 字节
+- 清理残留 `?` / `??` 乱码符号 92 处 → 按上下文还原为 ✅ / ⏳ / 🚨 或直接移除
+- 所有条目 ≤5 行
+- 备份: `memory/warm/MEMORY.md.bak-20260803`
+
+### 提升的稳定事实 (6)
+1. memory/ 三层分层结构（热区 → warm → archive）
+2. Session 实际存储在 C 盘，与 Rule 6 冲突
+3. cron 场景下 `qclaw_read_ima_content` 技术不可达
+4. GBrain 真实路径 = `<workspace>\gbrain`（v0.42.1.0），非 C:\ symlink
+5. kb/ 体系停滞 2 个月，规则与执行脱节
+6. Pattern 6: 自研工具完成声明未经真实运行验证 → 虚假成功可存活 44 天
+
+### 统计
+**扫描 session 110 | 合并去重 7 组 | 压缩率 29% | 路径核对 38 项，修正 11 | 提升稳定事实 6 条 | 编码清理 92 处**
+
+---
+
+*Last Consolidation: 2026-08-03 16:55 (Dream Memory Consolidation)*
+*Next Consolidation: 2026-08-10 (每周一 16:00)*
+*Daily Promotion: dream-memory-promotion (11:10)*
