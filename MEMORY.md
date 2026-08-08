@@ -15,17 +15,22 @@
 - **生产数据分层脚本**: `D:\QClawX\scripts\data-tiering.ps1`（scan/run/restore/report 四模式，20459 字节，2026-08-03 落地验证）。WARM 归档 565 文件、COLD 压缩 1 文件，566 次 SHA256 校验全通过（0 失败）；冷层日期解析 TryParseExact 参数计数 bug（原 378 行）已修；`.qclaw` 965MB→778MB，清理 187MB 旧备份至回收站（可恢复）；restore 功能已验证可恢复 1688 报告等
 - **kb/ 已停滞**: 30 文件，最后更新 2026-06-09，`weekly_organize` 停跑 2 个月。AGENTS.md 规则仍在但无执行 — 待用户决定重启或废弃
 
-### Cron Tasks (12 Active, Last Updated 2026-06-22)
-规则：周一至周六，10:30-18:00，间隔 ≥40min。
-**每日 (Mon-Sat)**: 每日监控 10:30 / Memory Dreaming Promotion 11:10 / tech-breakthrough-monitor 11:50 / GitHub 同步 12:30 / 月度报告 13:10
-**周一额外**: 知识管理综合 14:00 / 综合检查 14:40 / AI 自动进化 15:20 / Dream 记忆整理 16:00（本任务）/ 智能清理 16:40 / Distill 工作流发现 17:20（每月首个周一）
-**周五额外**: 商业智能周报 15:00
+### Cron Tasks (13 Active, Last Updated 2026-08-04 整理生效)
+规则：周一至周六，10:20-17:50，间隔 ≥40min；全部 model=deepseek-v4-flash，delivery=announce→wechat-access。
+**每日 (Mon-Sat)**: 每日监控 10:30 / Memory Dreaming Promotion 11:10 / tech-breakthrough-monitor 11:50 / GitHub 同步 12:30 / 月度报告 13:10 / 数据分层与记忆索引维护 15:00 (5c3f3b98，从 12:35 调整)
+**周一额外**: 知识管理综合 14:00 / 综合检查 14:40 / AI 自动进化 15:20 / Dream 记忆整理 16:00 / 智能清理 16:40 / Distill 工作流发现 17:20（每月首个周一）
+**周五额外**: 商业智能周报 17:40 (ee4c0457，从 15:00 调整，避开周一 15:20)
+08-04 删除 3 个重复任务（ea7d82a8 周报重复 / a9ad0ec7+feb0c5e2 插件托管凌晨 3:39 Dreaming）。快照 `D:\QClawX\scripts\cron-final.json`，备份 `D:\QClawX\backups\openclaw.json.bak-20260804-1630`
 
 ### Cron 运维关键陷阱 (2026-08-03 验证)
 - `cron.update` 的 delivery patch 被系统忽略（安全限制）→ 必须删除重建 job
 - `openclaw cron edit --announce` 在 Windows 破坏 UTF-8（乱码），慎用
 - payload.model 若不在 `agents.defaults.models` allowlist 会静默拒绝；Gateway 重启可自动修复
 - **cron 场景下 `qclaw_read_ima_content` 不可用**（需用户消息携带 mediaId，cron 无用户消息）
+- **插件托管 cron 陷阱 (2026-08-04)**: memory-core 插件每次启动按硬编码 `dreaming.frequency="39 3 * * *"` 强制重建 cron（enabled/schedule 全重置）；`gateway config.patch` 改插件配置被平台拒（保护路径）→ 必须用 `openclaw config set` CLI。已设 `dreaming.enabled=false` 消除凌晨 3:39 重复运行（插件任务 63b1a372 已删）
+- **delivery 修复 (2026-08-04)**: cron edit `--announce --channel` 不生效（exit 1），需 `--best-effort-deliver --channel wechat-access`
+- **cron 数据源差异**: `cron list` 读 legacy jobs.json（16 项），`cron get` 读 SQLite（实际 15→13 项）；ID 格式不同（UUID 短版 vs 完整）
+- **08-04 模拟测试全通过**: 13 任务当日实跑全部 ok/delivered；数据分层复核 HOT 372 / WARM 573 / COLD 0，restore 实测 4263 字节完整恢复
 
 ### Auto-Task Rules (Mandatory)
 - **Rule 2**: 不确定必须先联网搜索 | **Rule 4**: 周一至周六 10:30-18:00
@@ -61,10 +66,12 @@
 
 ### Watchlist (P1候选 / P2)
 - **MANTA** (arXiv:2607.28527, P1 7.8) — 多 Agent 通信拓扑推理时自进化，5 benchmark 均 74.0（+5.8pp）。无公开代码，放码可升 P0
+- **Hermes Agent** (P1, 8.3, 2026-08-08 升) — Nous Research，自进化 Agent，单周 +32.5k Stars 至 ~62k，闭合学习循环（自动 Skill 生成/改进 + FTS5 记忆 + Honcho 用户建模）。参考价值：skill 自动进化与 OpenClaw skill_workshop 流程对比，放码观察 1-2 周
 - **TencentDB Agent Memory**（P1候选，单源待验）| **G-Memory**（P2）| **Lilian Weng harness 长文**（P2）| **SAGE / harness0**（P2 早期）
-- P2 观察池: DMSampler(ICML26) / GradAlign(COLM26) / MobileWorld(ACL26, MCP 增强移动 Agent 基准) / CKA-Agent / RAGentA / KV-Cache 压缩综述 / HermesAgent v0.10.0 / memU / Harness GEPA / S-Agent / EgoServe
+- P2 观察池: DMSampler(ICML26) / GradAlign(COLM26) / MobileWorld(ACL26, MCP 增强移动 Agent 基准) / CKA-Agent / RAGentA / KV-Cache 压缩综述 / **HermesAgent（08-08 升 P1）** / memU / Harness GEPA / S-Agent / EgoServe / GPT-5.6 程序化工具调用(08-06, arXiv) / Self-Evolving Agents 综述(08-05, arXiv:2608.0xxxx, Princeton/Tsinghua)
 
 ### Monitoring Records (newest first)
+- **2026-08-08**: **1 P1**（Hermes Agent 星标爆发 +32.5k/周，P2→P1 升级，影响 8.3 临界推送）+ 2 P2（GPT-5.6 程序化工具调用论文 08-06、Self-Evolving Agents 综述 Princeton/Tsinghua 08-05）。0 P0。置信度 🔴高（CSDN ×5 + 开源周报）。详情 `memory/2026-08-08-tech.md`
 - **2026-08-04**: **1 P0**（DeepSeek-V4-Flash 已推送）+ 2 P1（Qwen3.8 新增 / Agent Bucket 正式上线）+ 5 P2（GPT-5.6 Luna 降价 80%、MiniMax H3 开源、HarmonyOS 7 开放 Agent/Skill、欧盟 AI 法案 08-02 强制执行、Kimi K3 上腾讯云）。**流程反思**: 08-03 监控漏掉 07-31 两条重大发布 → 搜索窗口应从 24h 放宽到 72h 交叉去重。置信度 🔴高（5 独立来源）。详情 `memory/2026-08-04-tech.md`
 - **2026-08-03**: 0 P0, **2 P1**（MCP 无状态规范 8.8 已推送 + MindMemOS 华为诺亚开源）。18 天 dry spell 结束。5 项 P2 新观察。置信度 🔴高（官方博客 + 4 独立来源 / 腾讯网报道）
 - **2026-07-31**: 0 P0，MANTA 入 P1 跟踪（7.8 未达阈值），PAIChecker/Embodied 自进化 P2，不推送
@@ -230,3 +237,28 @@ AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落�
 *Last Consolidation: 2026-08-03 16:55 (Dream Memory Consolidation)*
 *Next Consolidation: 2026-08-10 (每周一 16:00)*
 *Daily Promotion: dream-memory-promotion (11:10)*
+
+### 2026-08-05 Hermes 修复总结
+
+**问题**: Hermes 角色无法调用模型，UI 显示 [object Object]
+
+**根因**:
+1. HERMES_HOME 指向不存在的路径（F:\Agent\Hermes）
+2. API Key 环境变量名不匹配
+3. config.yaml 版本过旧（v0→v33）
+4. 模型 provider 错误（custom:zhipu → custom:agnes）
+5. Gateway 进程未重启加载新配置
+
+**修复**:
+- 删除注册表残留 HERMES_HOME，重设为 C:\Users\Administrator\.hermes
+- 添加 HERMES_ZHIPU_API_KEY 到 .env 和系统环境变量
+- hermes doctor --fix 迁移 config 至 v33
+- 更新默认模型为 gnes-2.5-flash（provider: custom:agnes）
+- 重启 Gateway（PID 20108 已更新配置）
+
+**验证**:
+- gnes-2.5-flash + custom:agnes ✅ 正常响应
+- glm-4-flash + custom:zhipu ✅ 正常响应
+- hermes status 显示 Model: agnes-2.5-flash, Provider: custom:agnes ✅
+
+**状态**: ✅ 已修复
