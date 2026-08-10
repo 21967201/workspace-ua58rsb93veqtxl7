@@ -68,9 +68,10 @@
 - **MANTA** (arXiv:2607.28527, P1 7.8) — 多 Agent 通信拓扑推理时自进化，5 benchmark 均 74.0（+5.8pp）。无公开代码，放码可升 P0
 - **Hermes Agent** (P1, 8.3, 2026-08-08 升) — Nous Research，自进化 Agent，单周 +32.5k Stars 至 ~62k，闭合学习循环（自动 Skill 生成/改进 + FTS5 记忆 + Honcho 用户建模）。参考价值：skill 自动进化与 OpenClaw skill_workshop 流程对比，放码观察 1-2 周
 - **TencentDB Agent Memory**（P1候选，单源待验）| **G-Memory**（P2）| **Lilian Weng harness 长文**（P2）| **SAGE / harness0**（P2 早期）
-- P2 观察池: DMSampler(ICML26) / GradAlign(COLM26) / MobileWorld(ACL26, MCP 增强移动 Agent 基准) / CKA-Agent / RAGentA / KV-Cache 压缩综述 / **HermesAgent（08-08 升 P1）** / memU / Harness GEPA / S-Agent / EgoServe / GPT-5.6 程序化工具调用(08-06, arXiv) / Self-Evolving Agents 综述(08-05, arXiv:2608.0xxxx, Princeton/Tsinghua)
+- P2 观察池: DMSampler(ICML26) / GradAlign(COLM26) / MobileWorld(ACL26, MCP 增强移动 Agent 基准) / CKA-Agent / RAGentA / KV-Cache 压缩综述 / **HermesAgent（08-08 升 P1）** / memU / Harness GEPA / S-Agent / EgoServe / GPT-5.6 程序化工具调用(08-06, arXiv) / Self-Evolving Agents 综述(08-05, arXiv:2608.0xxxx, Princeton/Tsinghua) / **Memoria（08-10，Git for Agent Memory，CoW 分支，影响 6.3）** / **腾讯云 Agent Memory 2.0 Team Memory（08-06）** / **AML Agent Memory Leaderboard 基准（08-07）** / **AdaL CLI（08-08，SylphAI 自进化编码 Agent）**
 
 ### Monitoring Records (newest first)
+- **2026-08-10**: 0 P0, 0 P1, **5 P2 新增**（Memoria 记忆Git化 6.3、腾讯云 Agent Memory 2.0 Team Memory、AML 记忆评测基准、AdaL CLI、Self-Evolving 综述确认）。**静默未推送**。亮点：Memoria 的 CoW 分支/回滚理念可参考 QClaw 记忆版本控制。置信度 🟡中（单源为主，Memoria 双源）。详情 `memory/2026-08-10-tech.md`
 - **2026-08-08**: **1 P1**（Hermes Agent 星标爆发 +32.5k/周，P2→P1 升级，影响 8.3 临界推送）+ 2 P2（GPT-5.6 程序化工具调用论文 08-06、Self-Evolving Agents 综述 Princeton/Tsinghua 08-05）。0 P0。置信度 🔴高（CSDN ×5 + 开源周报）。详情 `memory/2026-08-08-tech.md`
 - **2026-08-04**: **1 P0**（DeepSeek-V4-Flash 已推送）+ 2 P1（Qwen3.8 新增 / Agent Bucket 正式上线）+ 5 P2（GPT-5.6 Luna 降价 80%、MiniMax H3 开源、HarmonyOS 7 开放 Agent/Skill、欧盟 AI 法案 08-02 强制执行、Kimi K3 上腾讯云）。**流程反思**: 08-03 监控漏掉 07-31 两条重大发布 → 搜索窗口应从 24h 放宽到 72h 交叉去重。置信度 🔴高（5 独立来源）。详情 `memory/2026-08-04-tech.md`
 - **2026-08-03**: 0 P0, **2 P1**（MCP 无状态规范 8.8 已推送 + MindMemOS 华为诺亚开源）。18 天 dry spell 结束。5 项 P2 新观察。置信度 🔴高（官方博客 + 4 独立来源 / 腾讯网报道）
@@ -234,9 +235,9 @@ AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落�
 
 ---
 
-*Last Consolidation: 2026-08-03 16:55 (Dream Memory Consolidation)*
-*Next Consolidation: 2026-08-10 (每周一 16:00)*
-*Daily Promotion: dream-memory-promotion (11:10)*
+*Last Consolidation: 2026-08-10 11:10 (每日提升)
+*Next Consolidation: 2026-08-10 (每周一 16:00)
+*Daily Promotion: dream-memory-promotion (11:10) — 08-10 ✅
 
 ### 2026-08-05 Hermes 修复总结
 
@@ -262,3 +263,14 @@ AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落�
 - hermes status 显示 Model: agnes-2.5-flash, Provider: custom:agnes ✅
 
 **状态**: ✅ 已修复
+
+### 2026-08-08 Hermes 三条数据线（关键稳定事实）
+
+**Hermes 数据分三线，勿再混淆**：
+- `C:\Users\Administrator\.hermes\` = CLI/cron 用（8/5-8/7 修的，provider=custom:agnes）
+- `C:\Users\Administrator\.qclaw-hermes\` = **QClaw 前端"轩恒"真正数据源**（provider=qclaw, default=pool-hy3-preview, base_url=http://127.0.0.1:19000/proxy/llm）
+- `D:\QClaw\v0.2.35.624\resources\hermes\.hermes\` = 打包内置 Hermes，已停用
+
+**08-08 会话丢失事件**：audit.db 8/4 16:22 后停写；QClaw 8/8 自动合并只迁移 59/156 会话。数据未丢（state.db 156 会话/11709 消息完整）。修复：`migrate_state_to_audit.py` 幂等同步 97 会话/3219 消息 → audit 59→156 会话、4467→7686 消息 ✅。未决（等官方）：audit.db 停写根因、agent.json polluted(60)、tui_gateway GBK crash。
+
+**环境事实**：端口 8642（qclaw_launcher）/19000（auth-gateway）/57199（OpenClaw gateway）；前端"轩恒"= agentId hermes_default；Hermes provider 解析优先级 provider > config > env > auto（cli.py:3909-3914），models[].provider 仅展示不路由。
