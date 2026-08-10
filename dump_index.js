@@ -1,0 +1,10 @@
+const fs = require('fs');
+const b = fs.readFileSync('D:/QClaw/v0.2.35.624/resources/app.asar');
+const hs = b.readUInt32LE(4);
+const s = b.slice(16, 16 + hs).toString('utf8');
+const j = JSON.parse(s.slice(0, s.lastIndexOf('}') + 1));
+const f = j.files.out.files.main.files['index.cjsc'];
+const off = parseInt(f.offset, 10), sz = parseInt(f.size, 10);
+const c = b.slice(off, off + sz);
+fs.writeFileSync('D:/QClawX/data/workspace-ua58rsb93veqtxl7/index_cjsc.bin', c);
+console.log('dumped', sz);
