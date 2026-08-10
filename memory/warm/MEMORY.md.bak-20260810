@@ -1,6 +1,6 @@
-# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-08-10)
+# MEMORY.md - Long-Term Memory (Dream Consolidated 2026-08-03)
 
-> **Consolidation Info**: 2026-08-10 — 第 4 次 Dream 整理。扫描近 7 天 138 个 session 文件 + memory/ 21 个文件。路径核对 25 项全部有效（仅 `D:\QClawX\gbrain` 已知失效 symlink，已标注）。合并 1 组重复块（Hermes 08-05 修复总结 + 08-08 三条数据线 → 单条稳定事实，删 320 字符）。清理 2 个隐藏 BEL 字符（`\u0007`）。MEMORY.md 266 行 → 264 行。新增 0 条稳定事实（08-08/08-10 内容已由 daily promotion 全覆盖，体系健康）。
+> **Consolidation Info**: 2026-08-03 — 第 3 次 Dream 整理。扫描近 7 天 110 个 session 文件 + memory/ 25 个变更文件。修复 11 处失效路径（tech 记录已归档至 `memory/warm/`，CSTS 文档已归档至 `D:\QClawX\data\archive\warm\2026-06\`）。合并 7 组重复块，266 行 → 约 190 行。新增 6 条稳定事实。清理残留 `?` 乱码符号。
 
 ---
 
@@ -244,16 +244,38 @@ AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落�
 
 ---
 
-*Last Consolidation: 2026-08-10 16:00 (每周 Dream)
-*Next Consolidation: 2026-08-17 (每周一 16:00)
+*Last Consolidation: 2026-08-10 11:10 (每日提升)
+*Next Consolidation: 2026-08-10 (每周一 16:00)
 *Daily Promotion: dream-memory-promotion (11:10) — 08-10 ✅
-*Dream Report: `memory/dream-consolidation-2026-08-10.md`
 
-### Hermes 修复与数据线（2026-08-05 + 08-08 合并）
+### 2026-08-05 Hermes 修复总结
 
-**08-05 修复**（角色无法调模型，UI 显示 [object Object]）：根因 = HERMES_HOME 指向不存在路径 + API Key 名不匹配 + config 过旧(v0→v33) + provider 错误(custom:zhipu→custom:agnes)。修复：重设 HERMES_HOME=C:\Users\Administrator\.hermes、添加 HERMES_ZHIPU_API_KEY、doctor --fix、默认模型改 agnes-2.5-flash、重启 Gateway。验证 ✅（agnes-2.5-flash 与 glm-4-flash 均正常响应）。
+**问题**: Hermes 角色无法调用模型，UI 显示 [object Object]
 
-**三条数据线（关键稳定事实，勿再混淆）**：
+**根因**:
+1. HERMES_HOME 指向不存在的路径（F:\Agent\Hermes）
+2. API Key 环境变量名不匹配
+3. config.yaml 版本过旧（v0→v33）
+4. 模型 provider 错误（custom:zhipu → custom:agnes）
+5. Gateway 进程未重启加载新配置
+
+**修复**:
+- 删除注册表残留 HERMES_HOME，重设为 C:\Users\Administrator\.hermes
+- 添加 HERMES_ZHIPU_API_KEY 到 .env 和系统环境变量
+- hermes doctor --fix 迁移 config 至 v33
+- 更新默认模型为 gnes-2.5-flash（provider: custom:agnes）
+- 重启 Gateway（PID 20108 已更新配置）
+
+**验证**:
+- gnes-2.5-flash + custom:agnes ✅ 正常响应
+- glm-4-flash + custom:zhipu ✅ 正常响应
+- hermes status 显示 Model: agnes-2.5-flash, Provider: custom:agnes ✅
+
+**状态**: ✅ 已修复
+
+### 2026-08-08 Hermes 三条数据线（关键稳定事实）
+
+**Hermes 数据分三线，勿再混淆**：
 - `C:\Users\Administrator\.hermes\` = CLI/cron 用（8/5-8/7 修的，provider=custom:agnes）
 - `C:\Users\Administrator\.qclaw-hermes\` = **QClaw 前端"轩恒"真正数据源**（provider=qclaw, default=pool-hy3-preview, base_url=http://127.0.0.1:19000/proxy/llm）
 - `D:\QClaw\v0.2.35.624\resources\hermes\.hermes\` = 打包内置 Hermes，已停用
@@ -261,4 +283,3 @@ AGENTS.md 的强制验证规则存在，但对"自己写的优化工具"没落�
 **08-08 会话丢失事件**：audit.db 8/4 16:22 后停写；QClaw 8/8 自动合并只迁移 59/156 会话。数据未丢（state.db 156 会话/11709 消息完整）。修复：`migrate_state_to_audit.py` 幂等同步 97 会话/3219 消息 → audit 59→156 会话、4467→7686 消息 ✅。未决（等官方）：audit.db 停写根因、agent.json polluted(60)、tui_gateway GBK crash。
 
 **环境事实**：端口 8642（qclaw_launcher）/19000（auth-gateway）/57199（OpenClaw gateway）；前端"轩恒"= agentId hermes_default；Hermes provider 解析优先级 provider > config > env > auto（cli.py:3909-3914），models[].provider 仅展示不路由。
-
