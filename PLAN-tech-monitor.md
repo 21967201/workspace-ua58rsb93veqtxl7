@@ -1,43 +1,19 @@
-# Plan: Tech-Breakthrough Monitor (2026-08-13)
+# PLAN-tech-monitor.md — 2026-08-13 技术突破监控计划
 
-## 阶段1：搜索计划
+## 1. 搜索计划
+- 关键词: Self-Evolving Agents, Multi-Agent, GRPO, RAG, Agent Memory, LLM reasoning, GitHub trending AI
+- 来源: arXiv (过去24h), GitHub Trending, 技术博客
+- 时间范围: 2026-08-12 ~ 2026-08-13
 
-### 模块1：arXiv新论文（过去24小时）
-- 关键词: "self-evolving agents" OR "multi-agent" OR "GRPO" OR "agent memory" site:arxiv.org
-- 时间: 2026-08-12至今
-- 来源: arXiv cs.AI, cs.CL
+## 2. 评估计划（51指标 → 5维度）
+- 结构完整性 / 可用性 / 创新性 / 兼容性 / 收益与成本
 
-### 模块2：GitHub Trending
-- 关键词: "AI agent" OR "agent framework" trending
-- 来源: GitHub trending (AI category)
+## 3. 推送条件
+- P0级（兼容≥7 + 收益≥7 + 成本≤3）OR P1级影响>8.5 → 推送
+- 否则静默记录到 memory/2026-08-13-tech.md
 
-### 模块3：技术新闻
-- 关键词: "AI breakthrough" OR "agent system" 2026
-- 来源: 技术博客、GitHub Issues
-
-## 阶段2：评估计划（51指标）
-
-| 维度 | 权重 | 评估内容 |
-|-----|------|---------|
-| 结构完整性 | 10 | 文档/代码完整性 |
-| 可用性 | 10 | 实际可用性、易集成 |
-| 创新性 | 10 | 创新程度、突破性 |
-| 兼容性 | 10 | 与现有系统兼容性 |
-| 收益 | 10 | 效率提升/能力提升 |
-| 成本 | 1 | 实施成本（越低越好） |
-
-**总分**: 51 = Σ(前5项×10) + (10-成本)
-
-## 阶段3：推送条件
-
-- **P0级**: 兼容性≥7 AND 收益≥7 AND 成本≤3 → 立即推送
-- **P1级**: 收益≥6 OR 影响指数>8.5 → 评估后推送
-- **P2级**: 其他 → 静默记录
-
-## 执行顺序
-1. 模块1：arXiv论文搜索 + 与本地memory对比
-2. 模块2：GitHub Trending + 技术突破评估
-3. 模块3：更新memory文件
-
----
-*Plan生成时间: 2026-08-13 09:57*
+## 4. 执行顺序
+1. 模块1: WebSearch arXiv新论文 + 与本地 memory/2026-07-*.md 对比
+2. 模块2: GitHub trending 搜索 + 51指标评估 → P0/P1/P2列表
+3. 模块3: 更新 memory/2026-08-13-tech.md + MEMORY.md 持续监控列表
+4. 验证: 对照本PLAN检查
