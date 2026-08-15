@@ -1,24 +1,37 @@
-# PLAN: 技术突破监控 2026-08-14
+# PLAN-tech-monitor — 2026-08-15 技术突破监控
 
-## 1. 搜索计划
-- 关键词: arXiv LLM self-evolving agents, multi-agent systems, GRPO, RAG, agent memory (past 24h)
-- 关键词2: GitHub trending AI agents (2026-08)
-- 时间范围: 2026-08-13 ~ 2026-08-14
-- 来源: arXiv / GitHub / 技术博客
+## 阶段1：搜索计划
 
-## 2. 评估计划（51指标, 5维度）
-- 结构完整性 / 可用性 / 创新性 / 兼容性 / 收益 / 成本（每技术至少5维度）
+### 关键词（过去24-72h，2026-08-12 ~ 08-15）
+1. arXiv: Self-Evolving Agents / LLM agents self-improvement
+2. Multi-Agent systems / GRPO / RLVR
+3. RAG / Agent Memory / Context compression
+4. GitHub Trending: AI agents, MCP, tool-use
+5. P0监控项: headroom / ECC / Harness / DECS / AbstractCoT
+6. P1监控项: 美团觅游 / Goose / ArkAF / Agent Bucket / NeMoClaw / OpenSquilla
 
-## 3. 推送条件
-- P0级(兼容≥7+收益≥7+成本≤3) OR P1级影响>8.5 → 推送报告
-- 否则 → 静默记录到 memory/2026-08-14-tech.md
+### 来源
+- arXiv (arxiv.org/abs, arxivdaily)
+- GitHub Trending
+- 技术博客 / 官方发布
 
-## 4. 执行顺序
-1. 模块1: 网络搜索 + 与本地 memory/2026-07-*.md 对比
-2. 模块2: GitHub trending 搜索 + 51指标评估
-3. 模块3: 更新 memory/2026-08-14-tech.md + MEMORY.md 监控列表
-4. Verify: 对照本 PLAN 检查
+### 时间范围
+- 2026-08-12 ~ 2026-08-15
 
-## 持续监控列表
-- P0: headroom, ECC, Harness, DECS, AbstractCoT
-- P1: 美团觅游Agent社区, Goose Agent, 鸿蒙ArkAF, 腾讯云Agent Bucket, NeMoClaw, OpenSquilla
+## 阶段2：评估计划（51指标 → 5维度精简）
+1. **结构完整性/可用性**: 是否有代码/权重/文档，可集成度
+2. **创新性**: 是否新方法/新范式（1-10）
+3. **兼容性**: 与本工作区（OpenClaw/QClaw/MCP/DeepSeek生态）匹配度（1-10）
+4. **收益**: 对任务效率/能力的提升潜力（1-10）
+5. **成本**: 集成成本/资源成本（1-10，越低越好）
+
+## 阶段3：推送条件
+- **P0级**: 兼容≥7 + 收益≥7 + 成本≤3 → 推送
+- **P1级**: 收益≥7 且 影响>8.5 → 推送
+- **其他**: 静默记录到 memory/2026-08-15-tech.md，不推送
+
+## 阶段4：执行顺序
+1. **模块1**: WebSearch arXiv/技术新闻 → 与本地 memory/2026-08-13/14-tech.md 对比 → 差异报告
+2. **模块2**: WebSearch GitHub Trending AI/Agent → 51指标评估 → 分级列表
+3. **模块3**: 更新 memory/2026-08-15-tech.md + MEMORY.md 持续监控列表
+4. **Verify**: 对照本PLAN逐项核验
